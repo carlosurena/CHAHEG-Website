@@ -1,0 +1,39 @@
+CREATE TABLE Users (
+    UserID int NOT NULL,
+    Email varchar(255),
+    School varchar(255),
+    LastName varchar(255),
+    FirstName varchar(255),
+    Admin int NOT NULL DEFAULT 0, a
+    PRIMARY KEY(UserID)
+);
+
+CREATE TABLE TestMaterials (
+    TestID int NOT NULL,
+    MaterialsPath varchar(255),
+    PRIMARY KEY(TestID)
+);
+
+CREATE TABLE TestQuestions (
+    QuestionID int NOT NULL,
+   	TestID int NOT NULL,
+    Question BLOB,
+    Answer BLOB,
+    A varchar(255),
+    B varchar(255),
+    C varchar(255),
+    D varchar(255),
+    PRIMARY KEY(QuestionID),
+    FOREIGN KEY(TestID) REFERENCES TestMaterials(TestID)
+);
+
+CREATE TABLE Scores (
+    EntryID int NOT NULL,
+   	UserID int NOT NULL,
+   	TestID int NOT NULL,
+    Result int,
+    Taken int NOT NULL DEFAULT 0,
+    PRIMARY KEY(EntryID),
+    FOREIGN KEY(UserID) REFERENCES Users(UserID),
+    FOREIGN KEY(TestID) REFERENCES TestMaterials(TestID)
+);
