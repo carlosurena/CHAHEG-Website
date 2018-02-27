@@ -6,6 +6,7 @@ CREATE TABLE Users (
     FirstName varchar(255),
     Admin int NOT NULL DEFAULT 0, a
     PRIMARY KEY(UserID)
+    
 );
 
 CREATE TABLE TestMaterials (
