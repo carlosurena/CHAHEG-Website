@@ -1,4 +1,4 @@
-CREATE TABLE Users (
+CREATE TABLE User (
     UserID int NOT NULL,
     Email varchar(255) UNIQUE,
     Password varchar(255),
@@ -11,7 +11,7 @@ CREATE TABLE Users (
     
 );
 
-CREATE TABLE Permissions (
+CREATE TABLE Permission (
     PermissionID int NOT NULL,
     Name varchar(255),
     Description BLOB,
@@ -70,7 +70,7 @@ CREATE TABLE TestAnswer (
     FOREIGN KEY(QuestionID) REFERENCES TestQuestion(QuestionID)
 );
 
-CREATE TABLE Results (
+CREATE TABLE Result (
     EntryID int NOT NULL,
    	UserID int NOT NULL,
    	TestID int NOT NULL,
