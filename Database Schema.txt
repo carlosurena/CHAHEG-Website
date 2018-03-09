@@ -1,5 +1,5 @@
 CREATE TABLE User (
-    UserID int NOT NULL,
+    UserID int auto_increment NOT NULL,
     Email varchar(255) UNIQUE,
     Password varchar(255),
     School varchar(255),
@@ -12,7 +12,7 @@ CREATE TABLE User (
 );
 
 CREATE TABLE Permission (
-    PermissionID int NOT NULL,
+    PermissionID int auto_increment NOT NULL,
     Name varchar(255),
     Description BLOB,
     CreatedBy varchar(50),
@@ -23,7 +23,7 @@ CREATE TABLE Permission (
 );
 
 CREATE TABLE CourseSection (
-    SectionID int NOT NULL,
+    SectionID int auto_increment NOT NULL,
     Name varchar(255),
     Description BLOB,
     CreatedBy varchar(50),
@@ -34,7 +34,7 @@ CREATE TABLE CourseSection (
 );
 
 CREATE TABLE TestMaterial (
-    TestID int NOT NULL,
+    TestID int auto_increment NOT NULL,
     MaterialPath varchar(255),
     CreatedBy varchar(50),
     CreatedOn DATETIME,
@@ -44,7 +44,7 @@ CREATE TABLE TestMaterial (
 );
 
 CREATE TABLE TestQuestion (
-    QuestionID int NOT NULL,
+    QuestionID int auto_increment NOT NULL,
    	TestID int NOT NULL,
     SectionID int NOT NULL,
     Question BLOB,
@@ -58,7 +58,7 @@ CREATE TABLE TestQuestion (
 );
 
 CREATE TABLE TestAnswer (
-    AnswerID int NOT NULL,
+    AnswerID int auto_increment NOT NULL,
     QuestionID int NOT NULL,
     Answer BLOB,
     IsAnswer int NOT NULL DEFAULT 0,
@@ -71,7 +71,7 @@ CREATE TABLE TestAnswer (
 );
 
 CREATE TABLE Result (
-    EntryID int NOT NULL,
+    EntryID int auto_increment NOT NULL,
    	UserID int NOT NULL,
    	TestID int NOT NULL,
     Result int,
