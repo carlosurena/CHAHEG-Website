@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+session_start();
+ ?>
+
+
 <html>
 
 <head>
@@ -36,7 +40,17 @@
     <header class="header"></header>
     <div class="jumbotron hero-technology">
         <h1 class="hero-title">Welcome</h1>
-        <p class="hero-subtitle">user</p>
+
+         <p class="hero-subtitle">
+
+             <?php
+                 if (isset($_SESSION['UserID'])) {
+                     echo $_SESSION['FirstName'];
+                 }
+
+              ?>
+
+         </p>
         <p><a class="btn btn-primary btn-lg hero-button" role="button" href="assets/php/logout.php">Sign Out</a></p>
     </div>
     <div class="footer-dark">

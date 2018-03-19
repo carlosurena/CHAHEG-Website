@@ -1,24 +1,7 @@
 <?php
-	ob_start();
-	session_start();
-
-	$msg = '';
-	if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['password'])) {
-		if ($_POST['username'] == 'jwilson' && $_POST['password'] == '1234') {
-			$_SESSION['valid'] = true;
-			$_SESSION['timeout'] = time();
-			$_SESSION['username'] = $_POST['username'];
-			$msg = 'You have entered valid use name and password';
-			$messageClass = "alert alert-success";
-		} else {
-			$msg = 'Wrong username or password';
-			$messageClass = "alert alert-danger";
-		}
-	} else {
-		//$messageClass = "none";
-		$msg = "";
-	}
+session_start();
 ?>
+
 
 <html>
 
@@ -60,12 +43,13 @@
                 <h1 class="text-center">Welcome </h1>
                 <div class="well">
                     <h3 class="text-danger">Login</h3>
-                    <form class="sing-in-form" method="POST" action="signup.php">
+                    <form class="sing-in-form" method="POST" action="assets/php/login.php">
                         <div class="form-group"><label class="control-label">Email </label><input class="form-control" type="text" required="" name="email"></div>
                         <div class="form-group"><label class="control-label">Password </label><input class="form-control" type="password" required="" name="passwd"></div>
                         <div class="form-group">
                             <div class="checkbox"><label class="control-label"><input type="checkbox">Remember me</label></div>
-                        </div><button class="btn btn-success btn-block" type="submit">LOGIN </button><a class="btn btn-link center-block" role="button" href="recovery.html">Forget Password?</a></form>
+                        </div><button class="btn btn-success btn-block" type="submit">LOGIN </button>
+						<a class="btn btn-link center-block" role="button" href="recovery.html">Forget Password?</a></form>
                 </div>
             </div>
         </div>
