@@ -65,8 +65,12 @@ session_start();
 					$sql = "SELECT Name, Description FROM coursesection";
 					$result = mysqli_query($conn, $sql);
 					
+					$sql2 = "SELECT MaterialPath FROM testmaterial";
+					$result2 = mysqli_query($conn, $sql2);
+					
 					$nameArray = array();
 					$descriptionArray = array();
+					$materialPathArray = array();
 					$x=0;
 					if (mysqli_num_rows($result) > 0) 
 					{
@@ -77,16 +81,35 @@ session_start();
 							$x++;
 						}
 					}
+					$x=0;
+					if (mysqli_num_rows($result2) > 0) 
+					{
+						while($row = mysqli_fetch_assoc($result2)) 
+						{
+							$materialPathArray[$x] = $row["MaterialPath"];
+							$x++;
+						}
+					}
+					
 					//print_r($nameArray);
 					//print_r($descriptionArray);
+					//print_r($materialPathArray);
 					
 					$y=0;
+					$training = "training.php?sessionvalue=";
 					while($y<count($nameArray))
 					{
-					echo '<div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="assets/img/desk.jpg"></a>';
-						echo '<h3 class="name">' .  $nameArray[$y] .'</h3>';
-					echo	'<p class="description">' . $descriptionArray[$y] .'</p><a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a></div>';
-                
+						if($y<count($materialPathArray))
+						{
+							echo '<div class="col-sm-6 col-md-4 item"><a href="' . $training . $materialPathArray[$y] .'"><img class="img-fluid" src="assets/img/desk.jpg"></a>';
+						}
+						else
+						{
+							echo '<div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="assets/img/desk.jpg"></a>';
+						}
+							echo '<h3 class="name">' .  $nameArray[$y] .'</h3>';
+						echo	'<p class="description">' . $descriptionArray[$y] .'</p><a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a></div>';
+						
 						$y++;
 					}
 				?>
