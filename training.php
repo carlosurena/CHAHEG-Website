@@ -31,7 +31,7 @@ $_SESSION['sessionvalue'] = $_GET['sessionvalue'];
                 <li class="sidebar-brand"> <a href="dashboard.html">Logo/Home</a></li>
                 <li> <a href="courses.php">Courses</a></li>
                 <li> <a href="#">Results</a></li>
-                <li> <a href="#">Account</a><a href="#">Sign Out</a></li>
+                <li> <a href="#">Account</a><a href="assets/php/logout.php">Sign Out</a></li>
             </ul>
         </div>
         <div class="page-content-wrapper">
