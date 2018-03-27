@@ -20,17 +20,17 @@ session_start();
 </head>
 
 <body style="padding-top:55px;"><nav class="navbar navbar-light navbar-expand-md fixed-top bg-dark" style="background-color:rgb(34,53,228);">
-    <div class="container-fluid"><a href="#" class="navbar-brand text-white"><i class="fa fa-stethoscope"></i>CHAHEG</a>
+    <div class="container-fluid"><a href="dashboard.html" class="navbar-brand text-white"><i class="fa fa-stethoscope"></i>CHAHEG</a>
         <a class="btn btn-link" role="button" href="#menu-toggle" id="menu-toggle" style="color:#ffffff;height:36px;font-size:25px;padding-bottom:6px;padding-top:0;"><i class="fa fa-navicon"></i></a>
 
 </nav>
     <div id="wrapper">
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand"> <a href="#">Logo/Home</a></li>
-                <li> <a href="#">Courses</a></li>
+                <li class="sidebar-brand"> <a href="dashboard.html">Logo/Home</a></li>
+                <li> <a href="courses.php">Courses</a></li>
                 <li> <a href="#">Results</a></li>
-                <li> <a href="#">Account</a><a href="#">Sign Out</a></li>
+                <li> <a href="#">Account</a><a href="assets/php/logout.php">Sign Out</a></li>
             </ul>
         </div>
         <div class="page-content-wrapper">
@@ -65,8 +65,12 @@ session_start();
 					$sql = "SELECT Name, Description FROM coursesection";
 					$result = mysqli_query($conn, $sql);
 					
+					$sql2 = "SELECT MaterialPath FROM testmaterial";
+					$result2 = mysqli_query($conn, $sql2);
+					
 					$nameArray = array();
 					$descriptionArray = array();
+					$materialPathArray = array();
 					$x=0;
 					if (mysqli_num_rows($result) > 0) 
 					{
@@ -77,16 +81,35 @@ session_start();
 							$x++;
 						}
 					}
+					$x=0;
+					if (mysqli_num_rows($result2) > 0) 
+					{
+						while($row = mysqli_fetch_assoc($result2)) 
+						{
+							$materialPathArray[$x] = $row["MaterialPath"];
+							$x++;
+						}
+					}
+					
 					//print_r($nameArray);
 					//print_r($descriptionArray);
+					//print_r($materialPathArray);
 					
 					$y=0;
+					$training = "training.php?sessionvalue=";
 					while($y<count($nameArray))
 					{
-					echo '<div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="assets/img/desk.jpg"></a>';
-						echo '<h3 class="name">' .  $nameArray[$y] .'</h3>';
-					echo	'<p class="description">' . $descriptionArray[$y] .'</p><a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a></div>';
-                
+						if($y<count($materialPathArray))
+						{
+							echo '<div class="col-sm-6 col-md-4 item"><a href="' . $training . $materialPathArray[$y] .'"><img class="img-fluid" src="assets/img/desk.jpg"></a>';
+						}
+						else
+						{
+							echo '<div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="assets/img/desk.jpg"></a>';
+						}
+							echo '<h3 class="name">' .  $nameArray[$y] .'</h3>';
+						echo	'<p class="description">' . $descriptionArray[$y] .'</p><a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a></div>';
+						
 						$y++;
 					}
 				?>
