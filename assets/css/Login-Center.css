@@ -1,32 +1,10 @@
-@media (min-width:
-
-
-
-
-
-
-
-
-
-
-1201px) {
+@media (min-width:1201px) {
   div.row.row-login {
     padding-top:125px;
   }
 }
 
-@media (max-width:
-
-
-
-
-
-
-
-
-
-
-1200px) {
+@media (max-width:1200px) {
   div.row.row-login {
     padding-top:75px;
   }
