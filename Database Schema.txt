@@ -1,0 +1,82 @@
+CREATE TABLE User (
+    UserID int auto_increment NOT NULL,
+    Email varchar(255) UNIQUE,
+    Password varchar(255),
+    School varchar(255),
+    LastName varchar(255),
+    FirstName varchar(255),
+    PermissionID int NOT NULL,
+    PRIMARY KEY(UserID),
+    FOREIGN KEY(PermissionID) REFERENCES Permissions(PermissionID)
+    
+);
+
+CREATE TABLE Permission (
+    PermissionID int auto_increment NOT NULL,
+    Name varchar(255),
+    Description BLOB,
+    CreatedBy varchar(50),
+    CreatedOn DATETIME,
+    UpdatedBy varchar(50),
+    UpdatedOn DATETIME,
+    PRIMARY KEY(PermissionID)
+);
+
+CREATE TABLE CourseSection (
+    SectionID int auto_increment NOT NULL,
+    Name varchar(255),
+    Description BLOB,
+    CreatedBy varchar(50),
+    CreatedOn DATETIME,
+    UpdatedBy varchar(50),
+    UpdatedOn DATETIME,
+    PRIMARY KEY(SectionID)
+);
+
+CREATE TABLE TestMaterial (
+    TestID int auto_increment NOT NULL,
+    MaterialPath varchar(255),
+    CreatedBy varchar(50),
+    CreatedOn DATETIME,
+    UpdatedBy varchar(50),
+    UpdatedOn DATETIME,
+    PRIMARY KEY(TestID)
+);
+
+CREATE TABLE TestQuestion (
+    QuestionID int auto_increment NOT NULL,
+   	TestID int NOT NULL,
+    SectionID int NOT NULL,
+    Question BLOB,
+    CreatedBy varchar(50),
+    CreatedOn DATETIME,
+    UpdatedBy varchar(50),
+    UpdatedOn DATETIME,
+    PRIMARY KEY(QuestionID),
+    FOREIGN KEY(TestID) REFERENCES TestMaterial(TestID),
+    FOREIGN KEY(SectionID) REFERENCES CourseSection(SectionID)
+);
+
+CREATE TABLE TestAnswer (
+    AnswerID int auto_increment NOT NULL,
+    QuestionID int NOT NULL,
+    Answer BLOB,
+    IsAnswer int NOT NULL DEFAULT 0,
+    CreatedBy varchar(50),
+    CreatedOn DATETIME,
+    UpdatedBy varchar(50),
+    UpdatedOn DATETIME,
+    PRIMARY KEY(AnswerID),
+    FOREIGN KEY(QuestionID) REFERENCES TestQuestion(QuestionID)
+);
+
+CREATE TABLE Result (
+    EntryID int auto_increment NOT NULL,
+   	UserID int NOT NULL,
+   	TestID int NOT NULL,
+    Result int,
+    Taken int NOT NULL DEFAULT 0,
+    PRIMARY KEY(EntryID),
+    FOREIGN KEY(UserID) REFERENCES Users(UserID),
+    FOREIGN KEY(TestID) REFERENCES TestMaterial(TestID)
+);
