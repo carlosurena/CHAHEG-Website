@@ -23,41 +23,37 @@
 
 <body>
     <div><nav class="navbar navbar-inverse navigation-clean">
-   <div class="container">
+    <div class="container">
         <div class="navbar-header"><p class="navbar-brand CHAHEG-logo">CHAHEG <i class="fa fa-stethoscope"></i></p><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
         <div
             class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav navbar-right">
-                <li role="presentation"><a href="assets/php/logout.php">Sign Out</a></li>
+                <li role="presentation" class="active"><a href="assets/php/logout.php">Sign Out</a></li>
             </ul>
     </div>
     </div>
 </nav></div>
-    <header class="header"></header>
-    <div class="jumbotron hero-technology">
-        <h1 class="hero-title">Welcome</h1>
-        <p class="hero-subtitle">user</p>
-    </div>
-    <div class="footer-dark">
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-md-push-6 item text">
-                        <h3>CHAHEG </h3>
-                        <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
-                    </div>
-                    <div class="col-md-3 col-md-pull-6 col-sm-4 item">
-                        <h3>About</h3>
-                        <ul>
-                            <li><a href="#">Company</a></li>
-                            <li><a href="#">Team</a></li>
-                            <li><a href="#">Careers</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <p class="copyright">Conecticut Online Nurses Training © 2018</p>
+    <div class="article-list">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">My Dashboard</h2>
+                <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
             </div>
-        </footer>
+            <div class="row articles">
+                <div class="col-md-4 col-sm-6 item"><a href="courses.html"><img class="img-responsive" src="assets/img/desk.jpg"></a>
+                    <h3 class="name">Courses</h3>
+                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p>
+                </div>
+                <div class="col-md-4 col-sm-6 item"><a href="results.html"><img class="img-responsive" src="assets/img/building.jpg"></a>
+                    <h3 class="name">Results</h3>
+                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p>
+                </div>
+                <div class="col-md-4 col-sm-6 item"><a href="results.html"><img class="img-responsive" src="assets/img/loft.jpg"></a>
+                    <h3 class="name">Results</h3>
+                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
