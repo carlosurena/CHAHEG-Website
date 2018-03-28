@@ -97,7 +97,8 @@ body {
 
 @media (min-width:768px) {
   #wrapper.toggled {
-    padding-left:0;
+    /*padding-left:0;*/
+    padding-left:250px;
   }
 }
 
@@ -109,7 +110,8 @@ body {
 
 @media (min-width:768px) {
   #wrapper.toggled #sidebar-wrapper {
-    width:0;
+    /*width:0;*/
+    width:250px;
   }
 }
 
@@ -129,8 +131,6 @@ body {
 
 @media (min-width:768px) {
   #sidebar-wrapper {
-    /*position:relative;*/
-    /*margin-right:0;*/
     width:250px;
   }
 }
