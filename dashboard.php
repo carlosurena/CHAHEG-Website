@@ -40,15 +40,15 @@
                 <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
             </div>
             <div class="row articles">
-                <div class="col-md-4 col-sm-6 item"><a href="courses.html"><img class="img-responsive" src="assets/img/desk.jpg"></a>
+                <div class="col-md-4 col-sm-6 item"><a href="courses.php"><img class="img-responsive" src="assets/img/desk.jpg"></a>
                     <h3 class="name">Courses</h3>
                     <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p>
                 </div>
-                <div class="col-md-4 col-sm-6 item"><a href="results.html"><img class="img-responsive" src="assets/img/building.jpg"></a>
-                    <h3 class="name">Results</h3>
+                <div class="col-md-4 col-sm-6 item"><a href="results.php"><img class="img-responsive" src="assets/img/building.jpg"></a>
+                    <h3 class="name">Account Info</h3>
                     <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p>
                 </div>
-                <div class="col-md-4 col-sm-6 item"><a href="results.html"><img class="img-responsive" src="assets/img/loft.jpg"></a>
+                <div class="col-md-4 col-sm-6 item"><a href="results.php"><img class="img-responsive" src="assets/img/loft.jpg"></a>
                     <h3 class="name">Results</h3>
                     <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p>
                 </div>
