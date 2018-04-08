@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+
 <!DOCTYPE html>
 <html>
 
@@ -46,7 +50,8 @@
     <div class="article-list" style="margin-top:68px;">
         <div class="container-fluid">
             <div class="intro">
-                <h2 class="text-center"><?php
+                <h2 class="text-center">
+                <?php
                  if (isset($_SESSION['UserID'])) {
                      echo $_SESSION['FirstName'];
                  }
