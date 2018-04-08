@@ -34,7 +34,7 @@ if (isset($_POST['email'])) {
 					$_SESSION['Email'] = $row['Email'];
 					$_SESSION['UserID'] = $row['UserID'];
 					$_SESSION['School'] = $row['School'];
-					header("Location: ../../home.php");
+					header("Location: ../../dashboard.php");
 
 				}
 			}
