@@ -57,8 +57,8 @@
             <div class="row articles">
                 <?php
                     $servername = "localhost";
-                    $username = "root";
-                    $password = "password";
+                    $username = "kron.simmons";
+                    $password = "";
 
                     $conn = mysqli_connect($servername, $username, $password, 'CHAHEG');
                    if (!$conn)

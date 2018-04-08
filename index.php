@@ -28,7 +28,7 @@
         <div
             class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav navbar-right">
-                <li role="presentation"><a href="signup.html">Sign Up</a></li>
+                <li role="presentation"><a href="signup.php">Sign Up</a></li>
             </ul>
     </div>
     </div>
@@ -38,9 +38,9 @@
             <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
                 <h1 class="text-center">Welcome </h1>
                 <div class="well">
-                    <h3 class="text-danger">Login </h3>
+                    <h3 class="text-danger">Log In</h3>
                     <!-- To sign in, page POSTs to the /assets/php/login.php -->
-                    <form class="sing-in-form" method="POST" action="/assets/php/login.php">
+                    <form class="sing-in-form" method="POST" action="assets/php/login.php">
                         <div class="form-group"><label class="control-label">Username </label><input class="form-control" type="text" required="" name="uname"></div>
                         <div class="form-group"><label class="control-label">Password </label><input class="form-control" type="password" required="" name="passwd"></div>
                         <div class="form-group">

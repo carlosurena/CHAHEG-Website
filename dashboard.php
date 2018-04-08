@@ -28,7 +28,7 @@
         <div
             class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav navbar-right">
-                <li role="presentation" class="active"><a href="assets/php/logout.php">Sign Out</a></li>
+                <li role="presentation"><a href="assets/php/logout.php">Sign Out</a></li>
             </ul>
     </div>
     </div>
