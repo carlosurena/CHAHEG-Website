@@ -22,14 +22,14 @@
                 CHAHEG
                 <i class="fa fa-stethoscope"></i>
             </a>
-        
+
             <a class="btn btn-link pull-right" role="button" href="#menu-toggle" id="menu-toggle" style="color:#ffffff;height:36px;font-size:25px;padding-bottom:6px;padding-top:0; ">
                 <i class="fa fa-navicon"></i>
             </a>
         </div>
 
-        
-        
+
+
     </div>
 </nav></div>
     <div id="wrapper">
@@ -46,7 +46,12 @@
     <div class="article-list" style="margin-top:68px;">
         <div class="container-fluid">
             <div class="intro">
-                <h2 class="text-center">My Courses</h2>
+                <h2 class="text-center"><?php
+                 if (isset($_SESSION['UserID'])) {
+                     echo $_SESSION['FirstName'];
+                 }
+
+              ?> Courses</h2>
                 <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
             </div>
             <div class="row articles">
@@ -54,27 +59,27 @@
                     $servername = "localhost";
                     $username = "root";
                     $password = "password";
-                    
+
                     $conn = mysqli_connect($servername, $username, $password, 'CHAHEG');
-                   if (!$conn) 
+                   if (!$conn)
                    {
                         die("Connection failed: " . mysqli_connect_error());
                    }
                     //echo "Connected Successfully";
-                    
+
                     $sql = "SELECT Name, Description FROM coursesection";
                     $result = mysqli_query($conn, $sql);
-                    
+
                     $sql2 = "SELECT MaterialPath FROM testmaterial";
                     $result2 = mysqli_query($conn, $sql2);
-                    
+
                     $nameArray = array();
                     $descriptionArray = array();
                     $materialPathArray = array();
                     $x=0;
-                    if (mysqli_num_rows($result) > 0) 
+                    if (mysqli_num_rows($result) > 0)
                     {
-                        while($row = mysqli_fetch_assoc($result)) 
+                        while($row = mysqli_fetch_assoc($result))
                         {
                             $nameArray[$x] = $row["Name"];
                             $descriptionArray[$x] = $row["Description"];
@@ -82,19 +87,19 @@
                         }
                     }
                     $x=0;
-                    if (mysqli_num_rows($result2) > 0) 
+                    if (mysqli_num_rows($result2) > 0)
                     {
-                        while($row = mysqli_fetch_assoc($result2)) 
+                        while($row = mysqli_fetch_assoc($result2))
                         {
                             $materialPathArray[$x] = $row["MaterialPath"];
                             $x++;
                         }
                     }
-                    
+
                     //print_r($nameArray);
                     //print_r($descriptionArray);
                     //print_r($materialPathArray);
-                    
+
                     $y=0;
                     $training = "training.php?sessionvalue=";
                     while($y<count($nameArray))
@@ -109,7 +114,7 @@
                         }
                             echo '<h3 class="name">' .  $nameArray[$y] .'</h3>';
                         echo    '<p class="description">' . $descriptionArray[$y] .'</p><a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a></div>';
-                        
+
                         $y++;
                     }
                 ?>

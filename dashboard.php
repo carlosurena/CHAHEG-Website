@@ -36,7 +36,13 @@
     <div class="article-list">
         <div class="container">
             <div class="intro">
-                <h2 class="text-center">My Dashboard</h2>
+                <h2 class="text-center">
+                    <?php
+                 if (isset($_SESSION['UserID'])) {
+                     echo $_SESSION['FirstName'];
+                 }
+
+              ?> Dashboard</h2>
                 <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
             </div>
             <div class="row articles">
