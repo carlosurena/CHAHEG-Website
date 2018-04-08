@@ -39,7 +39,8 @@
                 <h1 class="text-center">Welcome </h1>
                 <div class="well">
                     <h3 class="text-danger">Login </h3>
-                    <form class="sing-in-form" method="POST" action="signup.php">
+                    <!-- To sign in, page POSTs to the /assets/php/login.php -->
+                    <form class="sing-in-form" method="POST" action="/assets/php/login.php">
                         <div class="form-group"><label class="control-label">Username </label><input class="form-control" type="text" required="" name="uname"></div>
                         <div class="form-group"><label class="control-label">Password </label><input class="form-control" type="password" required="" name="passwd"></div>
                         <div class="form-group">

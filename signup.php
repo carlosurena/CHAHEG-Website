@@ -39,49 +39,52 @@
                 <h1 class="text-center">Welcome </h1>
                 <div class="well">
                     <h3 class="text-danger">Sign UP</h3>
-                    <form class="sign-up-form" method="post">
+                    <form action="assets/php/register.php" class="sign-up-form" method="post">
                         <div class="form-group"><label class="control-label">First Name</label><input class="form-control" type="text" required="" name="fname"></div>
                         <div class="form-group"><label class="control-label">Last Name</label><input class="form-control" type="text" required="" name="lname"></div>
-                        <div class="form-group"><label class="control-label">Education </label><select required class="form-control" name="education">
-    
+                        <div class="form-group"><label class="control-label">Education </label>
+
+                            <select required class="form-control" name="education">
+
 <!--     <option value="12" selected>This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option>
  -->
-    <option value="Albertus Magnus College">Albertus Magnus College</option>
-<option value="Central Connecticut State University">Central Connecticut State University</option>
-<option value="Charter Oak State College">Charter Oak State College</option>
-<option value="Connecticut College">Connecticut College</option>
-<option value="Eastern Connecticut State University">Eastern Connecticut State University</option>
-<option value="Fairfield University">Fairfield University</option>
-<option value="Goodwin College">Goodwin College</option>
-<option value="Hartford Seminary">Hartford Seminary</option>
-<option value="Holy Apostles College and Seminary">Holy Apostles College and Seminary</option>
-<option value="Lincoln College of New England-Southington">Lincoln College of New England-Southington</option>
-<option value="Lyme Academy College of Fine Arts">Lyme Academy College of Fine Arts</option>
-<option value="Mitchell College">Mitchell College</option>
-<option value="Paier College of Art Inc">Paier College of Art Inc</option>
-<option value="Post University">Post University</option>
-<option value="Quinnipiac University">Quinnipiac University</option>
-<option value="Rensselaer Hartford Graduate Center Inc">Rensselaer Hartford Graduate Center Inc</option>
-<option value="Sacred Heart University">Sacred Heart University</option>
-<option value="Southern Connecticut State University">Southern Connecticut State University</option>
-<option value="St Vincent's College">St Vincent's College</option>
-<option value="Trinity College">Trinity College</option>
-<option value="United States Coast Guard Academy">United States Coast Guard Academy</option>
-<option value="University of Bridgeport">University of Bridgeport</option>
-<option value="University of Connecticut">University of Connecticut</option>
-<option value="University of Connecticut-Avery Point">University of Connecticut-Avery Point</option>
-<option value="University of Connecticut-Stamford">University of Connecticut-Stamford</option>
-<option value="University of Connecticut-Tri-Campus">University of Connecticut-Tri-Campus</option>
-<option value="University of Hartford">University of Hartford</option>
-<option value="University of New Haven">University of New Haven</option>
-<option value="University of Phoenix-Connecticut">University of Phoenix-Connecticut</option>
-<option value="University of Saint Joseph">University of Saint Joseph</option>
-<option value="Wesleyan University">Wesleyan University</option>
-<option value="Western Connecticut State University">Western Connecticut State University</option>
-<option value="Yale University">Yale University</option>
-<option value="Yale-New Haven Hospital Dietetic Internship">Yale-New Haven Hospital Dietetic Internship</option>
+                                <option value="Albertus Magnus College">Albertus Magnus College</option>
+                                <option value="Central Connecticut State University">Central Connecticut State University</option>
+                                <option value="Charter Oak State College">Charter Oak State College</option>
+                                <option value="Connecticut College">Connecticut College</option>
+                                <option value="Eastern Connecticut State University">Eastern Connecticut State University</option>
+                                <option value="Fairfield University">Fairfield University</option>
+                                <option value="Goodwin College">Goodwin College</option>
+                                <option value="Hartford Seminary">Hartford Seminary</option>
+                                <option value="Holy Apostles College and Seminary">Holy Apostles College and Seminary</option>
+                                <option value="Lincoln College of New England-Southington">Lincoln College of New England-Southington</option>
+                                <option value="Lyme Academy College of Fine Arts">Lyme Academy College of Fine Arts</option>
+                                <option value="Mitchell College">Mitchell College</option>
+                                <option value="Paier College of Art Inc">Paier College of Art Inc</option>
+                                <option value="Post University">Post University</option>
+                                <option value="Quinnipiac University">Quinnipiac University</option>
+                                <option value="Rensselaer Hartford Graduate Center Inc">Rensselaer Hartford Graduate Center Inc</option>
+                                <option value="Sacred Heart University">Sacred Heart University</option>
+                                <option value="Southern Connecticut State University">Southern Connecticut State University</option>
+                                <option value="St Vincent's College">St Vincent's College</option>
+                                <option value="Trinity College">Trinity College</option>
+                                <option value="United States Coast Guard Academy">United States Coast Guard Academy</option>
+                                <option value="University of Bridgeport">University of Bridgeport</option>
+                                <option value="University of Connecticut">University of Connecticut</option>
+                                <option value="University of Connecticut-Avery Point">University of Connecticut-Avery Point</option>
+                                <option value="University of Connecticut-Stamford">University of Connecticut-Stamford</option>
+                                <option value="University of Connecticut-Tri-Campus">University of Connecticut-Tri-Campus</option>
+                                <option value="University of Hartford">University of Hartford</option>
+                                <option value="University of New Haven">University of New Haven</option>
+                                <option value="University of Phoenix-Connecticut">University of Phoenix-Connecticut</option>
+                                <option value="University of Saint Joseph">University of Saint Joseph</option>
+                                <option value="Wesleyan University">Wesleyan University</option>
+                                <option value="Western Connecticut State University">Western Connecticut State University</option>
+                                <option value="Yale University">Yale University</option>
+                                <option value="Yale-New Haven Hospital Dietetic Internship">Yale-New Haven Hospital Dietetic Internship</option>
 
-</select></div>
+                            </select>
+                        </div>
                         <div class="form-group"><label class="control-label">Anticipated Year of Graduation</label><input class="form-control" type="date" required="" name="YOG"></div>
                         <div class="form-group"><label class="control-label">Email </label><input class="form-control" type="text" required="" name="email"></div>
                         <div class="form-group"><label class="control-label">Password </label><input class="form-control" type="password" required="" name="passwd"></div>
