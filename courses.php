@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+include 'assets/php/config.php';
+?>
 
 <!DOCTYPE html>
 <html>
@@ -61,11 +62,11 @@ session_start();
             </div>
             <div class="row articles">
                 <?php
-                    $servername = "localhost";
-                    $username = "kron.simmons";
-                    $password = "";
+                    //$servername = "localhost";
+                   // $username = "kron.simmons";
+                   // $password = "";
 
-                    $conn = mysqli_connect($servername, $username, $password, 'CHAHEG');
+                    $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, 'CHAHEG');
                    if (!$conn)
                    {
                         die("Connection failed: " . mysqli_connect_error());

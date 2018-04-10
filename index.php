@@ -27,7 +27,7 @@
                 <div
                     class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li role="presentation"><a href="signup.html">Sign Up</a></li>
+                        <li role="presentation"><a href="signup.php">Sign Up</a></li>
                     </ul>
             </div>
     </div>
@@ -44,7 +44,7 @@
                         <div class="form-group"><label class="control-label">Password </label><input class="form-control" type="password" required="" name="passwd"></div>
                         <div class="form-group">
                             <div class="checkbox"><label class="control-label"><input type="checkbox">Remember me</label></div>
-                        </div><button class="btn btn-success btn-block" type="submit">LOGIN </button><a class="btn btn-link center-block" role="button" href="recovery.html">Forgot Password?</a></form>
+                        </div><button class="btn btn-success btn-block" type="submit">LOGIN </button><a class="btn btn-link center-block" role="button" href="recovery.php">Forgot Password?</a></form>
                 </div>
             </div>
         </div>
@@ -66,7 +66,7 @@
                         </ul>
                     </div>
                 </div>
-                <p class="copyright">Conecticut Online Nurses Training © 2018</p>
+                <p class="copyright">Connecticut Online Nurses Training © 2018</p>
             </div>
         </footer>
     </div>

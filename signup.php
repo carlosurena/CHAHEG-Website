@@ -118,7 +118,7 @@ session_start();
                         </ul>
                     </div>
                 </div>
-                <p class="copyright">Conecticut Online Nurses Training © 2018</p>
+                <p class="copyright">Connecticut Online Nurses Training © 2018</p>
             </div>
         </footer>
     </div>

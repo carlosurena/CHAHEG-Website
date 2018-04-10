@@ -44,3 +44,4 @@ if (isset($_POST['email'])) {
 	header("Location: ../../index.php?login=error4");
 
 }
+?>
