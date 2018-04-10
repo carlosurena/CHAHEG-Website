@@ -62,12 +62,11 @@ include 'assets/php/config.php';
             </div>
             <div class="row articles">
                 <?php
-                    $dbServername = "127.0.0.1";
-                    $dbUsername = "db_team1_agent";
-                    $dbPassword = "NF1RGUq{3P(+";
-                    $dbName = "db_team1"; // db_team1
+                    //$servername = "localhost";
+                   // $username = "kron.simmons";
+                   // $password = "";
 
-                    $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+                   $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
                    if (!$conn)
                    {
                         die("Connection failed: " . mysqli_connect_error());
