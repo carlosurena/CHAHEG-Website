@@ -37,7 +37,7 @@ session_start();
                 </div>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li role="presentation"><a href="index.html">Sign In</a></li>
+                        <li role="presentation"><a href="index.php">Sign In</a></li>
                     </ul>
                 </div>
     </div>

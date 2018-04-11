@@ -11,14 +11,14 @@ if (isset($_POST['email'])) {
 	// error handeling
 	// check empty input
 	if(empty($email) ||empty($password)){
-			header("Location: ../../login.php?login=error1");
+			header("Location: login.php?login=error1");
 
 	} else {
 		$sql = "SELECT * FROM users WHERE Email = '$email'";
 		$result = mysqli_query($conn, $sql);
 		$resultCheck = mysqli_num_rows($result);
 		if ($resultCheck < 1) {
-			header("Location: ../../login.php?login=error2");
+			header("Location: login.php?login=error2");
 		} else {
 			// taking returned data from database and putting it in an array
 			if ($row = mysqli_fetch_assoc($result)) {
@@ -26,7 +26,7 @@ if (isset($_POST['email'])) {
 				// dehashing Password
 				$hashedPWDchech = password_verify($password, $row['Password']);
 				if ($hashedPWDchech == false) {
-					header("Location: ../../login.php?login=error3");
+					header("Location: login.php?login=error3");
 				} elseif ($hashedPWDchech == true) {
 					// login the user. Give session a name and then give $row the columns
 					$_SESSION['FirstName'] = $row['FirstName'];
