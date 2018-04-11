@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log In</title>
+    <title>Welcome</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body>
+<body style="background-image:'assets/img/luis-melendez.jpg'; opacity:;">
     <div>
         <nav class="navbar navbar-inverse navigation-clean">
             <div class="container">
@@ -40,7 +40,7 @@
                 <div class="well">
                     <h3 class="text-danger">Login </h3>
                     <form class="sing-in-form" method="POST" action="assets/php/login.php">
-                        <div class="form-group"><label class="control-label">Username </label><input class="form-control" type="text" required="" name="uname"></div>
+                        <div class="form-group"><label class="control-label">Email </label><input class="form-control" type="text" required="" name="email"></div>
                         <div class="form-group"><label class="control-label">Password </label><input class="form-control" type="password" required="" name="passwd"></div>
                         <div class="form-group">
                             <div class="checkbox"><label class="control-label"><input type="checkbox">Remember me</label></div>
