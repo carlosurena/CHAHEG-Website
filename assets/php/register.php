@@ -44,7 +44,7 @@ if (isset($_POST['fname'])) {
                             VALUES ('$email', '$education', '$YOG', '$last', '$first','$hashedPwd','$isAdmin')";
 					mysqli_query($conn, $sql);
 
-					header("Location: ../../home.html?signup=success"); // should send us to the profile page after a succesful log in
+					header("Location: ../../dashboard.php?signup=success"); // should send us to the profile page after a succesful log in
 					exit();
 				}
 			}
@@ -52,6 +52,6 @@ if (isset($_POST['fname'])) {
 	}
 
 } else {
-	header("Location: ../../home.html");
+	header("Location: ../../dashboard.php");
 	exit();
 }

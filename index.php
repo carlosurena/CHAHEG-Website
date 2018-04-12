@@ -1,14 +1,10 @@
-<?php
-session_start();
-?>
-
-
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHAHEG</title>
+    <title>Welcome</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -23,7 +19,7 @@ session_start();
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body>
+<body style="background-image:'assets/img/luis-melendez.jpg'; opacity:;">
     <div>
         <nav class="navbar navbar-inverse navigation-clean">
             <div class="container">
@@ -42,14 +38,13 @@ session_start();
             <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
                 <h1 class="text-center">Welcome </h1>
                 <div class="well">
-                    <h3 class="text-danger">Login</h3>
+                    <h3 class="text-danger">Login </h3>
                     <form class="sing-in-form" method="POST" action="assets/php/login.php">
                         <div class="form-group"><label class="control-label">Email </label><input class="form-control" type="text" required="" name="email"></div>
                         <div class="form-group"><label class="control-label">Password </label><input class="form-control" type="password" required="" name="passwd"></div>
                         <div class="form-group">
                             <div class="checkbox"><label class="control-label"><input type="checkbox">Remember me</label></div>
-                        </div><button class="btn btn-success btn-block" type="submit">LOGIN </button>
-						<a class="btn btn-link center-block" role="button" href="recovery.html">Forget Password?</a></form>
+                        </div><button class="btn btn-success btn-block" type="submit">LOGIN </button><a class="btn btn-link center-block" role="button" href="recovery.php">Forgot Password?</a></form>
                 </div>
             </div>
         </div>
@@ -71,7 +66,7 @@ session_start();
                         </ul>
                     </div>
                 </div>
-                <p class="copyright">Conecticut Online Nurses Training © 2018</p>
+                <p class="copyright">Connecticut Online Nurses Training © 2018</p>
             </div>
         </footer>
     </div>

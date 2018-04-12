@@ -21,14 +21,14 @@ $_SESSION['sessionvalue'] = $_GET['sessionvalue'];
 </head>
 
 <body style="padding-top:55px;"><nav class="navbar navbar-light navbar-expand-md fixed-top bg-dark" style="background-color:rgb(34,53,228);">
-    <div class="container-fluid"><a href="dashboard.html" class="navbar-brand text-white"><i class="fa fa-stethoscope"></i>CHAHEG</a>
+    <div class="container-fluid"><a href="dashboard.php" class="navbar-brand text-white"><i class="fa fa-stethoscope"></i>CHAHEG</a>
         <a class="btn btn-link" role="button" href="#menu-toggle" id="menu-toggle" style="color:#ffffff;height:36px;font-size:25px;padding-bottom:6px;padding-top:0;"><i class="fa fa-navicon"></i></a>
 
 </nav>
     <div id="wrapper">
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand"> <a href="dashboard.html">Logo/Home</a></li>
+                <li class="sidebar-brand"> <a href="dashboard.php">Logo/Home</a></li>
                 <li> <a href="courses.php">Courses</a></li>
                 <li> <a href="#">Results</a></li>
                 <li> <a href="#">Account</a><a href="assets/php/logout.php">Sign Out</a></li>
