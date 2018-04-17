@@ -7,7 +7,7 @@ include 'assets/php/config.php';
 <html>
 
 <head>
-     <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -57,7 +57,8 @@ include 'assets/php/config.php';
                      echo $_SESSION['FirstName'];
                  }
 
-              ?> Courses</h2>
+              ?> Test
+                    </h2>
                 <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
             </div>
             <div class="row articles">
@@ -67,59 +68,34 @@ include 'assets/php/config.php';
                    // $dbPassword = "NF1RGUq{3P(+";
                    // $dbName = "db_team1"; // db_team1
 
-                   //$dbServername = "localhost";
-                   //$dbUsername = "kron.simmons";
-                   //$dbPassword = " ";
-                   //$dbName = "chaheg"; // db_team1
+                   $dbServername = "localhost";
+                   $dbUsername = "root";
+                   $dbPassword = "password";
+                   $dbName = "chaheg"; // db_team1
 
-                  $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+                   $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
                    if (!$conn)
                    {
                         die("Connection failed: " . mysqli_connect_error());
                    }
                     //echo "Connected Successfully";
 
-                    $sql = "SELECT TestName, TestDescription, MaterialPath FROM testmaterials
-                    WHERE testid NOT IN (Select testid from results where userid = 1);";
-                    $result = mysqli_query($conn, $sql);
+                
 
-                    $nameArray = array();
-                    $descriptionArray = array();
-                    $materialPathArray = array();
-                    
-                    $x=0;
-                    if (mysqli_num_rows($result) > 0)
-                    {
-                        while($row = mysqli_fetch_assoc($result))
-                        {
-                            $nameArray[$x] = $row["TestName"];
-                            $descriptionArray[$x] = $row["TestDescription"];
-                            $materialPathArray[$x] = $row["MaterialPath"];
-                            $x++;
-                        }
-                    }
 
-                    //print_r($nameArray);
-                    //print_r($descriptionArray);
-                    //print_r($materialPathArray);
 
-                    $y=0;
-                    $training = "training.php?URLsessionvalue=";
-                    while($y<count($nameArray))
-                    {
-                        if($y<count($materialPathArray))
-                        {
-                            echo '<div class="col-sm-6 col-md-4 item"><a href="' . $training . $materialPathArray[$y] .'"><img class="img-responsive" src="assets/img/desk.jpg"></a>';
-                        }
-                        else
-                        {
-                            echo '<div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-responsive" src="assets/img/desk.jpg"></a>';
-                        }
-                            echo '<h3 class="name">' .  $nameArray[$y] .'</h3>';
-                        echo    '<p class="description">' . $descriptionArray[$y] .'</p><a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a></div>';
 
-                        $y++;
-                    }
+
+
+
+
+
+
+
+
+
+
+
                 ?>
     </div>
     </div>

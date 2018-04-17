@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['sessionvalue'] = $_GET['sessionvalue'];
+$_SESSION['URLsessionvalue'] = $_GET['URLsessionvalue'];
 ?>
 <html>
 
@@ -40,7 +40,7 @@ $_SESSION['sessionvalue'] = $_GET['sessionvalue'];
                     <div class="col-md-12">
                         <div>
 						<?php	
-							$frame = "<iframe src='" .$_SESSION['sessionvalue']."' height='100%' width='100%' style='border: 0px;' webkitAllowFullScreen Mozallowfullscreen allowFullScreen></iframe>";
+							$frame = "<iframe src='" .$_SESSION['URLsessionvalue']."' height='100%' width='100%' style='border: 0px;' webkitAllowFullScreen Mozallowfullscreen allowFullScreen></iframe>";
 							echo $frame;
 						?>
 						<!-- <iframe src='http://my.visme.co/projects/dmvvdg0k-6ep5dm1gwej75dz3' height='100%' width='100%' style='border: 0px;' webkitAllowFullScreen Mozallowfullscreen allowFullScreen></iframe>
