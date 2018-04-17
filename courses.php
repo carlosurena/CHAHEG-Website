@@ -80,7 +80,7 @@ include 'assets/php/config.php';
                     //echo "Connected Successfully";
 
                     $sql = "SELECT TestName, TestDescription, MaterialPath FROM testmaterials
-                    WHERE testid NOT IN (Select testid from results where userid = 1);";
+                    WHERE testid NOT IN (Select testid from results where userid = 3);";
                     $result = mysqli_query($conn, $sql);
 
                     $nameArray = array();

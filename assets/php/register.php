@@ -35,8 +35,9 @@ if (isset($_POST['fname'])) {
 					//Hashing the password
 					$hashedPwd = password_hash($passwd, PASSWORD_DEFAULT);
 					//Insert the user into the database
-                    $sql = "INSERT INTO users (Email, School, YOG, LastName, FirstName, Password, Admin)
-                            VALUES ('$email', '$education', '$YOG', '$last', '$first','$hashedPwd','$isAdmin')";
+                    $sql = "INSERT INTO users (Email, Password, School, LastName, FirstName, PermissionID)
+							VALUES ('$email','$hashedPwd','$education','$last', '$first','$isAdmin')";
+                            //VALUES ('$email', '$education', '$YOG', '$last', '$first','$hashedPwd','$isAdmin')";
 					mysqli_query($conn, $sql);
 					header("Location: ../../dashboard.php?signup=success"); // should send us to the profile page after a succesful log in
 					exit();

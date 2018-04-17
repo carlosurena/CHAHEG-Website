@@ -59,10 +59,10 @@ include 'assets/php/config.php';
                     die("Connection failed: " . mysqli_connect_error());
                  }
 			
-				 $sql = "SELECT FirstName, LastName FROM User";
+				 $sql = "SELECT FirstName, LastName FROM Users";
 				 $result = mysqli_query($conn, $sql);
 
-				 $sql2 = "SELECT UserID, TestID, Result FROM Result";
+				 $sql2 = "SELECT UserID, TestID, Score FROM Results";
 				 $result2 = mysqli_query($conn, $sql2);
 				 
 				 $firstNameArray = array();
@@ -89,7 +89,7 @@ include 'assets/php/config.php';
                         {
                             $UserIDArray[$x] = $row["UserID"];
 							$TestIDArray[$x] = $row["TestID"];
-                            $ResultArray[$x] = $row["Result"];
+                            $ResultArray[$x] = $row["Score"];
                             $x++;
                         }
                     }
