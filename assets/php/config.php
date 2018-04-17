@@ -8,7 +8,7 @@
 $dbServername = "localhost";
 $dbUsername = "kron.simmons";
 $dbPassword = "";
-$dbName = "chaheg"; // db_team1
+$dbName = "chaheg2"; // db_team1
 
 $conn = mysqli_connect($dbServername,$dbUsername, $dbPassword, $dbName );
 
