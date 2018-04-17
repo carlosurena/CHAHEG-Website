@@ -20,12 +20,12 @@ if (isset($_POST['fname'])) {
 	} else {
 		//Check if input characters are valid
 		if (!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last)) {
-			header("Location: ../signup.php?signup=invalid");
+			header("Location: ../../signup.php?signup=invalid");
 			exit();
 		} else {
 			//Check if email is valid
 			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-				header("Location: ../signup.php?signup=invalidemail");
+				header("Location: ../../signup.php?signup=invalidemail");
 				exit();
 			} else {
                 // if there are any users with the same email
@@ -34,7 +34,7 @@ if (isset($_POST['fname'])) {
 				$resultCheck = mysqli_num_rows($result);
 
 				if ($resultCheck > 0) {
-					header("Location: ../signup.php?signup=usertaken");
+					header("Location: ../../signup.php?signup=usertaken");
 					exit();
 				} else {
 					//Hashing the password
