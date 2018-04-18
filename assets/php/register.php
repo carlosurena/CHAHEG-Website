@@ -39,7 +39,7 @@ if (isset($_POST['fname'])) {
 					$hashedPwd = password_hash($passwd, PASSWORD_DEFAULT);
 					//Insert the user into the database
                     $sql = "INSERT INTO users (Email, Password, School, LastName, FirstName, PermissionID)
-							VALUES ('$email','$hashedPwd','$education','$last', '$first','$isAdmin')";
+									 VALUES ('$email','$hashedPwd','$education','$last', '$first','$isAdmin')";
                             //VALUES ('$email', '$education', '$YOG', '$last', '$first','$hashedPwd','$isAdmin')";
 					mysqli_query($conn, $sql);
 
