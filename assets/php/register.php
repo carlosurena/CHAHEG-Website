@@ -1,9 +1,7 @@
 <?php
 
 if (isset($_POST['fname'])) {
-
 	include_once 'config.php';
-
 	$first = mysqli_real_escape_string($conn, $_POST['fname']);
 	$last = mysqli_real_escape_string($conn, $_POST['lname']);
 	$email = mysqli_real_escape_string($conn, $_POST['email']);
