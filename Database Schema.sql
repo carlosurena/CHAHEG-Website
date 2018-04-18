@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS CHAHEG;
 CREATE DATABASE CHAHEG;
 
-#DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS Users;
 CREATE TABLE Users (
     UserID int NOT NULL AUTO_INCREMENT,
     Email varchar(255) UNIQUE,
@@ -19,7 +19,7 @@ DROP TABLE IF EXISTS Permissions;
 CREATE TABLE Permissions (
     PermissionID int NOT NULL AUTO_INCREMENT,
     Name varchar(255),
-    Description BLOB,
+    Description varchar(255),
     CreatedBy varchar(50),
     CreatedOn DATETIME,
     UpdatedBy varchar(50),
@@ -44,7 +44,7 @@ DROP TABLE IF EXISTS TestQuestions;
 CREATE TABLE TestQuestions (
     QuestionID int NOT NULL AUTO_INCREMENT,
     TestID int NOT NULL,
-    Question BLOB,
+    Question varchar(1000),
     CreatedBy varchar(50),
     CreatedOn DATETIME,
     UpdatedBy varchar(50),
@@ -57,7 +57,7 @@ DROP TABLE IF EXISTS TestAnswers;
 CREATE TABLE TestAnswers (
     AnswerID int NOT NULL AUTO_INCREMENT,
     QuestionID int NOT NULL,
-    Answer BLOB,
+    Answer varchar(1000),
     IsAnswer int NOT NULL DEFAULT 0,
     CreatedBy varchar(50),
     CreatedOn DATETIME,
@@ -73,7 +73,6 @@ CREATE TABLE Results (
     UserID int NOT NULL,
     TestID int NOT NULL,
     Score int,
-    Taken int NOT NULL DEFAULT 0,
     PRIMARY KEY(EntryID),
     FOREIGN KEY(UserID) REFERENCES Users(UserID),
     FOREIGN KEY(TestID) REFERENCES TestMaterials(TestID)
@@ -94,13 +93,20 @@ VALUES
     (null,"admin@gmail.com","adminpassword","Connecticut College", "Adminson", "Admin", 1),
     (null,"christophersuter@gmail.com","chrispassword","Fairfield University", "Suter", "Christopher", 0);
 
-INSERT INTO Results (entryid, userid, testid, score, taken)
+INSERT INTO Results (entryid, userid, testid, score)
 VALUES
-    (null,1,1,95,1),
-    (null,2,1,79,1),
-    (null,2,2,64,1),
-    (null,1,2,100,1),
-    (null,1,3,100, 0);
+    (null,1,1,95),
+    (null,2,1,79),
+    (null,2,2,64),
+    (null,1,2,100),
+    (null,1,3,100),
+    (null,1,4,79),
+    (null,1,4,75),
+    (null,1,4,40),
+    (null,3,1,28),
+    (null,3,1,28),
+    (null,3,1,28),
+    (null,3,2,100);
 
 
 INSERT INTO TestQuestions (questionid, testid, question, createdby, createdon, updatedby, updatedon)
@@ -187,7 +193,9 @@ VALUES
     (null, 4,"What is 1+77","Christopher",NOW(),null,null),
     (null, 4,"What is 1+78","Christopher",NOW(),null,null),
     (null, 4,"What is 1+79","Christopher",NOW(),null,null),
-    (null, 4,"What is 1+80","Christopher",NOW(),null,null);
+    (null, 4,"What is 1+80","Christopher",NOW(),null,null),
+    (null, 4,"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","Christopher",NOW(),null,null);
+    
 
 
 INSERT INTO TestAnswers (answerid, questionid, answer, isanswer, createdby, createdon, updatedby, updatedon)
