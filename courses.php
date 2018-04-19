@@ -7,7 +7,7 @@ include 'assets/php/config.php';
 <html>
 
 <head>
-     <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -33,8 +33,6 @@ include 'assets/php/config.php';
             </a>
         </div>
 
-
-
     </div>
 </nav></div>
     <div id="wrapper">
@@ -56,7 +54,6 @@ include 'assets/php/config.php';
                  if (isset($_SESSION['UserID'])) {
                      echo $_SESSION['FirstName'];
                  }
-
               ?> Courses</h2>
                 <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
             </div>
@@ -66,23 +63,19 @@ include 'assets/php/config.php';
                    // $dbUsername = "db_team1_agent";
                    // $dbPassword = "NF1RGUq{3P(+";
                    // $dbName = "db_team1"; // db_team1
-
-                   //$dbServername = "localhost";
-                   //$dbUsername = "kron.simmons";
-                   //$dbPassword = " ";
-                   //$dbName = "chaheg"; // db_team1
-
-                  $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+                   $dbServername = "localhost";
+                   $dbUsername = "root";
+                   $dbPassword = "password";
+                   $dbName = "chaheg";
+                   $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
                    if (!$conn)
                    {
                         die("Connection failed: " . mysqli_connect_error());
                    }
-                    //echo "Connected Successfully";
-
                     $sql = "SELECT TestName, TestDescription, MaterialPath FROM testmaterials
-                    WHERE testid NOT IN (Select testid from results where userid = 3);";
+                    WHERE testid NOT IN (select testid from results where userid = 3 and score > 80) 
+                    having (select count(testid) from results where userid = 3 and testid=testmaterials.testid) < 3;";
                     $result = mysqli_query($conn, $sql);
-
                     $nameArray = array();
                     $descriptionArray = array();
                     $materialPathArray = array();
@@ -98,11 +91,6 @@ include 'assets/php/config.php';
                             $x++;
                         }
                     }
-
-                    //print_r($nameArray);
-                    //print_r($descriptionArray);
-                    //print_r($materialPathArray);
-
                     $y=0;
                     $training = "training.php?URLsessionvalue=";
                     while($y<count($nameArray))
@@ -117,7 +105,6 @@ include 'assets/php/config.php';
                         }
                             echo '<h3 class="name">' .  $nameArray[$y] .'</h3>';
                         echo    '<p class="description">' . $descriptionArray[$y] .'</p><a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a></div>';
-
                         $y++;
                     }
                 ?>

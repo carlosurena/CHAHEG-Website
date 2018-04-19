@@ -5,16 +5,13 @@ $_SESSION['URLsessionvalue'] = $_GET['URLsessionvalue'];
 <html>
 
 <head>
-    <meta charset="utf-8">
+      <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHAHEG Courses</title>
+    <title>Training</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="assets/css/Article-List.css">
-    <link rel="stylesheet" href="assets/css/Fixed-Navbar.css">
-    <link rel="stylesheet" href="assets/css/Fixed-Navbar1.css">
-    <link rel="stylesheet" href="assets/css/Fixed-Navbar2.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
     <link rel="stylesheet" href="assets/css/Sidebar-Menu.css">
     <link rel="stylesheet" href="assets/css/Sidebar-Menu1.css">
     <link rel="stylesheet" href="assets/css/styles.css">
