@@ -1,17 +1,21 @@
 <?php
 session_start();
+include 'assets/php/config.php';
 $_SESSION['URLsessionvalue'] = $_GET['URLsessionvalue'];
 ?>
 <html>
 
 <head>
-      <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Training</title>
+    <title>CHAHEG Courses</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="assets/css/Article-List.css">
-    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/Fixed-Navbar.css">
+    <link rel="stylesheet" href="assets/css/Fixed-Navbar1.css">
+    <link rel="stylesheet" href="assets/css/Fixed-Navbar2.css">
     <link rel="stylesheet" href="assets/css/Sidebar-Menu.css">
     <link rel="stylesheet" href="assets/css/Sidebar-Menu1.css">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -36,12 +40,35 @@ $_SESSION['URLsessionvalue'] = $_GET['URLsessionvalue'];
                 <div class="row">
                     <div class="col-md-12">
                         <div>
-						<?php	
+						<?php
+                        $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+                        if (!$conn)
+                        {
+                             die("Connection failed: " . mysqli_connect_error());
+                        }
+                        $sql = "SELECT TestID FROM testmaterials WHERE MaterialPath = '".$_SESSION['URLsessionvalue']."';";
+                        $result = mysqli_query($conn, $sql);
+
+                        $x=0;
+                        if (mysqli_num_rows($result) > 0)
+                        {
+                            while($row = mysqli_fetch_assoc($result))
+                            {
+                               $_SESSION['TestID'] = $row["TestID"];
+                            }
+                        }
+
+                        
+                        echo $_SESSION['TestID'];
+
+                            $_SESSION['USERNUM'] = 1;	
 							$frame = "<iframe src='" .$_SESSION['URLsessionvalue']."' height='100%' width='100%' style='border: 0px;' webkitAllowFullScreen Mozallowfullscreen allowFullScreen></iframe>";
 							echo $frame;
 						?>
 						<!-- <iframe src='http://my.visme.co/projects/dmvvdg0k-6ep5dm1gwej75dz3' height='100%' width='100%' style='border: 0px;' webkitAllowFullScreen Mozallowfullscreen allowFullScreen></iframe>
 						-->
+
+                        <p><a href="test.php">clickme</a></p>
 				
 						</div>
                     </div>

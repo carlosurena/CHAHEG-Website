@@ -80,7 +80,11 @@ include 'assets/php/config.php';
                    }
                     //echo "Connected Successfully";
 
-                
+                    if(isset($_SESSION['USERNUM']))
+                    {
+                        echo $_SESSION['USERNUM'];
+                        echo $_SESSION['UserID'];
+                    }
 
 
 
