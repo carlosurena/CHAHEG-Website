@@ -58,6 +58,9 @@ include 'assets/php/config.php';
                  }
 
               ?> Test
+              <?php
+                    echo $_SESSION['TestID'];
+              ?>
                     </h2>
                 <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
             </div>
@@ -68,10 +71,10 @@ include 'assets/php/config.php';
                    // $dbPassword = "NF1RGUq{3P(+";
                    // $dbName = "db_team1"; // db_team1
 
-                   $dbServername = "localhost";
-                   $dbUsername = "root";
-                   $dbPassword = "password";
-                   $dbName = "chaheg"; // db_team1
+                   //$dbServername = "localhost";
+                   //$dbUsername = "root";
+                   //$dbPassword = "password";
+                   //$dbName = "chaheg"; // db_team1
 
                    $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
                    if (!$conn)
@@ -80,20 +83,84 @@ include 'assets/php/config.php';
                    }
                     //echo "Connected Successfully";
 
-                    if(isset($_SESSION['USERNUM']))
+                    if(isset($_SESSION['TestID']))
                     {
-                        echo $_SESSION['USERNUM'];
-                        echo $_SESSION['UserID'];
+                        echo "TestID is ".$_SESSION['TestID']."<br>";
+                        echo "UserID is ".$_SESSION['UserID']."<br>";
                     }
 
+                    $sql = "SELECT questionid, question FROM testquestions WHERE testid = ".$_SESSION['TestID']." ORDER BY RAND() LIMIT 10;"; //Select 10 random Question IDs and their Questions
+                    $result = mysqli_query($conn, $sql);
 
+                        
 
+                    $QuestionIDArray = array();
+                    $QuestionTextArray = array();
 
+                    $x=0;
+                    if (mysqli_num_rows($result) > 0)
+                    {
+                         while($row = mysqli_fetch_assoc($result))
+                        {
+                            $QuestionIDArray[$x] = $row["questionid"];
+                            $QuestionTextArray[$x] = $row["question"];
+                            $x++;
+                        }
+                    }
 
+                    print_r($QuestionIDArray);
+                    echo "<br>";
+                    print_r($QuestionTextArray);
+                    echo "<br>";
 
+                    $x=0;
+                    $QuestionIDString = "";
+                    while($x<count($QuestionIDArray))
+                    {
+                        if($x != count($QuestionIDArray)-1)
+                        {
+                            $QuestionIDString = $QuestionIDString.$QuestionIDArray[$x].", ";
+                        }
+                        else
+                        {
+                            $QuestionIDString = $QuestionIDString.$QuestionIDArray[$x];
+                        }
+                        $x++;
+                    }
 
+                    echo $QuestionIDString;
+                    echo "<br>";
+                    $sql2 = "SELECT questionid, answerid, answer, isanswer from testanswers where questionid in (".$QuestionIDString.") ORDER BY questionid, rand();";
+                    echo $sql2;
+                    echo "<br>";
+                    $result2 = mysqli_query($conn, $sql2);
 
+                    $AnswerIDArray = array();
+                    $AnswerTextArray = array();
+                    $IsAnswerArray = array();
 
+                    $x=0;
+                    if (mysqli_num_rows($result2) > 0)
+                    {
+                         while($row = mysqli_fetch_assoc($result2))
+                        {
+                            $AnswerIDArray[$x] = $row["answerid"];
+                            $AnswerTextArray[$x] = $row["answer"];
+                            $IsAnswerArray[$x] = $row["isanswer"];
+                            $x++;
+                        }
+                    }
+
+                    echo "<br>";
+                    print_r($AnswerIDArray);
+                    echo "<br>";
+                    echo "<br>";
+                    print_r($AnswerTextArray);
+                    echo "<br>";
+                    echo "<br>";
+                    print_r($IsAnswerArray);
+                    echo "<br>";
+                    echo "<br>";
 
 
 
