@@ -67,10 +67,10 @@ include 'assets/php/config.php';
                    // $dbPassword = "NF1RGUq{3P(+";
                    // $dbName = "db_team1"; // db_team1
 
-                   // $dbServername = "localhost";
-                   // $dbUsername = "kron.simmons";
-                   // $dbPassword = " ";
-                   // $dbName = "chaheg"; // db_team1
+                   $dbServername = "localhost";
+$dbUsername = "fletchy1995";
+$dbPassword = "amdamd321";
+$dbName = "chaheg"; // db_team1
 
                    $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
                    if (!$conn)
