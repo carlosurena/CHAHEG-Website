@@ -6,7 +6,7 @@
 // $dbName = "db_team1"; // db_team1
 
 $dbServername = "localhost";
-$dbUsername = "fletchy1995";
+$dbUsername = "fletch";
 $dbPassword = "amdamd321";
 $dbName = "chaheg"; // db_team1
 

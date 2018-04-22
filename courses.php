@@ -68,7 +68,7 @@ include 'assets/php/config.php';
                    // $dbName = "db_team1"; // db_team1
 
                    $dbServername = "localhost";
-$dbUsername = "fletchy1995";
+$dbUsername = "fletchy";
 $dbPassword = "amdamd321";
 $dbName = "chaheg"; // db_team1
 
