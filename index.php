@@ -50,25 +50,26 @@ session_start();
                             <?php
                             if(isset($_SESSION['ErrorCode']))
                             {
+                                $msgImage = "<img src='images/errorsign.png' height='25' width='25' alt='Error X Image' />";
                                 if($_SESSION['ErrorCode'] == 'Empty_Fields')
                                 {
-                                    $msg = '<br /><br /><font color="#FF0000">Please enter values for Username and Password</font><br />';
-                                    echo $msg;
+                                    $msgText = '<font color="#FF0000"> Please enter values for Username and Password.</font><br />';
+                                    echo $msgImage,$msgText;
                                 }
                                 elseif($_SESSION['ErrorCode'] == 'Invalid_Account')
                                 {
-                                    $msg = '<br /><br /><font color="#FF0000">We could not find your Account!  Please create one!</font><br />';
-                                    echo $msg;
+                                    $msgText = '<font color="#FF0000"> We could not find your Account!  Please create one!</font><br />';
+                                    echo $msgImage,$msgText;                                
                                 }
                                 elseif($_SESSION['ErrorCode'] == 'Error_3')
                                 {
-                                    $msg = '<br /><br /><font color="#FF0000"> Invalid Username and Password, Try again</font><br />';
-                                    echo $msg;
+                                    $msgText = '<font color="#FF0000"> Invalid Username and Password, Try again!</font><br />';
+                                    echo $msgImage,$msgText;                                
                                 }
                                 elseif($_SESSION['ErrorCode'] == 'Error_4')
                                 {
-                                    $msg = '<br /><br /><font color="#FF0000"> Could not reach database, contact Customer Support </font><br />';
-                                    echo $msg;
+                                    $msgText = '<font color="#FF0000"> Could not reach database, contact Customer Support. </font><br />';
+                                    echo $msgImage,$msgText;
                                 }
                                 else
                                 {
