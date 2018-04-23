@@ -1,10 +1,7 @@
 <?php
-
 session_start();
-
 if (isset($_POST['email'])) {
 	include 'config.php';
-
 	$email = mysqli_real_escape_string($conn, $_POST['email']);
 	$password = mysqli_real_escape_string($conn, $_POST['passwd']);
 

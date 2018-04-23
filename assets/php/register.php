@@ -1,9 +1,7 @@
 <?php
 
 if (isset($_POST['fname'])) {
-
 	include_once 'config.php';
-
 	$first = mysqli_real_escape_string($conn, $_POST['fname']);
 	$last = mysqli_real_escape_string($conn, $_POST['lname']);
 	$email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -41,7 +39,11 @@ if (isset($_POST['fname'])) {
 					$hashedPwd = password_hash($passwd, PASSWORD_DEFAULT);
 					//Insert the user into the database
                     $sql = "INSERT INTO users (Email, Password, School, LastName, FirstName, PermissionID)
+
+									// VALUES ('$email','$hashedPwd','$education','$last', '$first','$isAdmin')";
+
 							VALUES ('$email','$hashedPwd','$education','$last', '$first','$isAdmin')";
+
                             //VALUES ('$email', '$education', '$YOG', '$last', '$first','$hashedPwd','$isAdmin')";
 					mysqli_query($conn, $sql);
 
