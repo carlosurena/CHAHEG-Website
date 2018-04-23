@@ -61,15 +61,14 @@ $_SESSION['URLsessionvalue'] = $_GET['URLsessionvalue'];
                         
                         echo $_SESSION['TestID'];
 
-                            $_SESSION['USERNUM'] = 1;	
+                            //$_SESSION['USERNUM'] = 1;	
 							$frame = "<iframe src='" .$_SESSION['URLsessionvalue']."' height='100%' width='100%' style='border: 0px;' webkitAllowFullScreen Mozallowfullscreen allowFullScreen></iframe>";
 							echo $frame;
 						?>
 						<!-- <iframe src='http://my.visme.co/projects/dmvvdg0k-6ep5dm1gwej75dz3' height='100%' width='100%' style='border: 0px;' webkitAllowFullScreen Mozallowfullscreen allowFullScreen></iframe>
 						-->
-                       
 
-                        <p><a href="test.php">clickme</a></p>
+                        <button class="btn btn-success btn-block" onclick="location.href='test.php';">Take the test! </button>
 				
 						</div>
                     </div>

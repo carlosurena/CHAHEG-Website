@@ -43,3 +43,6 @@ ORDER BY RAND() LIMIT 10;
 
 SELECT questionid, answerid, answer, isanswer from testanswers where questionid in (62, 70, 80, 74)
 ORDER BY questionid, rand();
+
+#Select correct answers given the questionsID
+select questionid, answerid from testanswers where questionid in (1,2,3,4,5,6,7,8,9) and isanswer = 1;

@@ -130,7 +130,7 @@ include 'assets/php/config.php';
 
                     echo $QuestionIDString;
                     echo "<br>";
-                    $sql2 = "SELECT questionid, answerid, answer, isanswer from testanswers where questionid in (".$QuestionIDString.") ORDER BY questionid, rand();";
+                    $sql2 = "SELECT questionid, answerid, answer, isanswer from testanswers where questionid in (".$QuestionIDString.") ORDER BY questionid, rand();";//get QuestionID, AnswerID, AnswerText, and IsAnswer for questions chosen above
                     echo $sql2;
                     echo "<br>";
                     $result2 = mysqli_query($conn, $sql2);
@@ -163,11 +163,18 @@ include 'assets/php/config.php';
                     echo "<br>";
 
 
-
-
-
+                    echo $QuestionTextArray[0];
 
                 ?>
+                <div class=testdiv>
+
+                    <p>hi</p>
+                </div>
+
+
+
+
+
     </div>
     </div>
     </div>
