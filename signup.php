@@ -131,7 +131,7 @@ session_start();
                             $msgText = '<font color="#FF0000"> Please fill out all required items.</font><br />';
                             echo $msgImage,$msgText;
                         }
-                        //$_SESSION['ErrorCodeSignUp'] = ' ';
+                        $_SESSION['ErrorCodeSignUp'] = ' ';
                     }
                 ?>
                 </div><button class="btn btn-success btn-block" type="submit">Sign Up</button>
