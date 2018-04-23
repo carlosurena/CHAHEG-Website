@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 if (isset($_POST['fname'])) {
 
@@ -16,16 +17,19 @@ if (isset($_POST['fname'])) {
 	//Check for empty fields
 	if (empty($first) || empty($last) || empty($email) || empty($education) || empty($passwd) || empty($YOG)) {
 		header("Location: ../signup.php?signup=empty");
+		$_SESSION['ErrorCodeSignUp'] = 'Empty_Fields_Signup';
 		exit();
 	} else {
 		//Check if input characters are valid
 		if (!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last)) {
 			header("Location: ../../signup.php?signup=invalid");
+			$_SESSION['ErrorCodeSignUp'] = 'Invalid_Characters';
 			exit();
 		} else {
 			//Check if email is valid
 			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 				header("Location: ../../signup.php?signup=invalidemail");
+				$_SESSION['ErrorCodeSignUp'] = 'Invalid_Email';
 				exit();
 			} else {
                 // if there are any users with the same email
@@ -35,6 +39,7 @@ if (isset($_POST['fname'])) {
 
 				if ($resultCheck > 0) {
 					header("Location: ../../signup.php?signup=usertaken");
+					$_SESSION['ErrorCodeSignUp'] = 'User_Exists';
 					exit();
 				} else {
 					//Hashing the password

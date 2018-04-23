@@ -52,6 +52,17 @@ session_start();
                     <form action="assets/php/register.php" class="sign-up-form" method="post">
                         <div class="form-group"><label class="control-label">First Name</label><input class="form-control" type="text" name="fname" required=""></div>
                         <div class="form-group"><label class="control-label">Last Name</label><input class="form-control" type="text" name="lname" required=""></div>
+                        <?php
+                            $msgImage = "<img src='images/errorsign.png' height='25' width='25' alt='Error X Image' />";
+                            if(isset($_SESSION['ErrorCodeSignUp']))
+                            {
+                                if($_SESSION['ErrorCodeSignUp'] == 'Invalid_Characters')
+                                {
+                                    $msgText = '<font color="#FF0000"> Please use valid characters for your first and last name (A-Z).</font><br />';
+                                    echo $msgImage,$msgText;
+                                }
+                            }
+                        ?>
                         <div class="form-group"><label class="control-label">Education</label>
                             <select class="form-control" name="education" required="">
                                 <option value="Albertus Magnus College">Albertus Magnus College</option>
@@ -92,9 +103,37 @@ session_start();
                         </div>
                         <div class="form-group"><label class="control-label">Anticipated Year of Graduation</label><input class="form-control" type="date" name="YOG" required=""></div>
                 <div class="form-group"><label class="control-label">Email </label><input class="form-control" type="text" name="email" required=""></div>
+                <?php
+                if(isset($_SESSION['ErrorCodeSignUp']))
+                {
+                    $msgImage = "<img src='images/errorsign.png' height='25' width='25' alt='Error X Image' />";
+                    if($_SESSION['ErrorCodeSignUp'] == 'Invalid_Email')
+                    {
+                        $msgText = '<font color="#FF0000"> Please enter a valid email address.</font><br />';
+                        echo $msgImage,$msgText;
+                    }
+                    elseif($_SESSION['ErrorCodeSignUp'] == 'User_Exists')
+                    {
+                        $msgText = '<font color="#FF0000"> This email already exists in our system.</font><br />';
+                        echo $msgImage,$msgText;
+                    }
+                }
+                ?>
                 <div class="form-group"><label class="control-label">Password </label><input class="form-control" type="password" name="passwd" required=""></div>
                 <div class="form-group"><div class="checkbox"><label class="control-label"><input type="checkbox">Remember me</label></div>
                 <input type="hidden" name="ad" value="0">
+                <?php
+                    if(isset($_SESSION['ErrorCodeSignUp']))
+                    {
+                        $msgImage = "<img src='images/errorsign.png' height='25' width='25' alt='Error X Image' />";
+                        if($_SESSION['ErrorCodeSignUp'] == 'Empty_Fields_Signup')
+                        {
+                            $msgText = '<font color="#FF0000"> Please fill out all required items.</font><br />';
+                            echo $msgImage,$msgText;
+                        }
+                        //$_SESSION['ErrorCodeSignUp'] = ' ';
+                    }
+                ?>
                 </div><button class="btn btn-success btn-block" type="submit">Sign Up</button>
                 </form>
             </div>

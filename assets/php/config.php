@@ -5,8 +5,8 @@
 // $dbPassword = "NF1RGUq{3P(+";
 // $dbName = "db_team1"; // db_team1
 
-$dbServername = "127.0.0.1";
-$dbUsername = "root";
+$dbServername = "";
+$dbUsername = "";
 $dbPassword = "";
 $dbName = "chaheg"; // db_team1
 
