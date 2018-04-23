@@ -75,6 +75,7 @@ session_start();
                                 {
                                     // Do Nothing
                                 }
+                                $_SESSION['ErrorCode'] == ' ';
                             }
                             ?>
                         </div><button class="btn btn-success btn-block" type="submit">LOGIN </button><a class="btn btn-link center-block" role="button" href="recovery.php">Forgot Password?</a></form>
