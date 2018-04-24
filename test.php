@@ -119,6 +119,13 @@ include 'assets/php/config.php';
                         }
                     }
 
+                    $_SESSION['QuestionIDArray'] = $QuestionIDArray;
+                    $_SESSION['QuestionTextArray'] = $QuestionTextArray;
+                    $_SESSION['AnswerIDArray'] = $AnswerIDArray;
+                    $_SESSION['AnswerTextArray'] = $AnswerTextArray;
+                    $_SESSION['IsAnswerArray'] = $IsAnswerArray;
+                    $_SESSION['QuestionIDString'] = $QuestionIDString;
+
                     echo "<br>";
                     print_r($AnswerIDArray);
                     echo "<br>";
