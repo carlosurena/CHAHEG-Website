@@ -1,4 +1,18 @@
-img {
-  border-radius:5px;
+.container.form-container {
+  padding:0 0 10% 0;
+}
+
+.simple-slider {
+  display:block;
+  text-align:center;
+}
+
+#TestQ {
+  display:block;
+  text-align:center;
+  width:300px;
+  /*margin:0%;*/
+  height:500px;
+  background-repeat:no-repeat;
 }
 

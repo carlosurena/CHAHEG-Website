@@ -1,6 +1,0 @@
-[16-Apr-2018 20:12:59 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/jonnyreyes13/sw516/team1/assets/php/register.php on line 34
-[16-Apr-2018 20:13:15 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/jonnyreyes13/sw516/team1/assets/php/login.php on line 20
-[16-Apr-2018 20:30:50 UTC] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'kron.simmons'@'localhost' (using password: NO) in /home/jonnyreyes13/sw516/team1/assets/php/config.php on line 13
-[16-Apr-2018 20:37:54 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/jonnyreyes13/sw516/team1/assets/php/register.php on line 34
-[16-Apr-2018 20:38:07 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/jonnyreyes13/sw516/team1/assets/php/login.php on line 19
-[16-Apr-2018 20:38:21 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/jonnyreyes13/sw516/team1/assets/php/login.php on line 19

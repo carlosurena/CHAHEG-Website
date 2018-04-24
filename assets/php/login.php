@@ -1,19 +1,14 @@
 <?php
-
 session_start();
-
 if (isset($_POST['email'])) {
 	include 'config.php';
-
 	$email = mysqli_real_escape_string($conn, $_POST['email']);
 	$password = mysqli_real_escape_string($conn, $_POST['passwd']);
-
 	// error handeling
 	// check empty input
 	if(empty($email) ||empty($password)){
 			header("Location: login.php?login=empty_fields"); // no password or email provided
 			$_SESSION['ErrorCode'] = 'Empty_Fields';
-
 	} else {
 		$sql = "SELECT * FROM users WHERE Email = '$email'";
 		$result = mysqli_query($conn, $sql);
@@ -38,7 +33,6 @@ if (isset($_POST['email'])) {
 					$_SESSION['UserID'] = $row['UserID'];
 					$_SESSION['School'] = $row['School'];
 					header("Location: ../../dashboard.php");
-
 				}
 			}
 		}

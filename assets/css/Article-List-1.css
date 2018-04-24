@@ -71,3 +71,41 @@
   opacity:1;
 }
 
+#TestQ {
+  width:50%;
+  margin:auto;
+  /*background-image:url(../Images/building.jpg;*/
+}
+
+.row.well.question {
+  /*height:370px;*/
+  height:100%;
+  width:100%;
+  margin:6% 0 0 0;
+  padding:4% 3% 4% 3%;
+  text-align:left;
+}
+
+.container.question-container {
+  width:65%;
+  margin-top:0%;
+  /*height:100%;*/
+}
+
+#Question {
+  text-align:left;
+}
+
+.table-responsive.Question-table {
+  text-align:left;
+}
+
+.Question-submit {
+  bottom:10px;
+  position:absolute;
+  /*float:center;*/
+  /*text-align:center;*/
+  width:100%;
+  margin:auto;
+}
+

@@ -1,10 +1,7 @@
 <?php
 session_start();
-
 if (isset($_POST['fname'])) {
-
 	include_once 'config.php';
-
 	$first = mysqli_real_escape_string($conn, $_POST['fname']);
 	$last = mysqli_real_escape_string($conn, $_POST['lname']);
 	$email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -12,7 +9,6 @@ if (isset($_POST['fname'])) {
 	$passwd = mysqli_real_escape_string($conn, $_POST['passwd']);
     $YOG = mysqli_real_escape_string($conn, $_POST['YOG']);
     $isAdmin = mysqli_real_escape_string($conn, $_POST['ad']);
-
 	//Error handlers
 	//Check for empty fields
 	if (empty($first) || empty($last) || empty($email) || empty($education) || empty($passwd) || empty($YOG)) {
@@ -36,7 +32,6 @@ if (isset($_POST['fname'])) {
 				$sql = "SELECT * FROM users WHERE email='$email'";
 				$result = mysqli_query($conn, $sql);
 				$resultCheck = mysqli_num_rows($result);
-
 				if ($resultCheck > 0) {
 					header("Location: ../../signup.php?signup=usertaken");
 					$_SESSION['ErrorCodeSignUp'] = 'User_Exists';
@@ -49,14 +44,12 @@ if (isset($_POST['fname'])) {
 							VALUES ('$email','$hashedPwd','$education','$last', '$first','$isAdmin')";
                             //VALUES ('$email', '$education', '$YOG', '$last', '$first','$hashedPwd','$isAdmin')";
 					mysqli_query($conn, $sql);
-
-					header("Location: ../../dashboard.php?signup=success"); // should send us to the profile page after a succesful log in
+					header("Location: ../../index.php?signup=success"); // should send us to the profile page after a succesful log in
 					exit();
 				}
 			}
 		}
 	}
-
 } else {
 	header("Location: ../../dashboard.php");
 	exit();

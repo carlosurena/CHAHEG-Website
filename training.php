@@ -1,6 +1,7 @@
 <?php
 session_start();
-$_SESSION['sessionvalue'] = $_GET['sessionvalue'];
+include 'assets/php/config.php';
+$_SESSION['URLsessionvalue'] = $_GET['URLsessionvalue'];
 ?>
 <html>
 
@@ -39,12 +40,35 @@ $_SESSION['sessionvalue'] = $_GET['sessionvalue'];
                 <div class="row">
                     <div class="col-md-12">
                         <div>
-						<?php	
-							$frame = "<iframe src='" .$_SESSION['sessionvalue']."' height='100%' width='100%' style='border: 0px;' webkitAllowFullScreen Mozallowfullscreen allowFullScreen></iframe>";
+						<?php
+                        $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+                        if (!$conn)
+                        {
+                             die("Connection failed: " . mysqli_connect_error());
+                        }
+                        $sql = "SELECT TestID FROM testmaterials WHERE MaterialPath = '".$_SESSION['URLsessionvalue']."';";
+                        $result = mysqli_query($conn, $sql);
+
+                        $x=0;
+                        if (mysqli_num_rows($result) > 0)
+                        {
+                            while($row = mysqli_fetch_assoc($result))
+                            {
+                               $_SESSION['TestID'] = $row["TestID"];
+                            }
+                        }
+
+                        
+                        //echo $_SESSION['TestID'];
+
+                            //$_SESSION['USERNUM'] = 1;	
+							$frame = "<iframe src='" .$_SESSION['URLsessionvalue']."' height='100%' width='100%' style='border: 0px;' webkitAllowFullScreen Mozallowfullscreen allowFullScreen></iframe>";
 							echo $frame;
 						?>
 						<!-- <iframe src='http://my.visme.co/projects/dmvvdg0k-6ep5dm1gwej75dz3' height='100%' width='100%' style='border: 0px;' webkitAllowFullScreen Mozallowfullscreen allowFullScreen></iframe>
 						-->
+
+                        <button class="btn btn-success btn-block" onclick="location.href='test.php';">Take the test! </button>
 				
 						</div>
                     </div>
