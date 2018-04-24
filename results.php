@@ -59,47 +59,59 @@ include 'assets/php/config.php';
                     die("Connection failed: " . mysqli_connect_error());
                  }
 			
-				 $sql = "SELECT FirstName, LastName FROM Users";
+
+            $sql = "SELECT testmaterials.testname, results.score FROM testmaterials JOIN results ON testmaterials.TestID=results.TestID WHERE userid = ".$_SESSION['UserID'].";";
+				// $sql = "SELECT FirstName, LastName FROM Users";
 				 $result = mysqli_query($conn, $sql);
 
-				 $sql2 = "SELECT UserID, TestID, Score FROM Results";
-				 $result2 = mysqli_query($conn, $sql2);
+				 //$sql2 = "SELECT UserID, TestID, Score FROM Results";
+				// $result2 = mysqli_query($conn, $sql2);
 				 
-				 $firstNameArray = array();
-				 $lastNameArray = array();
+				 $TestNameArray = array();
+				 $scoreArray = array();
 				 
 				 $x=0;
 				 if (mysqli_num_rows($result) > 0)
                     {
                         while($row = mysqli_fetch_assoc($result))
                         {
-                            $firstNameArray[$x] = $row["FirstName"];
-                            $lastNameArray[$x] = $row["LastName"];
+                            $TestNameArray[$x] = $row["testname"];
+                            $scoreArray[$x] = $row["score"];
                             $x++;
                         }
                     }
+
+               // print_r($TestNameArray);
+                //print_r($scoreArray);
+                echo "<h1>Grades</h1>";
+                $counter = 0;
+                while($counter < count($scoreArray))
+                {
+                    echo $TestNameArray[$counter].": ".$scoreArray[$counter]."%";
+                    $counter++;
+                }
 			
-				$UserIDArray = array();
-				$TestIDArray = array();
-				$ResultArray = array();
-				 $x=0;
-                    if (mysqli_num_rows($result2) > 0)
-                    {
-                        while($row = mysqli_fetch_assoc($result2))
-                        {
-                            $UserIDArray[$x] = $row["UserID"];
-							$TestIDArray[$x] = $row["TestID"];
-                            $ResultArray[$x] = $row["Score"];
-                            $x++;
-                        }
-                    }
-				$x=0;
-					while($x<count($firstNameArray))
-					{
-						echo $firstNameArray[$x]." ". $lastNameArray[$x]. " received a grade of ". $ResultArray[$x]. " on TestID: ".$TestIDArray[$x];
-						echo "<br>";
-						$x++;
-					}
+				//$UserIDArray = array();
+				//$TestIDArray = array();
+				//$ResultArray = array();
+				// $x=0;
+                 //   if (mysqli_num_rows($result2) > 0)
+                 //   {
+                //        while($row = mysqli_fetch_assoc($result2))
+                 //       {
+                 //           $UserIDArray[$x] = $row["UserID"];
+				//			$TestIDArray[$x] = $row["TestID"];
+                 //           $ResultArray[$x] = $row["Score"];
+                //            $x++;
+                 //       }
+                 //   }
+				//$x=0;
+				//	while($x<count($firstNameArray))
+				//	{
+				//		echo $firstNameArray[$x]." ". $lastNameArray[$x]. " received a grade of ". $ResultArray[$x]. " on TestID: ".$TestIDArray[$x];
+				//		echo "<br>";
+				//		$x++;
+				//	}
 					
 			
 			
