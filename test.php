@@ -132,6 +132,9 @@ include 'assets/php/config.php';
 
 
                     echo $QuestionTextArray[0];
+                    echo "<br>";
+
+                    echo "\"".$AnswerTextArray[0]."\"";
 
                 ?>
 
@@ -148,6 +151,11 @@ include 'assets/php/config.php';
     </div>
     </div>
 </nav></div>
+
+
+
+
+<form action="checktestscore.php" method="POST">
     <div class="simple-slider">
         <form>
             <div class="swiper-container" style="height:85vh">
@@ -159,16 +167,16 @@ include 'assets/php/config.php';
                                     <h1 id="Question"><?php echo $QuestionTextArray[0]; ?></h1>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[0]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question1" value =<?php echo "\"".$AnswerIDArray[0]."\""; ?>><?php echo $AnswerTextArray[0]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[1]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question1" value =<?php echo "\"".$AnswerIDArray[1]."\""; ?>><?php echo $AnswerTextArray[1]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[2]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question1" value =<?php echo "\"".$AnswerIDArray[2]."\""; ?>><?php echo $AnswerTextArray[2]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[3]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question1" value =<?php echo "\"".$AnswerIDArray[3]."\""; ?>><?php echo $AnswerTextArray[3]; ?></label></div>
                                     <div></div>
                                 </div>
                             </div>
@@ -182,16 +190,16 @@ include 'assets/php/config.php';
                                    <h1 id="Question"><?php echo $QuestionTextArray[1]; ?></h1>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[4]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question2" value =<?php echo "\"".$AnswerIDArray[4]."\""; ?>><?php echo $AnswerTextArray[4]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[5]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question2" value =<?php echo "\"".$AnswerIDArray[5]."\""; ?>><?php echo $AnswerTextArray[5]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[6]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question2" value =<?php echo "\"".$AnswerIDArray[6]."\""; ?>><?php echo $AnswerTextArray[6]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[7]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question2" value =<?php echo "\"".$AnswerIDArray[7]."\""; ?>><?php echo $AnswerTextArray[7]; ?></label></div>
                                     <div></div>
                                 </div>
                             </div>
@@ -205,16 +213,16 @@ include 'assets/php/config.php';
                                     <h1 id="Question"><?php echo $QuestionTextArray[2]; ?></h1>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[8]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question3" value =<?php echo "\"".$AnswerIDArray[8]."\""; ?>><?php echo $AnswerTextArray[8]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[9]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question3" value =<?php echo "\"".$AnswerIDArray[9]."\""; ?>><?php echo $AnswerTextArray[9]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[10]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question3" value =<?php echo "\"".$AnswerIDArray[10]."\""; ?>><?php echo $AnswerTextArray[10]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[11]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question3" value =<?php echo "\"".$AnswerIDArray[11]."\""; ?>><?php echo $AnswerTextArray[11]; ?></label></div>
                                     <div></div>
                                 </div>
                             </div>
@@ -228,16 +236,16 @@ include 'assets/php/config.php';
                                     <h1 id="Question"><?php echo $QuestionTextArray[3]; ?></h1>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[12]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question4" value =<?php echo "\"".$AnswerIDArray[12]."\""; ?>><?php echo $AnswerTextArray[12]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[13]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question4" value =<?php echo "\"".$AnswerIDArray[13]."\""; ?>><?php echo $AnswerTextArray[13]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[14]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question4" value =<?php echo "\"".$AnswerIDArray[14]."\""; ?>><?php echo $AnswerTextArray[14]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[15]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question4" value =<?php echo "\"".$AnswerIDArray[15]."\""; ?>><?php echo $AnswerTextArray[15]; ?></label></div>
                                     <div></div>
                                 </div>
                             </div>
@@ -251,16 +259,16 @@ include 'assets/php/config.php';
                                    <h1 id="Question"><?php echo $QuestionTextArray[4]; ?></h1>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[16]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question5" value =<?php echo "\"".$AnswerIDArray[16]."\""; ?>><?php echo $AnswerTextArray[16]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[17]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question5" value =<?php echo "\"".$AnswerIDArray[17]."\""; ?>><?php echo $AnswerTextArray[17]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[18]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question5" value =<?php echo "\"".$AnswerIDArray[18]."\""; ?>><?php echo $AnswerTextArray[18]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[19]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question5" value =<?php echo "\"".$AnswerIDArray[19]."\""; ?>><?php echo $AnswerTextArray[19]; ?></label></div>
                                     <div></div>
                                 </div>
                             </div>
@@ -274,16 +282,16 @@ include 'assets/php/config.php';
                                     <h1 id="Question"><?php echo $QuestionTextArray[5]; ?></h1>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[20]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question6" value =<?php echo "\"".$AnswerIDArray[20]."\""; ?>><?php echo $AnswerTextArray[20]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[21]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question6" value =<?php echo "\"".$AnswerIDArray[21]."\""; ?>><?php echo $AnswerTextArray[21]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[22]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question6" value =<?php echo "\"".$AnswerIDArray[22]."\""; ?>><?php echo $AnswerTextArray[22]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[23]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question6" value =<?php echo "\"".$AnswerIDArray[23]."\""; ?>><?php echo $AnswerTextArray[23]; ?></label></div>
                                     <div></div>
                                 </div>
                             </div>
@@ -297,16 +305,16 @@ include 'assets/php/config.php';
                                     <h1 id="Question"><?php echo $QuestionTextArray[6]; ?></h1>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[24]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question7" value =<?php echo "\"".$AnswerIDArray[24]."\""; ?>><?php echo $AnswerTextArray[24]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[25]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question7" value =<?php echo "\"".$AnswerIDArray[25]."\""; ?>><?php echo $AnswerTextArray[25]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[26]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question7" value =<?php echo "\"".$AnswerIDArray[26]."\""; ?>><?php echo $AnswerTextArray[26]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[27]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question7" value =<?php echo "\"".$AnswerIDArray[27]."\""; ?>><?php echo $AnswerTextArray[27]; ?></label></div>
                                     <div></div>
                                 </div>
                             </div>
@@ -320,16 +328,16 @@ include 'assets/php/config.php';
                                     <h1 id="Question"><?php echo $QuestionTextArray[7]; ?></h1>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[28]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question8" value =<?php echo "\"".$AnswerIDArray[28]."\""; ?>><?php echo $AnswerTextArray[28]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[29]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question8" value =<?php echo "\"".$AnswerIDArray[29]."\""; ?>><?php echo $AnswerTextArray[29]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[30]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question8" value =<?php echo "\"".$AnswerIDArray[30]."\""; ?>><?php echo $AnswerTextArray[30]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[31]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question8" value =<?php echo "\"".$AnswerIDArray[31]."\""; ?>><?php echo $AnswerTextArray[31]; ?></label></div>
                                     <div></div>
                                 </div>
                             </div>
@@ -343,16 +351,16 @@ include 'assets/php/config.php';
                                     <h1 id="Question"><?php echo $QuestionTextArray[8]; ?></h1>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[32]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question9" value =<?php echo "\"".$AnswerIDArray[32]."\""; ?>><?php echo $AnswerTextArray[32]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[33]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question9" value =<?php echo "\"".$AnswerIDArray[33]."\""; ?>><?php echo $AnswerTextArray[33]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[34]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question9" value =<?php echo "\"".$AnswerIDArray[34]."\""; ?>><?php echo $AnswerTextArray[34]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[35]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question9" value =<?php echo "\"".$AnswerIDArray[35]."\""; ?>><?php echo $AnswerTextArray[35]; ?></label></div>
                                     <div></div>
                                 </div>
                             </div>
@@ -366,16 +374,16 @@ include 'assets/php/config.php';
                                     <h1 id="Question"><?php echo $QuestionTextArray[9]; ?></h1>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[36]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question10" value =<?php echo "\"".$AnswerIDArray[36]."\""; ?>><?php echo $AnswerTextArray[36]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[37]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question10" value =<?php echo "\"".$AnswerIDArray[37]."\""; ?>><?php echo $AnswerTextArray[37]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[38]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question10" value =<?php echo "\"".$AnswerIDArray[38]."\""; ?>><?php echo $AnswerTextArray[38]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[39]; ?></label></div>
+                                    <div class="radio"><label><input type="radio" name="Question10" value =<?php echo "\"".$AnswerIDArray[39]."\""; ?>><?php echo $AnswerTextArray[39]; ?></label></div>
                                     <div></div>
                                 </div>
                             </div>
@@ -398,6 +406,7 @@ include 'assets/php/config.php';
             </div>
         </form>
     </div>
+</form>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
