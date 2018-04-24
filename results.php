@@ -185,10 +185,6 @@ session_start();
                 }
 			
 			
-<<<<<<< Updated upstream
-=======
-			
->>>>>>> Stashed changes
 				$x=0;
 					while($x<mysqli_num_rows($result))
 					{
