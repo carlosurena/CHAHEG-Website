@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'assets/php/config.php';
+//include 'assets/php/config.php';
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@ include 'assets/php/config.php';
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses</title>
+    <title>Reports</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/Article-List.css">
@@ -51,32 +51,125 @@ include 'assets/php/config.php';
     <div class="article-list" style="margin-top:68px;">
         <div class="container-fluid">
             <div class="intro">
-			
-			<?php
+			    <h2 class="text-center">Ad-Hoc Reports</h2>
+                <p class="text-center">This is a paragraph. </p>
+            </div><br>
+            <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>University</th>
+                        <th>Grade</th>
+                        <th>Completion date</th>
+                        <th>Test Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                <?php
 				 $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
                  if (!$conn)
                  {
                     die("Connection failed: " . mysqli_connect_error());
                  }
-			
+                
+                $condition = 1;
+                $Selected_UserID = 1;
+                $Selected_School = 'All';
+                $Selected_TestName = 'All';
+                $Selected_TestID = 0;
 
-            $sql = "SELECT testmaterials.testname, results.score FROM testmaterials JOIN results ON testmaterials.TestID=results.TestID WHERE userid = ".$_SESSION['UserID'].";";
-				// $sql = "SELECT FirstName, LastName FROM Users";
-				 $result = mysqli_query($conn, $sql);
+                //Condition 3 (All Tests, All Users, All Schools) Never runs in this implementation
+                //RIGHT BUTTON SEARCH
+                if (isset($_SESSION["reportUID"])) {
+                    $Selected_UserID = $_SESSION["reportUID"];
+                    $condition = 2;
+                }else{
+                    echo "Not Working";
+                }
+                //LEFT BUTTON SEARCH
+                if (isset($_SESSION["reportTestName"])) {
+                    $Selected_TestName = $_SESSION["reportTestName"]; 
+                    if(isset($_SESSION["reportSchool"])){
+                        $Selected_School = $_SESSION["reportSchool"]; 
+                        $condition = 5;
+                    }else{
+                        $condition = 1;
+                    }
+                    
+                }else{
+                    if(isset($_SESSION["reportSchool"])){
+                        $Selected_School = $_SESSION["reportSchool"]; 
+                        $condition = 4;
+                    }
+                }
+                 $sql_OneTest_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.TestID FROM Results
+                                            JOIN Users ON Results.UserID = Users.UserID
+                                            JOIN TestMaterials ON TestMaterials.TestID = Results.TestID
+                                            WHERE Results.TestID = $Selected_TestID
+                                            ORDER BY Users.LastName";
+            
+                 
+                $sql_AllTests_OneUser = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score 
+                                            FROM TestMaterials 
+                                            JOIN Results ON TestMaterials.TestID=Results.TestID 
+                                            JOIN Users ON Results.UserID = Users.UserID
+                                            WHERE Results.UserID = $Selected_UserID
+                                            ORDER BY Users.LastName";
+                $sql_AllTests_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score 
+                                            FROM TestMaterials 
+                                            JOIN Results ON TestMaterials.TestID=Results.TestID 
+                                            JOIN Users ON Results.UserID = Users.UserID
+                                            ORDER BY Users.LastName";
+               
+               $sql_OneSchool_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score 
+                                            FROM TestMaterials 
+                                            JOIN Results ON TestMaterials.TestID=Results.TestID 
+                                            JOIN Users ON Results.UserID = Users.UserID
+                                            WHERE Users.School = '$Selected_School'
+                                            ORDER BY Users.LastName";
 
-				 //$sql2 = "SELECT UserID, TestID, Score FROM Results";
-				// $result2 = mysqli_query($conn, $sql2);
+                $sql_OneSchool_OneTest = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score 
+                                            FROM TestMaterials 
+                                            JOIN Results ON TestMaterials.TestID=Results.TestID 
+                                            JOIN Users ON Results.UserID = Users.UserID
+                                            WHERE Users.School = '$Selected_School'
+                                            AND Results.TestID = $Selected_TestID
+                                            ORDER BY Users.LastName";
+
+                
+                if($condition == 1){
+                    $result = mysqli_query($conn, $sql_OneTest_AllUsers);
+                }elseif($condition == 2){
+                    $result = mysqli_query($conn, $sql_AllTests_OneUser);
+                }elseif($condition == 3){
+                    $result = mysqli_query($conn, $sql_AllTests_AllUsers);
+                }elseif($condition == 4){
+                    $result = mysqli_query($conn, $sql_OneSchool_AllUsers);
+                }elseif($condition == 5){
+                    $result = mysqli_query($conn, $sql_OneSchool_OneTest);
+                }
 				 
-				 $TestNameArray = array();
-				 $scoreArray = array();
+				 $firstNameArray = array();
+                 $lastNameArray = array();
+                 $schoolArray = array();
+                 $TestNameArray = array();
+                 $ScoreArray = array();
+                 $ScoreCompletionArray = array();
+
+
 				 
 				 $x=0;
 				 if (mysqli_num_rows($result) > 0)
                     {
                         while($row = mysqli_fetch_assoc($result))
                         {
-                            $TestNameArray[$x] = $row["testname"];
-                            $scoreArray[$x] = $row["score"];
+                            $firstNameArray[$x] = $row["FirstName"];
+                            $lastNameArray[$x] = $row["LastName"];
+                            $schoolArray[$x] = $row["School"];
+                            $TestNameArray[$x] = $row["TestName"];
+                            $ScoreArray[$x] = $row["Score"];
+                            $ScoreCompletionArray[$x] = $row["UpdateOn"];
                             $x++;
                         }
                     }
@@ -91,35 +184,25 @@ include 'assets/php/config.php';
                     $counter++;
                 }
 			
-				//$UserIDArray = array();
-				//$TestIDArray = array();
-				//$ResultArray = array();
-				// $x=0;
-                 //   if (mysqli_num_rows($result2) > 0)
-                 //   {
-                //        while($row = mysqli_fetch_assoc($result2))
-                 //       {
-                 //           $UserIDArray[$x] = $row["UserID"];
-				//			$TestIDArray[$x] = $row["TestID"];
-                 //           $ResultArray[$x] = $row["Score"];
-                //            $x++;
-                 //       }
-                 //   }
-				//$x=0;
-				//	while($x<count($firstNameArray))
-				//	{
-				//		echo $firstNameArray[$x]." ". $lastNameArray[$x]. " received a grade of ". $ResultArray[$x]. " on TestID: ".$TestIDArray[$x];
-				//		echo "<br>";
-				//		$x++;
-				//	}
-					
+			
+				$x=0;
+					while($x<mysqli_num_rows($result))
+					{
+						echo "<tr><td>" .$firstNameArray[$x]." ". $lastNameArray[$x]. "</td><td>".$schoolArray[$x]. "</td><td>". $ScoreArray[$x]. "</td><td>".$ScoreCompletionArray. "</td><td>".$TestNameArray[$x]."</td></tr>";
+						//echo "<br>";
+						$x++;
+					}
+					//echo count($ScoreArray);
 			
 			
 			
 			?>
+                </tbody>
+            </table>
+			
 				
        
-            </div>
+            
             <div class="row articles">
                 
     </div>
