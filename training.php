@@ -59,7 +59,7 @@ $_SESSION['URLsessionvalue'] = $_GET['URLsessionvalue'];
                         }
 
                         
-                        echo $_SESSION['TestID'];
+                        //echo $_SESSION['TestID'];
 
                             //$_SESSION['USERNUM'] = 1;	
 							$frame = "<iframe src='" .$_SESSION['URLsessionvalue']."' height='100%' width='100%' style='border: 0px;' webkitAllowFullScreen Mozallowfullscreen allowFullScreen></iframe>";

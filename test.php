@@ -51,13 +51,13 @@ include 'assets/php/config.php';
 
                     if(isset($_SESSION['TestID']))
                     {
-                        echo "TestID is ".$_SESSION['TestID']."<br>";
-                        echo "UserID is ".$_SESSION['UserID']."<br>";
+                        //echo "TestID is ".$_SESSION['TestID']."<br>";
+                        //echo "UserID is ".$_SESSION['UserID']."<br>";
                     }
 
                     //$sql = "SELECT questionid, question FROM testquestions WHERE testid = ".$_SESSION['TestID']." ORDER BY RAND() LIMIT 10;"; //Select 10 random Question IDs and their Questions
                     $sql = "SELECT questionid, question FROM (SELECT questionid, question FROM testquestions WHERE testid = ".$_SESSION['TestID']." ORDER BY RAND() LIMIT 10) T1 ORDER BY questionid;";
-                    echo $sql;
+                    //echo $sql;
                     $result = mysqli_query($conn, $sql);
 
                         
@@ -76,10 +76,10 @@ include 'assets/php/config.php';
                         }
                     }
 
-                    print_r($QuestionIDArray);
-                    echo "<br>";
-                    print_r($QuestionTextArray);
-                    echo "<br>";
+                    //print_r($QuestionIDArray);
+                    //echo "<br>";
+                    //print_r($QuestionTextArray);
+                   // echo "<br>";
 
                     $x=0;
                     $QuestionIDString = "";
@@ -96,11 +96,11 @@ include 'assets/php/config.php';
                         $x++;
                     }
 
-                    echo $QuestionIDString;
-                    echo "<br>";
+                    //echo $QuestionIDString;
+                   // echo "<br>";
                     $sql2 = "SELECT questionid, answerid, answer, isanswer from testanswers where questionid in (".$QuestionIDString.");";//get QuestionID, AnswerID, AnswerText, and IsAnswer for questions chosen above
-                    echo $sql2;
-                    echo "<br>";
+                    //echo $sql2;
+                    //echo "<br>";
                     $result2 = mysqli_query($conn, $sql2);
 
                     $AnswerIDArray = array();
@@ -126,22 +126,22 @@ include 'assets/php/config.php';
                     $_SESSION['IsAnswerArray'] = $IsAnswerArray;
                     $_SESSION['QuestionIDString'] = $QuestionIDString;
 
-                    echo "<br>";
-                    print_r($AnswerIDArray);
-                    echo "<br>";
-                    echo "<br>";
-                    print_r($AnswerTextArray);
-                    echo "<br>";
-                    echo "<br>";
-                    print_r($IsAnswerArray);
-                    echo "<br>";
-                    echo "<br>";
+                    //echo "<br>";
+                    //print_r($AnswerIDArray);
+                    //echo "<br>";
+                    //echo "<br>";
+                    //print_r($AnswerTextArray);
+                    //echo "<br>";
+                    //echo "<br>";
+                    //print_r($IsAnswerArray);
+                    //echo "<br>";
+                    //echo "<br>";
 
 
-                    echo $QuestionTextArray[0];
-                    echo "<br>";
+                    //echo $QuestionTextArray[0];
+                    //echo "<br>";
 
-                    echo "\"".$AnswerTextArray[0]."\"";
+                    //echo "\"".$AnswerTextArray[0]."\"";
 
                 ?>
 
