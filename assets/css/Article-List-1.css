@@ -82,7 +82,8 @@
   height:100%;
   width:100%;
   margin:6% 0 0 0;
-  /*padding:6%;*/
+  padding:4% 3% 4% 3%;
+  text-align:left;
 }
 
 .container.question-container {
@@ -97,5 +98,14 @@
 
 .table-responsive.Question-table {
   text-align:left;
+}
+
+.Question-submit {
+  bottom:10px;
+  position:absolute;
+  /*float:center;*/
+  /*text-align:center;*/
+  width:100%;
+  margin:auto;
 }
 
