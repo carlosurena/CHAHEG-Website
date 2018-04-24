@@ -10,6 +10,11 @@ $dbUsername = "root";
 $dbPassword = "password";
 $dbName = "CHAHEG"; // db_team1
 
+// $dbServername = "localhost";
+// $dbUsername = "kron.simmons";
+// $dbPassword = "";
+// $dbName = "chaheg"; // db_team1
+
 $conn = mysqli_connect($dbServername,$dbUsername, $dbPassword, $dbName );
 
 if ($conn === false) {
