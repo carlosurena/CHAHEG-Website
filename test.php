@@ -57,7 +57,7 @@ include 'assets/php/config.php';
 
                     //$sql = "SELECT questionid, question FROM testquestions WHERE testid = ".$_SESSION['TestID']." ORDER BY RAND() LIMIT 10;"; //Select 10 random Question IDs and their Questions
                     $sql = "SELECT questionid, question FROM (SELECT questionid, question FROM testquestions WHERE testid = ".$_SESSION['TestID']." ORDER BY RAND() LIMIT 10) T1 ORDER BY questionid;";
-
+                    echo $sql;
                     $result = mysqli_query($conn, $sql);
 
                         

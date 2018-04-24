@@ -73,8 +73,8 @@ include 'assets/php/config.php';
                         die("Connection failed: " . mysqli_connect_error());
                    }
                     $sql = "SELECT TestName, TestDescription, MaterialPath FROM testmaterials
-                    WHERE testid NOT IN (select testid from results where userid = 3 and score > 80) 
-                    having (select count(testid) from results where userid = 3 and testid=testmaterials.testid) < 3;";
+                    WHERE testid NOT IN (select testid from results where userid = ".$_SESSION['UserID']." and score > 80) 
+                    having (select count(testid) from results where userid = ".$_SESSION['UserID']." and testid=testmaterials.testid) < 3;";
                     $result = mysqli_query($conn, $sql);
                     $nameArray = array();
                     $descriptionArray = array();

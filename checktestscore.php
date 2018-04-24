@@ -86,9 +86,6 @@ $x=0;
         }
     }
 
-
-
-
 echo "</br>";
 print_r($CorrectAnswerIDArray);
 echo "</br>";
@@ -107,6 +104,11 @@ while($counter < count($answerIDChoicesArray))
 }
 echo "You got a ".$numberCorrect."/10";
 
+$percent = intval($numberCorrect)*10;
 
 
+
+
+$sql2 = "INSERT INTO Results VALUES(null,".$_SESSION['UserID'].",".$_SESSION['TestID'].",".$percent.");";
+$result2 = mysqli_query($conn, $sql2);
 ?>

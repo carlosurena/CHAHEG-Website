@@ -37,9 +37,9 @@ having (select count(testid) from results where userid = 4 and testid=testmateri
 #Account Page
 SELECT firstname, lastname, email, school from users WHERE userid = 1;
 
-# Select random questions for a specific test
-SELECT questionid, question FROM testquestions WHERE testid = 4
-ORDER BY RAND() LIMIT 10;
+# Select random questions for a specific test and order them
+SELECT questionid, question FROM (SELECT questionid, question FROM testquestions WHERE testid = 4
+ORDER BY RAND() LIMIT 10) T1 ORDER BY questionid; 
 
 SELECT questionid, answerid, answer, isanswer from testanswers where questionid in (62, 70, 80, 74)
 ORDER BY questionid, rand();
