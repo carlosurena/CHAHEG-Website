@@ -177,19 +177,19 @@ include 'assets/php/config.php';
                         <div class="container question-container">
                             <div class="row well question">
                                 <div class="col-md-12">
-                                    <h1 id="Question">Heading 2</h1>
+                                   <h1 id="Question"><?php echo $QuestionTextArray[1]; ?></h1>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio">Label 2</label></div>
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[4]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio">Label 2</label></div>
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[5]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio">Label 2</label></div>
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[6]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio">Label 2</label></div>
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[7]; ?></label></div>
                                     <div></div>
                                 </div>
                             </div>
@@ -200,19 +200,19 @@ include 'assets/php/config.php';
                         <div class="container question-container">
                             <div class="row well question">
                                 <div class="col-md-12">
-                                    <h1 id="Question">Heading 3</h1>
+                                    <h1 id="Question"><?php echo $QuestionTextArray[2]; ?></h1>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio">Label 3</label></div>
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[8]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[9]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[10]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[11]; ?></label></div>
                                     <div></div>
                                 </div>
                             </div>
@@ -223,156 +223,161 @@ include 'assets/php/config.php';
                         <div class="container question-container">
                             <div class="row well question">
                                 <div class="col-md-12">
-                                    <h1 id="Question">Heading 4</h1>
+                                    <h1 id="Question"><?php echo $QuestionTextArray[3]; ?></h1>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio">Label 4</label></div>
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[12]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[13]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[14]; ?></label></div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
-                                    <div></div>
-                                </div>
-                            </div>
-                        </div>
-                         </div>
-                    <div class="swiper-slide">
-                        <div class="container question-container">
-                            <div class="row well question">
-                                <div class="col-md-12">
-                                    <h1 id="Question">Heading 3</h1>
-                                </div>
-                                <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio">Label 3</label></div>
-                                </div>
-                                <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
-                                </div>
-                                <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
-                                </div>
-                                <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
-                                    <div></div>
-                                </div>
-                            </div>
-                        </div>
-                         </div>
-                    <div class="swiper-slide">
-                        <div class="container question-container">
-                            <div class="row well question">
-                                <div class="col-md-12">
-                                    <h1 id="Question">Heading 3</h1>
-                                </div>
-                                <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio">Label 3</label></div>
-                                </div>
-                                <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
-                                </div>
-                                <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
-                                </div>
-                                <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
-                                    <div></div>
-                                </div>
-                            </div>
-                        </div>
-                         </div>
-                    <div class="swiper-slide">
-                        <div class="container question-container">
-                            <div class="row well question">
-                                <div class="col-md-12">
-                                    <h1 id="Question">Heading 3</h1>
-                                </div>
-                                <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio">Label 3</label></div>
-                                </div>
-                                <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
-                                </div>
-                                <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
-                                </div>
-                                <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
-                                    <div></div>
-                                </div>
-                            </div>
-                        </div>
-                         </div>
-                    <div class="swiper-slide">
-                        <div class="container question-container">
-                            <div class="row well question">
-                                <div class="col-md-12">
-                                    <h1 id="Question">Heading 3</h1>
-                                </div>
-                                <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio">Label 3</label></div>
-                                </div>
-                                <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
-                                </div>
-                                <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
-                                </div>
-                                <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
-                                    <div></div>
-                                </div>
-                            </div>
-                        </div>
-                         </div>
-                    <div class="swiper-slide">
-                        <div class="container question-container">
-                            <div class="row well question">
-                                <div class="col-md-12">
-                                    <h1 id="Question">Heading 3</h1>
-                                </div>
-                                <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio">Label 3</label></div>
-                                </div>
-                                <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
-                                </div>
-                                <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
-                                </div>
-                                <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
-                                    <div></div>
-                                </div>
-                            </div>
-                        </div>
-                         </div>
-                    <div class="swiper-slide">
-                        <div class="container question-container">
-                            <div class="row well question">
-                                <div class="col-md-12">
-                                    <h1 id="Question">Heading 3</h1>
-                                </div>
-                                <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio">Label 3</label></div>
-                                </div>
-                                <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
-                                </div>
-                                <div class="col-md-5 col-md-offset-1">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
-                                </div>
-                                <div class="col-md-5 col-md-offset-0">
-                                    <div class="radio"><label><input type="radio">Label</label></div>
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[15]; ?></label></div>
                                     <div></div>
                                 </div>
                             </div>
                         </div>
 
+                         </div>
+                    <div class="swiper-slide">
+                        <div class="container question-container">
+                            <div class="row well question">
+                                <div class="col-md-12">
+                                   <h1 id="Question"><?php echo $QuestionTextArray[4]; ?></h1>
+                                </div>
+                                <div class="col-md-5 col-md-offset-1">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[16]; ?></label></div>
+                                </div>
+                                <div class="col-md-5 col-md-offset-0">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[17]; ?></label></div>
+                                </div>
+                                <div class="col-md-5 col-md-offset-1">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[18]; ?></label></div>
+                                </div>
+                                <div class="col-md-5 col-md-offset-0">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[19]; ?></label></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                         </div>
+                    <div class="swiper-slide">
+                        <div class="container question-container">
+                            <div class="row well question">
+                                <div class="col-md-12">
+                                    <h1 id="Question"><?php echo $QuestionTextArray[5]; ?></h1>
+                                </div>
+                                <div class="col-md-5 col-md-offset-1">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[20]; ?></label></div>
+                                </div>
+                                <div class="col-md-5 col-md-offset-0">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[21]; ?></label></div>
+                                </div>
+                                <div class="col-md-5 col-md-offset-1">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[22]; ?></label></div>
+                                </div>
+                                <div class="col-md-5 col-md-offset-0">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[23]; ?></label></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                         </div>
+                    <div class="swiper-slide">
+                        <div class="container question-container">
+                            <div class="row well question">
+                                <div class="col-md-12">
+                                    <h1 id="Question"><?php echo $QuestionTextArray[6]; ?></h1>
+                                </div>
+                                <div class="col-md-5 col-md-offset-1">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[24]; ?></label></div>
+                                </div>
+                                <div class="col-md-5 col-md-offset-0">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[25]; ?></label></div>
+                                </div>
+                                <div class="col-md-5 col-md-offset-1">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[26]; ?></label></div>
+                                </div>
+                                <div class="col-md-5 col-md-offset-0">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[27]; ?></label></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                         </div>
+                    <div class="swiper-slide">
+                        <div class="container question-container">
+                            <div class="row well question">
+                                <div class="col-md-12">
+                                    <h1 id="Question"><?php echo $QuestionTextArray[7]; ?></h1>
+                                </div>
+                                <div class="col-md-5 col-md-offset-1">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[28]; ?></label></div>
+                                </div>
+                                <div class="col-md-5 col-md-offset-0">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[29]; ?></label></div>
+                                </div>
+                                <div class="col-md-5 col-md-offset-1">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[30]; ?></label></div>
+                                </div>
+                                <div class="col-md-5 col-md-offset-0">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[31]; ?></label></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                         </div>
+                    <div class="swiper-slide">
+                        <div class="container question-container">
+                            <div class="row well question">
+                                <div class="col-md-12">
+                                    <h1 id="Question"><?php echo $QuestionTextArray[8]; ?></h1>
+                                </div>
+                                <div class="col-md-5 col-md-offset-1">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[32]; ?></label></div>
+                                </div>
+                                <div class="col-md-5 col-md-offset-0">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[33]; ?></label></div>
+                                </div>
+                                <div class="col-md-5 col-md-offset-1">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[34]; ?></label></div>
+                                </div>
+                                <div class="col-md-5 col-md-offset-0">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[35]; ?></label></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                         </div>
+                    <div class="swiper-slide">
+                        <div class="container question-container">
+                            <div class="row well question">
+                                <div class="col-md-12">
+                                    <h1 id="Question"><?php echo $QuestionTextArray[9]; ?></h1>
+                                </div>
+                                <div class="col-md-5 col-md-offset-1">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[36]; ?></label></div>
+                                </div>
+                                <div class="col-md-5 col-md-offset-0">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[37]; ?></label></div>
+                                </div>
+                                <div class="col-md-5 col-md-offset-1">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[38]; ?></label></div>
+                                </div>
+                                <div class="col-md-5 col-md-offset-0">
+                                    <div class="radio"><label><input type="radio"><?php echo $AnswerTextArray[39]; ?></label></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
 
 
 
