@@ -54,8 +54,8 @@ include 'assets/php/config.php';
                  if (isset($_SESSION['UserID'])) {
                      echo $_SESSION['FirstName'];
                  }
-              ?> Courses</h2>
-                <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
+              ?>'s Courses</h2>
+                <!--<p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p> -->
             </div>
             <div class="row articles">
                 <?php
