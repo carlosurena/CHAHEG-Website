@@ -63,23 +63,23 @@ include 'assets/php/config.php';
                    // $dbUsername = "db_team1_agent";
                    // $dbPassword = "NF1RGUq{3P(+";
                    // $dbName = "db_team1"; // db_team1
-                   $dbServername = "localhost";
-                    $dbUsername = "fletch";
-                    $dbPassword = "amdamd321";
-                    $dbName = "chaheg"; // db_team1
+                   // $dbServername = "localhost";
+                   //  $dbUsername = "fletch";
+                   //  $dbPassword = "amdamd321";
+                   //  $dbName = "chaheg"; // db_team1
                    $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
                    if (!$conn)
                    {
                         die("Connection failed: " . mysqli_connect_error());
                    }
                     $sql = "SELECT TestName, TestDescription, MaterialPath FROM testmaterials
-                    WHERE testid NOT IN (select testid from results where userid = ".$_SESSION['UserID']." and score > 80) 
+                    WHERE testid NOT IN (select testid from results where userid = ".$_SESSION['UserID']." and score > 80)
                     having (select count(testid) from results where userid = ".$_SESSION['UserID']." and testid=testmaterials.testid) < 3;";
                     $result = mysqli_query($conn, $sql);
                     $nameArray = array();
                     $descriptionArray = array();
                     $materialPathArray = array();
-                    
+
                     $x=0;
                     if (mysqli_num_rows($result) > 0)
                     {
