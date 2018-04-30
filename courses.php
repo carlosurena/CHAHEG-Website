@@ -54,28 +54,13 @@ include 'assets/php/config.php';
                  if (isset($_SESSION['UserID'])) {
                      echo $_SESSION['FirstName'];
                  }
-<<<<<<< HEAD
-              ?> Courses</h2>
-                <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
-            </div>
-            <div class="row articles">
-                <?php
-                   // $dbServername = "127.0.0.1";
-                   // $dbUsername = "db_team1_agent";
-                   // $dbPassword = "NF1RGUq{3P(+";
-                   // $dbName = "db_team1"; // db_team1
-                   // $dbServername = "localhost";
-                   //  $dbUsername = "fletch";
-                   //  $dbPassword = "amdamd321";
-                   //  $dbName = "chaheg"; // db_team1
-=======
+
               ?>'s Courses</h2>
                 <!--<p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p> -->
             </div>
             <div class="row articles">
                 <?php
-                
->>>>>>> refs/remotes/origin/Chris-Branch
+
                    $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
                    if (!$conn)
                    {

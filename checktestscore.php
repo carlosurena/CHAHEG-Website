@@ -41,11 +41,8 @@ include 'assets/php/config.php';
                 <li class="sidebar-brand"> <a href="dashboard.php">Home </a></li>
                 <li> <a href="dashboard.php">Dashboard </a></li>
                 <li> <a href="courses.php">Courses</a></li>
-<<<<<<< HEAD
-                <li> <a href="results.php">Results</a><a href="#">Account</a><a href="assets/php/logout.php">Sign Out</a></li>
-=======
+
                 <li> <a href="myresults.php">Results</a><a href="#">Account</a><a href="assets/php/logout.php">Sign Out</a></li>
->>>>>>> refs/remotes/origin/Chris-Branch
             </ul>
         </div>
         <div class="page-content-wrapper"></div>
@@ -167,7 +164,7 @@ $result2 = mysqli_query($conn, $sql2);
 ?>
 
 
-               
+
     </div>
     </div>
     </div>

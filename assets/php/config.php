@@ -9,10 +9,7 @@ $dbServername = "localhost";
 $dbUsername = "kron.simmons";
 $dbPassword = "";
 $dbName = "chaheg2"; // db_team1
-<<<<<<< HEAD
 
-=======
->>>>>>> refs/remotes/origin/Chris-Branch
 
 $conn = mysqli_connect($dbServername,$dbUsername, $dbPassword, $dbName );
 
