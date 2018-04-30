@@ -65,42 +65,83 @@ if(isset($_POST['Question1']))
 {
     $answerIDChoicesArray[0] = $_POST['Question1'];
 }
+else
+{
+    $answerIDChoicesArray[0] = "0";
+}
 if(isset($_POST['Question2']))
 {
     $answerIDChoicesArray[1] = $_POST['Question2'];
+}
+else
+{
+    $answerIDChoicesArray[1] = "0";
 }
 if(isset($_POST['Question3']))
 {
     $answerIDChoicesArray[2] = $_POST['Question3'];
 }
+else
+{
+    $answerIDChoicesArray[2] = "0";
+}
 if(isset($_POST['Question4']))
 {
     $answerIDChoicesArray[3] = $_POST['Question4'];
+}
+else
+{
+    $answerIDChoicesArray[3] = "0";
 }
 if(isset($_POST['Question5']))
 {
     $answerIDChoicesArray[4] = $_POST['Question5'];
 }
+else
+{
+    $answerIDChoicesArray[4] = "0";
+}
 if(isset($_POST['Question6']))
 {
     $answerIDChoicesArray[5] = $_POST['Question6'];
+}
+else
+{
+    $answerIDChoicesArray[5] = "0";
 }
 if(isset($_POST['Question7']))
 {
     $answerIDChoicesArray[6] = $_POST['Question7'];
 }
+else
+{
+    $answerIDChoicesArray[6] = "0";
+}
 if(isset($_POST['Question8']))
 {
     $answerIDChoicesArray[7] = $_POST['Question8'];
+}
+else
+{
+    $answerIDChoicesArray[7] = "0";
 }
 if(isset($_POST['Question9']))
 {
     $answerIDChoicesArray[8] = $_POST['Question9'];
 }
+else
+{
+    $answerIDChoicesArray[8] = "0";
+}
 if(isset($_POST['Question10']))
 {
     $answerIDChoicesArray[9] = $_POST['Question10'];
 }
+else
+{
+    $answerIDChoicesArray[9] = "0";
+}
+
 
 
 
