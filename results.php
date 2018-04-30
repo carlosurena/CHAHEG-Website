@@ -1,6 +1,6 @@
 <?php
 session_start();
-//include 'assets/php/config.php';
+include 'assets/php/config.php';
 ?>
 
 <!DOCTYPE html>
@@ -52,11 +52,7 @@ session_start();
         <div class="container-fluid">
             <div class="intro">
 			    <h2 class="text-center">Ad-Hoc Reports</h2>
-<<<<<<< HEAD
-                <p class="text-center">This is a paragraph. </p>
-=======
                 <p class="text-center"></p>
->>>>>>> refs/remotes/origin/Chris-Branch
             </div><br>
             <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
@@ -85,22 +81,6 @@ session_start();
 
                 //Condition 3 (All Tests, All Users, All Schools) Never runs in this implementation
                 //RIGHT BUTTON SEARCH
-<<<<<<< HEAD
-                if (isset($_SESSION["reportUID"])) {
-                    $Selected_UserID = $_SESSION["reportUID"];
-                    $condition = 2;
-                }else{
-                    echo "Not Working";
-                }
-                //LEFT BUTTON SEARCH
-                if (isset($_SESSION["reportTestName"])) {
-                    $Selected_TestName = $_SESSION["reportTestName"]; 
-                    if(isset($_SESSION["reportSchool"])){
-                        $Selected_School = $_SESSION["reportSchool"]; 
-                        $condition = 5;
-                    }else{
-                        $condition = 1;
-=======
 				//echo $_SESSION['reportUID'];
                 if (isset($_SESSION["reportUID"])) {
                     $Selected_UserID = $_SESSION["reportUID"];
@@ -114,21 +94,15 @@ session_start();
                         $condition = 5; //One Test, One School, All Users
                     }else{
                         $condition = 1; //One test, All Users, All Schools
->>>>>>> refs/remotes/origin/Chris-Branch
                     }
                     
                 }else{
                     if(isset($_SESSION["reportSchool"])){
                         $Selected_School = $_SESSION["reportSchool"]; 
-<<<<<<< HEAD
-                        $condition = 4;
-                    }
-=======
                         $condition = 4;//One School All Users, All tests
                     }else{
 						$condition = 3;
 					}
->>>>>>> refs/remotes/origin/Chris-Branch
                 }
                  $sql_OneTest_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.TestID FROM Results
                                             JOIN Users ON Results.UserID = Users.UserID
@@ -182,11 +156,7 @@ session_start();
                  $schoolArray = array();
                  $TestNameArray = array();
                  $ScoreArray = array();
-<<<<<<< HEAD
-                 $ScoreCompletionArray = array();
-=======
                  //$ScoreCompletionArray = array();
->>>>>>> refs/remotes/origin/Chris-Branch
 
 
 				 
@@ -200,26 +170,13 @@ session_start();
                             $schoolArray[$x] = $row["School"];
                             $TestNameArray[$x] = $row["TestName"];
                             $ScoreArray[$x] = $row["Score"];
-<<<<<<< HEAD
-                            $ScoreCompletionArray[$x] = $row["UpdateOn"];
-=======
                             //$ScoreCompletionArray[$x] = $row["UpdateOn"];
->>>>>>> refs/remotes/origin/Chris-Branch
                             $x++;
                         }
                     }
 
                // print_r($TestNameArray);
                 //print_r($scoreArray);
-<<<<<<< HEAD
-                echo "<h1>Grades</h1>";
-                $counter = 0;
-                while($counter < count($scoreArray))
-                {
-                    echo $TestNameArray[$counter].": ".$scoreArray[$counter]."%";
-                    $counter++;
-                }
-=======
                 //echo "<h1>Grades</h1>";
                 //$counter = 0;
                 //while($counter < count($ScoreArray))
@@ -227,17 +184,12 @@ session_start();
                 //    echo $TestNameArray[$counter].": ".$ScoreArray[$counter]."%";
                 //    $counter++;
                 //}
->>>>>>> refs/remotes/origin/Chris-Branch
 			
 			
 				$x=0;
 					while($x<mysqli_num_rows($result))
 					{
-<<<<<<< HEAD
-						echo "<tr><td>" .$firstNameArray[$x]." ". $lastNameArray[$x]. "</td><td>".$schoolArray[$x]. "</td><td>". $ScoreArray[$x]. "</td><td>".$ScoreCompletionArray. "</td><td>".$TestNameArray[$x]."</td></tr>";
-=======
 						echo "<tr><td>" .$firstNameArray[$x]." ". $lastNameArray[$x]. "</td><td>".$schoolArray[$x]. "</td><td>". $ScoreArray[$x]. "</td><td>".$ScoreArray[$x]. "</td><td>".$TestNameArray[$x]."</td></tr>";
->>>>>>> refs/remotes/origin/Chris-Branch
 						//echo "<br>";
 						$x++;
 					}

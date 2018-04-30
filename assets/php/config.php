@@ -6,9 +6,9 @@
 // $dbName = "db_team1"; // db_team1
 
 $dbServername = "localhost";
-$dbUsername = "kron.simmons";
-$dbPassword = "";
-$dbName = "chaheg2"; // db_team1
+$dbUsername = "root";
+$dbPassword = "password";
+$dbName = "chaheg"; // db_team1
 
 
 $conn = mysqli_connect($dbServername,$dbUsername, $dbPassword, $dbName );

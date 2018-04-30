@@ -1,11 +1,4 @@
 <?php
-<<<<<<< HEAD
-
-	include_once 'config.php';
-	$School = mysqli_real_escape_string($conn, $_POST['education']);
-	$testname = mysqli_real_escape_string($conn, $_POST['testname']);
-
-=======
 session_start();
 	include_once 'config.php';
 	$School = mysqli_real_escape_string($conn, $_POST['education']);
@@ -13,7 +6,6 @@ session_start();
 	unset($_SESSION['reportSchool']);
 	unset($_SESSION['reportTestName']);
 	unset($_SESSION['reportUID']);
->>>>>>> refs/remotes/origin/Chris-Branch
 	//Error handlers
 	//Check for empty fields
 	if ($School != "All") {
@@ -22,18 +14,12 @@ session_start();
 	} else if($testname != "All"){
 		$_SESSION["reportTestName"] = $testname;
 		
-<<<<<<< HEAD
-	}else {
-		//header("Location: ../../dashboard.php");
-		exit();
-=======
 	}
 	else {
 		//header("Location: ../../dashboard.php");
 		//exit();
 		unset($_SESSION['reportSchool']);
 		unset($_SESSION['reportTestName']);
->>>>>>> refs/remotes/origin/Chris-Branch
 	}
 
 	header("Location: ../../results.php?".$_SESSION["reportSchool"]); // should send us to the profile page after a succesful log in

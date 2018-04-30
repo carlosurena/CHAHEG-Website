@@ -1,9 +1,4 @@
 <?php
-<<<<<<< HEAD
-if (isset($_POST['uID'])) {
-	include_once 'config.php';
-	$userID = mysqli_real_escape_string($conn, $_POST['uID']);
-=======
 session_start();
 if (isset($_POST['uID'])) {
 	include_once 'config.php';
@@ -11,7 +6,6 @@ if (isset($_POST['uID'])) {
 	unset($_SESSION['reportSchool']);
 	unset($_SESSION['reportTestName']);
 	unset($_SESSION['reportUID']);
->>>>>>> refs/remotes/origin/Chris-Branch
 
 	//Error handlers
 	//Check for empty fields

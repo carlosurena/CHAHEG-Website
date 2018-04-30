@@ -1,5 +1,0 @@
-# ------- Custom 404 page link below -----
-ErrorDocument 404 /filenotfount.php
-
-#---- Restricting Access to directories ---
-IndexIgnore *
