@@ -58,7 +58,19 @@ session_start();
                     <h3 class="name">Account Info</h3>
                     <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p>
                 </div>
-                <div class="col-md-4 col-sm-6 item"><a href="myresults.php"><img class="img-responsive" src="assets/img/loft.jpg"></a>
+                
+
+                <?php
+                    if($_SESSION['PermissionID'] == 1)
+                    {
+                        echo '<div class="col-md-4 col-sm-6 item"><a href="report_form.php"><img class="img-responsive" src="assets/img/loft.jpg"></a>';
+                    }
+                    else
+                    {
+                        echo '<div class="col-md-4 col-sm-6 item"><a href="myresults.php"><img class="img-responsive" src="assets/img/loft.jpg"></a>';
+                    }
+
+                ?>
                     <h3 class="name">Results</h3>
                     <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p>
                 </div>

@@ -43,7 +43,7 @@ include 'assets/php/config.php';
                 <li class="sidebar-brand"> <a href="dashboard.php">Home </a></li>
                 <li> <a href="dashboard.php">Dashboard </a></li>
                 <li> <a href="courses.php">Courses</a></li>
-                <li> <a href="results.php">Results</a><a href="#">Account</a><a href="assets/php/logout.php">Sign Out</a></li>
+                <li> <a href="myresults.php">Results</a><a href="assets/php/logout.php">Sign Out</a></li>
             </ul>
         </div>
         <div class="page-content-wrapper"></div>

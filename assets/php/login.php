@@ -32,6 +32,7 @@ if (isset($_POST['email'])) {
 					$_SESSION['Email'] = $row['Email'];
 					$_SESSION['UserID'] = $row['UserID'];
 					$_SESSION['School'] = $row['School'];
+					$_SESSION['PermissionID'] = $row['PermissionID'];
 					header("Location: ../../dashboard.php");
 				}
 			}
