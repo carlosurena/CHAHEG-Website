@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -44,6 +47,36 @@
                         <div class="form-group"><label class="control-label">Password </label><input class="form-control" type="password" required="" name="passwd"></div>
                         <div class="form-group">
                             <div class="checkbox"><label class="control-label"><input type="checkbox">Remember me</label></div>
+                            <?php
+                            if(isset($_SESSION['ErrorCode']))
+                            {
+                                $msgImage = "<img src='images/errorsign.png' height='25' width='25' alt='Error X Image' />";
+                                if($_SESSION['ErrorCode'] == 'Empty_Fields')
+                                {
+                                    $msgText = '<font color="#FF0000"> Please enter values for Username and Password.</font><br />';
+                                    echo $msgImage,$msgText;
+                                }
+                                elseif($_SESSION['ErrorCode'] == 'Invalid_Account')
+                                {
+                                    $msgText = '<font color="#FF0000"> We could not find your Account!  Please create one!</font><br />';
+                                    echo $msgImage,$msgText;                                
+                                }
+                                elseif($_SESSION['ErrorCode'] == 'Error_3')
+                                {
+                                    $msgText = '<font color="#FF0000"> Invalid Username and Password, Try again!</font><br />';
+                                    echo $msgImage,$msgText;                                
+                                }
+                                elseif($_SESSION['ErrorCode'] == 'Error_4')
+                                {
+                                    $msgText = '<font color="#FF0000"> Could not reach database, contact Customer Support. </font><br />';
+                                    echo $msgImage,$msgText;
+                                }
+                                else
+                                {
+                                    // Do Nothing
+                                }
+                            }
+                            ?>
                         </div><button class="btn btn-success btn-block" type="submit">LOGIN </button><a class="btn btn-link center-block" role="button" href="recovery.php">Forgot Password?</a></form>
                 </div>
             </div>

@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -53,8 +56,10 @@
                 <div class="col-sm-2 text-center"></div>
                 <div class="col-sm-3 text-center">
                     
-                    
-                    <div class="form-group"><label class="control-label">Institution </label><select required class="form-control" name="education">
+                <form method="POST" action="assets/php/report_school.php">
+                    <div class="form-group">
+                        <label class="control-label">Institution </label>
+                        <select required class="form-control" name="education">
                         <option value="All">All</option>    
                         <option value="Albertus Magnus College">Albertus Magnus College</option>
                         <option value="Central Connecticut State University">Central Connecticut State University</option>
@@ -90,9 +95,10 @@
                         <option value="Western Connecticut State University">Western Connecticut State University</option>
                         <option value="Yale University">Yale University</option>
                         <option value="Yale-New Haven Hospital Dietetic Internship">Yale-New Haven Hospital Dietetic Internship</option>
-                            
-                    </select></div>
-                    <div class="form-group"><label class="control-label">Test </label><select required class="form-control" name="education">
+                        </select>
+                    </div>
+               
+                    <div class="form-group"><label class="control-label">Test </label><select required class="form-control" name="testname">
                             <option value="All">All</option>    
                             <option value="Albertus Magnus College">Albertus Magnus College</option>
                             <option value="Central Connecticut State University">Central Connecticut State University</option>
@@ -130,13 +136,20 @@
                             <option value="Yale-New Haven Hospital Dietetic Internship">Yale-New Haven Hospital Dietetic Internship</option>
                                 
                         </select></div>
+                        <button class="btn btn-success btn-block" type="submit">Search </button>
+
+                    </form>
                 </div>
                 <div class="col-sm-2 text-center align-middle" style="margin-top:60px">or</div>
                 <div class="col-sm-3 text-center">
+                <form method="POST" action="assets/php/report_ID.php">
                     <div class="form-group">
                         <label class="control-label">Student ID</label>
                         <input class="form-control" type="text" required="" name="uID">
-                    </div></div>
+                    </div>
+                    <button class="btn btn-success btn-block" type="submit">Search </button>
+                </form>
+                </div>
                 
 
                 <div class="col-sm-2 text-center"></div>
