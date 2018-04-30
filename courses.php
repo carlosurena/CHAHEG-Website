@@ -41,7 +41,7 @@ include 'assets/php/config.php';
                 <li class="sidebar-brand"> <a href="dashboard.php">Home </a></li>
                 <li> <a href="dashboard.php">Dashboard </a></li>
                 <li> <a href="courses.php">Courses</a></li>
-                <li> <a href="results.php">Results</a><a href="#">Account</a><a href="assets/php/logout.php">Sign Out</a></li>
+                <li> <a href="myresults.php">Results</a><a href="#">Account</a><a href="assets/php/logout.php">Sign Out</a></li>
             </ul>
         </div>
         <div class="page-content-wrapper"></div>
@@ -54,6 +54,7 @@ include 'assets/php/config.php';
                  if (isset($_SESSION['UserID'])) {
                      echo $_SESSION['FirstName'];
                  }
+<<<<<<< HEAD
               ?> Courses</h2>
                 <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
             </div>
@@ -67,6 +68,14 @@ include 'assets/php/config.php';
                    //  $dbUsername = "fletch";
                    //  $dbPassword = "amdamd321";
                    //  $dbName = "chaheg"; // db_team1
+=======
+              ?>'s Courses</h2>
+                <!--<p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p> -->
+            </div>
+            <div class="row articles">
+                <?php
+                
+>>>>>>> refs/remotes/origin/Chris-Branch
                    $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
                    if (!$conn)
                    {
