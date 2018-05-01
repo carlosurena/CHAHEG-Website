@@ -1,8 +1,5 @@
 <?php
-<<<<<<< HEAD
 session_start();
-=======
->>>>>>> refs/remotes/origin/Chris-Branch
 if (isset($_POST['fname'])) {
 	include_once 'config.php';
 	$first = mysqli_real_escape_string($conn, $_POST['fname']);
@@ -22,19 +19,13 @@ if (isset($_POST['fname'])) {
 		//Check if input characters are valid
 		if (!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last)) {
 			header("Location: ../../signup.php?signup=invalid");
-<<<<<<< HEAD
 			$_SESSION['ErrorCodeSignUp'] = 'Invalid_Characters';
-=======
->>>>>>> refs/remotes/origin/Chris-Branch
 			exit();
 		} else {
 			//Check if email is valid
 			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 				header("Location: ../../signup.php?signup=invalidemail");
-<<<<<<< HEAD
 				$_SESSION['ErrorCodeSignUp'] = 'Invalid_Email';
-=======
->>>>>>> refs/remotes/origin/Chris-Branch
 				exit();
 			} else {
                 // if there are any users with the same email
@@ -43,10 +34,7 @@ if (isset($_POST['fname'])) {
 				$resultCheck = mysqli_num_rows($result);
 				if ($resultCheck > 0) {
 					header("Location: ../../signup.php?signup=usertaken");
-<<<<<<< HEAD
 					$_SESSION['ErrorCodeSignUp'] = 'User_Exists';
-=======
->>>>>>> refs/remotes/origin/Chris-Branch
 					exit();
 				} else {
 					//Hashing the password
@@ -54,16 +42,9 @@ if (isset($_POST['fname'])) {
 					//Insert the user into the database
                     $sql = "INSERT INTO users (Email, Password, School, LastName, FirstName, PermissionID)
 							VALUES ('$email','$hashedPwd','$education','$last', '$first','$isAdmin')";
-<<<<<<< HEAD
-
                             //VALUES ('$email', '$education', '$YOG', '$last', '$first','$hashedPwd','$isAdmin')";
 					mysqli_query($conn, $sql);
 					header("Location: ../../index.php?signup=success"); // should send us to the profile page after a succesful log in
-=======
-                            //VALUES ('$email', '$education', '$YOG', '$last', '$first','$hashedPwd','$isAdmin')";
-					mysqli_query($conn, $sql);
-					header("Location: ../../dashboard.php?signup=success"); // should send us to the profile page after a succesful log in
->>>>>>> refs/remotes/origin/Chris-Branch
 					exit();
 				}
 			}
