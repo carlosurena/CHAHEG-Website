@@ -76,7 +76,7 @@ include 'assets/php/config.php';
                 $condition = 1;
                 $Selected_UserID = 1;
                 $Selected_School = 'All';
-                $Selected_TestName = 'All';
+                $Selected_TestName = 0;
                 $Selected_TestID = 0;
 
                 //Condition 3 (All Tests, All Users, All Schools) Never runs in this implementation
@@ -93,6 +93,7 @@ include 'assets/php/config.php';
                         $Selected_School = $_SESSION["reportSchool"]; 
                         $condition = 5; //One Test, One School, All Users
                     }else{
+                        echo "TEST IS:" .$Selected_TestName;
                         $condition = 1; //One test, All Users, All Schools
                     }
                     
@@ -104,10 +105,11 @@ include 'assets/php/config.php';
 						$condition = 3;
 					}
                 }
-                 $sql_OneTest_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.TestID FROM Results
+                 $sql_OneTest_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.TestID 
+                                            FROM TestMaterials 
+                                            JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID
-                                            JOIN TestMaterials ON TestMaterials.TestID = Results.TestID
-                                            WHERE Results.TestID = $Selected_TestID
+                                            WHERE Results.TestID = $Selected_TestName
                                             ORDER BY Users.LastName";
             
                  
