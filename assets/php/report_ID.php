@@ -1,17 +1,7 @@
 <?php
-<<<<<<< HEAD
 if (isset($_POST['uID'])) {
 	include_once 'config.php';
 	$userID = mysqli_real_escape_string($conn, $_POST['uID']);
-=======
-session_start();
-if (isset($_POST['uID'])) {
-	include_once 'config.php';
-	$userID = $_POST['uID'];
-	unset($_SESSION['reportSchool']);
-	unset($_SESSION['reportTestName']);
-	unset($_SESSION['reportUID']);
->>>>>>> refs/remotes/origin/Chris-Branch
 
 	//Error handlers
 	//Check for empty fields
@@ -33,12 +23,12 @@ if (isset($_POST['uID'])) {
 				//header("Location: login.php?login=invalid_account"); // User does not exist
 				//$_SESSION['ErrorCode'] = 'Invalid_Account';
 				echo "ERROR - Please enter valid StudentID: No ID Found.";
-			} else {	
+			} else {
 				$_SESSION["reportUID"] = $userID;
 				echo $userID;
 				header("Location: ../../results.php?".$_SESSION["reportUID"]); // should send us to the profile page after a succesful log in
 				exit();
-				
+
 			}
 		}
 	}
