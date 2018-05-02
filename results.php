@@ -82,27 +82,29 @@ include 'assets/php/config.php';
                 //Condition 3 (All Tests, All Users, All Schools) Never runs in this implementation
                 //RIGHT BUTTON SEARCH
 				//echo $_SESSION['reportUID'];
-                if (isset($_SESSION["reportUID"])) {
+                
+
+                if(isset($_SESSION["reportUID"])){
                     $Selected_UserID = $_SESSION["reportUID"];
-                    $condition = 2; //One User, All Tests, All Schools
-                }
-                //LEFT BUTTON SEARCH
-				else if (isset($_SESSION["reportTestName"])) {
-                    $Selected_TestName = $_SESSION["reportTestName"]; 
+                    if(isset($_SESSION["reportTestName"])){
+                        $Selected_TestName = $_SESSION["reportTestName"]; 
+                        $condition = 6; //One User, One Test
+                    }else{
+                        $condition = 2; //One User, All Tests
+                    }
+                }elseif(isset($_SESSION["reportTestName"])){
+                    $Selected_TestName = $_SESSION["reportTestName"];
                     if(isset($_SESSION["reportSchool"])){
-                        $Selected_School = $_SESSION["reportSchool"]; 
+                        $Selected_School = $_SESSION["reportSchool"];
                         $condition = 5; //One Test, One School, All Users
                     }else{
-                        $condition = 1; //One test, All Users, All Schools
+                        $condition = 1; //One Test, All Schools, All Users
                     }
-                    
+                }elseif(isset($_SESSION["reportSchool"])){
+                    $Selected_School = $_SESSION["reportSchool"];
+                    $condition = 4; //one school, All Tests, All users
                 }else{
-                    if(isset($_SESSION["reportSchool"])){
-                        $Selected_School = $_SESSION["reportSchool"]; 
-                        $condition = 4;//One School All Users, All tests
-                    }else{
-						$condition = 3;
-					}
+                    $condition = 3;
                 }
                  $sql_OneTest_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.TestID 
                                             FROM TestMaterials 
@@ -138,6 +140,14 @@ include 'assets/php/config.php';
                                             WHERE Results.TestID = " . $Selected_TestName . "
                                             AND Users.School = '$Selected_School'
                                             ORDER BY Users.LastName";
+                
+                $sql_OneTest_OneUser = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.TestID 
+                                            FROM TestMaterials 
+                                            JOIN Results ON TestMaterials.TestID=Results.TestID 
+                                            JOIN Users ON Results.UserID = Users.UserID
+                                            WHERE Results.TestID = " . $Selected_TestName . "
+                                            AND Results.UserID = $Selected_UserID
+                                            ORDER BY Users.LastName";
 
                 
                 if($condition == 1){
@@ -150,6 +160,8 @@ include 'assets/php/config.php';
                     $result = mysqli_query($conn, $sql_OneSchool_AllUsers);
                 }elseif($condition == 5){
                     $result = mysqli_query($conn, $sql_OneSchool_OneTest);
+                }elseif($condition == 6){
+                    $result = mysqli_query($conn, $sql_OneTest_OneUser);
                 }
 				 
 				 $firstNameArray = array();

@@ -55,10 +55,14 @@ include 'assets/php/config.php';
                 <p class="text-center">Search our database for Student test reports based on institution, test type, and Student ID. </p>
             </div> <br>
             <div class="row">
-                <div class="col-sm-2 text-center"></div>
-                <div class="col-sm-3 text-center">
+                <div class="col-sm-4 text-center"></div>
+                <div class="col-sm-4 text-center">
                     
                 <form method="POST" action="assets/php/report_school.php">
+                <div class="form-group">
+                        <label class="control-label">Student ID</label>
+                        <input class="form-control" type="text" name="uID">
+                    </div>
                     <div class="form-group">
                         <label class="control-label">Institution </label>
                         <select required class="form-control" name="education">
@@ -100,7 +104,8 @@ include 'assets/php/config.php';
                         </select>
                     </div>
                
-                    <div class="form-group"><label class="control-label">Test </label><select required class="form-control" name="testname">
+                    <div class="form-group">
+                    <label class="control-label">Test </label><select required class="form-control" name="testname">
                             <option value="All">All</option>    
                             <?php 
                             $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
@@ -137,19 +142,10 @@ include 'assets/php/config.php';
 
                     </form>
                 </div>
-                <div class="col-sm-2 text-center align-middle" style="margin-top:60px">or</div>
-                <div class="col-sm-3 text-center">
-                <form method="POST" action="assets/php/report_ID.php">
-                    <div class="form-group">
-                        <label class="control-label">Student ID</label>
-                        <input class="form-control" type="text" required="" name="uID">
-                    </div>
-                    <button class="btn btn-success btn-block" type="submit">Search </button>
-                </form>
-                </div>
+               
                 
 
-                <div class="col-sm-2 text-center"></div>
+                
               </div> <br>
         </div>
     </div>
