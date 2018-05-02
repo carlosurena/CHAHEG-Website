@@ -106,7 +106,7 @@ include 'assets/php/config.php';
                 }else{
                     $condition = 3;
                 }
-                 $sql_OneTest_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.TestID 
+                 $sql_OneTest_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, TestMaterials.UpdatedOn, Results.TestID 
                                             FROM TestMaterials 
                                             JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID
@@ -114,26 +114,26 @@ include 'assets/php/config.php';
                                             ORDER BY Users.LastName";
             
                  
-                $sql_AllTests_OneUser = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score 
+                $sql_AllTests_OneUser = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, TestMaterials.UpdatedOn 
                                             FROM TestMaterials 
                                             JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID
                                             WHERE Results.UserID = $Selected_UserID
                                             ORDER BY Users.LastName";
-                $sql_AllTests_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score 
+                $sql_AllTests_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, TestMaterials.UpdatedOn 
                                             FROM TestMaterials 
                                             JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID
                                             ORDER BY Users.LastName";
                
-               $sql_OneSchool_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score 
+               $sql_OneSchool_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, TestMaterials.UpdatedOn 
                                             FROM TestMaterials 
                                             JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID
                                             WHERE Users.School = '$Selected_School'
                                             ORDER BY Users.LastName";
 
-                $sql_OneSchool_OneTest = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.TestID 
+                $sql_OneSchool_OneTest = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, TestMaterials.UpdatedOn, Results.TestID 
                                             FROM TestMaterials 
                                             JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID
@@ -141,7 +141,7 @@ include 'assets/php/config.php';
                                             AND Users.School = '$Selected_School'
                                             ORDER BY Users.LastName";
                 
-                $sql_OneTest_OneUser = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.TestID 
+                $sql_OneTest_OneUser = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, TestMaterials.UpdatedOn, Results.TestID 
                                             FROM TestMaterials 
                                             JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID
@@ -169,7 +169,7 @@ include 'assets/php/config.php';
                  $schoolArray = array();
                  $TestNameArray = array();
                  $ScoreArray = array();
-                 //$ScoreCompletionArray = array();
+                 $ScoreCompletionArray = array();
 
 
 				 
@@ -183,7 +183,7 @@ include 'assets/php/config.php';
                             $schoolArray[$x] = $row["School"];
                             $TestNameArray[$x] = $row["TestName"];
                             $ScoreArray[$x] = $row["Score"];
-                            //$ScoreCompletionArray[$x] = $row["UpdateOn"];
+                            $ScoreCompletionArray[$x] = $row["UpdatedOn"];
                             $x++;
                         }
                     }
@@ -202,7 +202,7 @@ include 'assets/php/config.php';
 				$x=0;
 					while($x<mysqli_num_rows($result))
 					{
-						echo "<tr><td>" .$firstNameArray[$x]." ". $lastNameArray[$x]. "</td><td>".$schoolArray[$x]. "</td><td>". $ScoreArray[$x]. "</td><td>".$ScoreArray[$x]. "</td><td>".$TestNameArray[$x]."</td></tr>";
+						echo "<tr><td>" .$firstNameArray[$x]." ". $lastNameArray[$x]. "</td><td>".$schoolArray[$x]. "</td><td>". $ScoreArray[$x]. "</td><td>".$ScoreCompletionArray[$x]. "</td><td>".$TestNameArray[$x]."</td></tr>";
 						//echo "<br>";
 						$x++;
 					}
