@@ -10,16 +10,11 @@ session_start();
 	//Check for empty fields
 	if ($School != "All") {
 		$_SESSION["reportSchool"] = $School;
-		
-	} else if($testname != "All"){
+
+	} 
+	if($testname != "All"){
 		$_SESSION["reportTestName"] = $testname;
 		
-	}
-	else {
-		//header("Location: ../../dashboard.php");
-		//exit();
-		unset($_SESSION['reportSchool']);
-		unset($_SESSION['reportTestName']);
 	}
 
 	header("Location: ../../results.php?".$_SESSION["reportSchool"]); // should send us to the profile page after a succesful log in

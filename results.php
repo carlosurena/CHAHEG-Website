@@ -91,6 +91,7 @@ include 'assets/php/config.php';
                     $Selected_TestName = $_SESSION["reportTestName"]; 
                     if(isset($_SESSION["reportSchool"])){
                         $Selected_School = $_SESSION["reportSchool"]; 
+                        echo "correct test id:" . $Selected_TestName;
                         $condition = 5; //One Test, One School, All Users
                     }else{
                         echo "TEST IS:" .$Selected_TestName;
@@ -100,6 +101,8 @@ include 'assets/php/config.php';
                 }else{
                     if(isset($_SESSION["reportSchool"])){
                         $Selected_School = $_SESSION["reportSchool"]; 
+                        echo "test:" . $Selected_TestName;
+                        echo "hi";
                         $condition = 4;//One School All Users, All tests
                     }else{
 						$condition = 3;
@@ -132,12 +135,12 @@ include 'assets/php/config.php';
                                             WHERE Users.School = '$Selected_School'
                                             ORDER BY Users.LastName";
 
-                $sql_OneSchool_OneTest = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score 
+                $sql_OneSchool_OneTest = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.TestID 
                                             FROM TestMaterials 
                                             JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID
-                                            WHERE Users.School = '$Selected_School'
-                                            AND Results.TestID = $Selected_TestID
+                                            WHERE Results.TestID = $Selected_TestName
+                                            AND Users.School = $Selected_School
                                             ORDER BY Users.LastName";
 
                 
