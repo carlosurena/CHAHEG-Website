@@ -17,6 +17,12 @@ include 'assets/php/config.php';
     <link rel="stylesheet" href="assets/css/Sidebar-Menu.css">
     <link rel="stylesheet" href="assets/css/Sidebar-Menu1.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script>
+        function checkTextField(field) {
+            document.getElementById("School").disabled =
+            (field.value === "") ? false : true;
+        }
+</script>
 </head>
 
 <body>
@@ -61,11 +67,11 @@ include 'assets/php/config.php';
                 <form method="POST" action="assets/php/report_school.php">
                 <div class="form-group">
                         <label class="control-label">Student ID</label>
-                        <input class="form-control" type="text" name="uID">
+                        <input class="form-control" type="text" name="uID" id="uID" onblur="checkTextField(this)">
                     </div>
                     <div class="form-group">
                         <label class="control-label">Institution </label>
-                        <select required class="form-control" name="education">
+                        <select required class="form-control" id="School" name="education">
                         <option value="All">All</option>    
                         <option value="Albertus Magnus College">Albertus Magnus College</option>
                         <option value="Central Connecticut State University">Central Connecticut State University</option>
