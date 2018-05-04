@@ -84,7 +84,7 @@ include 'assets/php/config.php';
                  
             
                  
-                $sql_AllTests_OneUser = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score , TestMaterials.UpdatedOn
+                $sql_AllTests_OneUser = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score , Results.UpdatedOn
                                             FROM TestMaterials 
                                             JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID

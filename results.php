@@ -106,7 +106,7 @@ include 'assets/php/config.php';
                 }else{
                     $condition = 3;
                 }
-                 $sql_OneTest_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, TestMaterials.UpdatedOn, Results.TestID 
+                 $sql_OneTest_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn, Results.TestID 
                                             FROM TestMaterials 
                                             JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID
@@ -114,26 +114,26 @@ include 'assets/php/config.php';
                                             ORDER BY Users.LastName";
             
                  
-                $sql_AllTests_OneUser = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, TestMaterials.UpdatedOn 
+                $sql_AllTests_OneUser = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn 
                                             FROM TestMaterials 
                                             JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID
                                             WHERE Results.UserID = $Selected_UserID
                                             ORDER BY Users.LastName";
-                $sql_AllTests_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, TestMaterials.UpdatedOn 
+                $sql_AllTests_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn 
                                             FROM TestMaterials 
                                             JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID
                                             ORDER BY Users.LastName";
                
-               $sql_OneSchool_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, TestMaterials.UpdatedOn 
+               $sql_OneSchool_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn 
                                             FROM TestMaterials 
                                             JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID
                                             WHERE Users.School = '$Selected_School'
                                             ORDER BY Users.LastName";
 
-                $sql_OneSchool_OneTest = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, TestMaterials.UpdatedOn, Results.TestID 
+                $sql_OneSchool_OneTest = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn, Results.TestID 
                                             FROM TestMaterials 
                                             JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID
@@ -141,7 +141,7 @@ include 'assets/php/config.php';
                                             AND Users.School = '$Selected_School'
                                             ORDER BY Users.LastName";
                 
-                $sql_OneTest_OneUser = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, TestMaterials.UpdatedOn, Results.TestID 
+                $sql_OneTest_OneUser = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn, Results.TestID 
                                             FROM TestMaterials 
                                             JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID

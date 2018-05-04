@@ -200,7 +200,7 @@ $percent = intval($numberCorrect)*10;
 
 
 
-$sql2 = "INSERT INTO Results VALUES(null,".$_SESSION['UserID'].",".$_SESSION['TestID'].",".$percent.");";
+$sql2 = "INSERT INTO Results VALUES(null,".$_SESSION['UserID'].",".$_SESSION['TestID'].",".$percent.", NOW());";
 $result2 = mysqli_query($conn, $sql2);
 ?>
 
