@@ -45,16 +45,22 @@ session_start();
                     <form class="sing-in-form" method="POST" action="assets/php/login.php">
                         <div class="form-group"><label class="control-label">Email </label><input class="form-control" type="text" required="" name="email" 
                         value="<?php 
+                        if(isset($_COOKIE['Username']))
+                        {
                             if($_COOKIE['Username'] != null)
                             {
                                 echo $_COOKIE['Username'];
-                            }?>"></div>
+                            }
+                        }?>"></div>
                         <div class="form-group"><label class="control-label">Password </label><input class="form-control" type="password" required="" name="passwd"
                         value="<?php
-                            if($_COOKIE['password'])
+                        if(isset($_COOKIE['password']))
+                        {
+                            if($_COOKIE['password'] != null)
                             {
                                 echo $_COOKIE['password'];
                             }
+                        }    
                             ?>"></div>
                         <div class="form-group">
                             <div class="checkbox"><label class="control-label"><input type="checkbox" name="rememberInfo" value="rememberChecked">Remember me</label></div>

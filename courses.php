@@ -96,6 +96,13 @@ include 'assets/php/config.php';
                             $x++;
                         }
                     }
+                    elseif(mysqli_num_rows($result) == 0)
+                    {
+                        // Runs when there are no courses available and/or all have been completed. 
+                        $msgImage = "<img src='images/greenCheck.png' height='25' width='25' alt='Error X Image' />";
+                        $msgText = "Looks like you have finished all your tests!  Check back later to see if theres more.";
+                        echo $msgImage, $msgText;
+                    }
                     $y=0;
                     $training = "training.php?URLsessionvalue=";
                     while($y<count($nameArray))
