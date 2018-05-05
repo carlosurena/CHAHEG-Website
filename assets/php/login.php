@@ -33,6 +33,15 @@ if (isset($_POST['email'])) {
 					$_SESSION['UserID'] = $row['UserID'];
 					$_SESSION['School'] = $row['School'];
 					$_SESSION['PermissionID'] = $row['PermissionID'];
+					if($_POST['rememberInfo'] == 'rememberChecked')
+					{
+						$cookieName = 'Username';
+						$cookieValue = $email;
+						setcookie($cookieName , $cookieValue , time()+60*60*24*30); // Cookie set for 30 days.  
+						$cookieName = 'password';
+						$cookieValue = $password;
+						setcookie($cookieName , $cookieValue , time()+60*60*24*30); // Cookie set for 30 days.
+					}
 					header("Location: ../../dashboard.php");
 				}
 			}
