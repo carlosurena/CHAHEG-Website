@@ -63,8 +63,9 @@ session_start();
                                 }
                             }
                         ?>
-                        <div class="form-group" id="sign-up-form-group"><label class="control-label">Education</label>
-                            <select class="form-control" name="education" required="">
+                        <p id="test"></p>
+                       <div class="form-group"><label class="control-label">Education</label>
+-                          <select class="form-control" name="education" id="education" required="" onchange="checkSelection()">
                                 <option value="Albertus Magnus College">Albertus Magnus College</option>
                                 <option value="Central Connecticut State University">Central Connecticut State University</option>
                                 <option value="Charter Oak State College">Charter Oak State College</option>
@@ -99,14 +100,29 @@ session_start();
                                 <option value="Western Connecticut State University">Western Connecticut State University</option>
                                 <option value="Yale University">Yale University</option>
                                 <option value="Yale-New Haven Hospital Dietetic Internship">Yale-New Haven Hospital Dietetic Internship</option>
-                                <option value="other">Other</option>
+                                <option value="Other">Other</option>
                             </select>
 
 
                         </div>
 
+                        <div class="form-group" style="display:none" id="otherSchool" class="collapse"><label class="control-label">School Name</label><input class="form-control" type="text" name="otherSchool" required=""></div>
                 <div class="form-group"><label class="control-label">Anticipated Year of Graduation</label><input class="form-control" type="date" name="YOG" required=""></div>
                 <div class="form-group"><label class="control-label">Email </label><input class="form-control" type="text" name="email" required=""></div>
+                <script>
+                        function checkSelection() {
+
+                            if(document.getElementById("education").value == "Other"){
+                                document.getElementById("otherSchool").style.display =  "block";
+                            }else{
+                                document.getElementById("otherSchool").style.display =  "none";
+                            }
+
+
+
+                        }
+                </script>
+                
                 <?php
                 if(isset($_SESSION['ErrorCodeSignUp']))
                 {
