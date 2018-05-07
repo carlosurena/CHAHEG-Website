@@ -63,7 +63,7 @@ session_start();
                                 }
                             }
                         ?>
-                        <div class="form-group"><label class="control-label">Education</label>
+                        <div class="form-group" id="sign-up-form-group"><label class="control-label">Education</label>
                             <select class="form-control" name="education" required="">
                                 <option value="Albertus Magnus College">Albertus Magnus College</option>
                                 <option value="Central Connecticut State University">Central Connecticut State University</option>
@@ -99,9 +99,13 @@ session_start();
                                 <option value="Western Connecticut State University">Western Connecticut State University</option>
                                 <option value="Yale University">Yale University</option>
                                 <option value="Yale-New Haven Hospital Dietetic Internship">Yale-New Haven Hospital Dietetic Internship</option>
+                                <option value="other">Other</option>
                             </select>
+
+
                         </div>
-                        <div class="form-group"><label class="control-label">Anticipated Year of Graduation</label><input class="form-control" type="date" name="YOG" required=""></div>
+
+                <div class="form-group"><label class="control-label">Anticipated Year of Graduation</label><input class="form-control" type="date" name="YOG" required=""></div>
                 <div class="form-group"><label class="control-label">Email </label><input class="form-control" type="text" name="email" required=""></div>
                 <?php
                 if(isset($_SESSION['ErrorCodeSignUp']))
