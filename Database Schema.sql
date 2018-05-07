@@ -73,6 +73,7 @@ CREATE TABLE Results (
     UserID int NOT NULL,
     TestID int NOT NULL,
     Score int,
+    UpdatedOn DATETIME,
     PRIMARY KEY(EntryID),
     FOREIGN KEY(UserID) REFERENCES Users(UserID),
     FOREIGN KEY(TestID) REFERENCES TestMaterials(TestID)
@@ -93,20 +94,20 @@ VALUES
     (null,"admin@gmail.com","adminpassword","Connecticut College", "Adminson", "Admin", 1),
     (null,"christophersuter@gmail.com","chrispassword","Fairfield University", "Suter", "Christopher", 0);
 
-INSERT INTO Results (entryid, userid, testid, score)
+INSERT INTO Results (entryid, userid, testid, score, UpdatedOn)
 VALUES
-    (null,1,1,95),
-    (null,2,1,79),
-    (null,2,2,64),
-    (null,1,2,100),
-    (null,1,3,100),
-    (null,1,4,79),
-    (null,1,4,75),
-    (null,1,4,40),
-    (null,3,1,28),
-    (null,3,1,28),
-    (null,3,1,28),
-    (null,3,2,100);
+    (null,1,1,95,NOW()),
+    (null,2,1,79,NOW()),
+    (null,2,2,64,NOW()),
+    (null,1,2,100,NOW()),
+    (null,1,3,100,NOW()),
+    (null,1,4,79,NOW()),
+    (null,1,4,75,NOW()),
+    (null,1,4,40,NOW()),
+    (null,3,1,28,NOW()),
+    (null,3,1,28,NOW()),
+    (null,3,1,28,NOW()),
+    (null,3,2,100,NOW());
 
 
 INSERT INTO TestQuestions (questionid, testid, question, createdby, createdon, updatedby, updatedon)
