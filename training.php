@@ -82,15 +82,15 @@ $_SESSION['URLsessionvalue'] = $_GET['URLsessionvalue'];
                         //echo $_SESSION['TestID'];
 
                             //$_SESSION['USERNUM'] = 1;
-                            $button = '<button class="btn btn-success btn-block" onclick="location.href="test.php";" style=" position:  absolute;">Take the test! </button>';
+                           // $button = '<button class="btn btn-success btn-block" onclick="location.href="test.php";" style=" position:  absolute;">Take the test! </button>';
 							$frame = "<iframe src='" .$_SESSION['URLsessionvalue']."' height='85%' width='100%' style='border: 0px;height: 85%;margin-top: 80px;' webkitAllowFullScreen Mozallowfullscreen allowFullScreen></iframe>";
 							echo $frame;
-                            echo $button;
+                           // echo $button;
 						?>
 						<!-- <iframe src='http://my.visme.co/projects/dmvvdg0k-6ep5dm1gwej75dz3' height='100%' width='100%' style='border: 0px;' webkitAllowFullScreen Mozallowfullscreen allowFullScreen></iframe>
 						-->
 
-                        <!-- <button class="btn btn-success btn-block" onclick="location.href='test.php';">Take the test! </button> -->
+                         <button class="btn btn-success btn-block" onclick="location.href='test.php';">Take the test! </button> 
 
 						</div>
 

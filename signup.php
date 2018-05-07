@@ -106,7 +106,7 @@ session_start();
                             </select>
                         </div>
                         
-                        <div class="form-group" style="display:none" id="otherSchool" class="collapse"><label class="control-label">School Name</label><input class="form-control" type="text" name="otherSchool" required=""></div>
+                        <div class="form-group" style="display:none" id="otherSchool" class="collapse"><label class="control-label">School Name</label><input class="form-control" type="text" name="otherSchool"></div>
                         <div class="form-group"><label class="control-label">Anticipated Year of Graduation</label><input class="form-control" type="date" name="YOG" required=""></div>
                 <div class="form-group"><label class="control-label">Email </label><input class="form-control" type="text" name="email" required=""></div>
                 <?php
