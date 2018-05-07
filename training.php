@@ -43,10 +43,11 @@ $_SESSION['URLsessionvalue'] = $_GET['URLsessionvalue'];
                 <li class="sidebar-brand"> <a href="#">Home </a></li>
                 <li> <a href="dashboard.php">Dashboard </a></li>
                 <li> <a href="courses.php">Courses</a></li>
-                <li> <a href="myresults.php">Results</a><a href="#">Account</a><a href="assets/php/logout.php">Sign Out</a></li>
+                <li> <a href="myresults.php">Results</a></li>
+                <li><a href="#">Account</a></li>
+                <li><a href="assets/php/logout.php">Sign Out</a></li>
             </ul>
         </div>
-<<<<<<< HEAD
         <div class="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
@@ -74,13 +75,15 @@ $_SESSION['URLsessionvalue'] = $_GET['URLsessionvalue'];
                         //echo $_SESSION['TestID'];
 
                             //$_SESSION['USERNUM'] = 1;
-							$frame = "<iframe src='" .$_SESSION['URLsessionvalue']."' height='100%' width='100%' style='border: 0px;' webkitAllowFullScreen Mozallowfullscreen allowFullScreen></iframe>";
+                            $button = '<button class="btn btn-success btn-block" onclick="location.href="test.php";" style=" position:  absolute;">Take the test! </button>';
+							$frame = "<iframe src='" .$_SESSION['URLsessionvalue']."' height='85%' width='100%' style='border: 0px;height: 85%;margin-top: 80px;' webkitAllowFullScreen Mozallowfullscreen allowFullScreen></iframe>";
 							echo $frame;
+                            echo $button;
 						?>
 						<!-- <iframe src='http://my.visme.co/projects/dmvvdg0k-6ep5dm1gwej75dz3' height='100%' width='100%' style='border: 0px;' webkitAllowFullScreen Mozallowfullscreen allowFullScreen></iframe>
 						-->
 
-                        <button class="btn btn-success btn-block" onclick="location.href='test.php';">Take the test! </button>
+                        <!-- <button class="btn btn-success btn-block" onclick="location.href='test.php';">Take the test! </button> -->
 
 						</div>
 
