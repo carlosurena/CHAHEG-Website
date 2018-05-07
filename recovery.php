@@ -27,7 +27,7 @@
         <div
             class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav navbar-right">
-                <li role="presentation"><a href="signup.html">Sign Up</a></li>
+                <li role="presentation"><a href="signup.php">Sign Up</a></li>
             </ul>
     </div>
     </div>
@@ -38,8 +38,11 @@
                 <h1 class="text-center">Forgot Password?</h1>
                 <div class="well">
                     <h3 class="text-danger">Login </h3>
-                    <form>
-                        <div class="form-group"><label class="control-label">Email</label><input class="form-control" type="text" placeholder="email@exmple.com" name="email"></div><button class="btn btn-success btn-block" type="submit">Recover</button></form>
+                    <form method="post" action="assets/php/send_link.php">
+                        <div class="form-group"><label class="control-label">Email</label>
+                            <input class="form-control" type="text" placeholder="email@exmple.com" name="email"></div>
+                            <button class="btn btn-success btn-block" type="submit" name="submit_email">Recover</button>
+                    </form>
                 </div>
             </div>
         </div>
