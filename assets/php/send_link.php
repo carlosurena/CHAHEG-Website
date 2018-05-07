@@ -1,10 +1,11 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 require_once 'Exception.php';
 require_once 'PHPMailer.php';
 require_once 'SMTP.php';
 include 'config.php';
-
 
 if(isset($_POST['submit_email']) && $_POST['email'])
 {
@@ -32,17 +33,17 @@ if(isset($_POST['submit_email']) && $_POST['email'])
     // enable SMTP authentication
     $mail->SMTPAuth = true;
     // GMAIL username
-    $mail->Username = "2413feae5ff3c1";
+    $mail->Username = "simmons.kron@gmail.com";
     // GMAIL password
-    $mail->Password = "8f6b393572354c";
+    $mail->Password = "24715320-522e-11e8-9c41-095dea5d053d";
     $mail->SMTPSecure = "ssl";
     // sets GMAIL as the SMTP server
-    $mail->Host = "smtp.mailtrap.io";
+    $mail->Host = "debugmail.io";
     // set the SMTP port for the GMAIL server
-    $mail->Port = "465";
-    $mail->From='060476f52f-c8a5f1@inbox.mailtrap.io';
+    $mail->Port = "25";
+    $mail->From='simmons.kron@gmail.com';
     $mail->FromName='Team 1';
-    $mail->AddAddress('reciever_email_id', 'reciever_name');
+    $mail->AddAddress($email, 'reciever_name');
     $mail->Subject  =  'Reset Password';
     $mail->IsHTML(true);
     $mail->Body    = 'Click On This Link to Reset Password '.$pass.'';
