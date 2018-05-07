@@ -41,8 +41,21 @@ include 'assets/php/config.php';
                 <li class="sidebar-brand"> <a href="dashboard.php">Home </a></li>
                 <li> <a href="dashboard.php">Dashboard </a></li>
                 <li> <a href="courses.php">Courses</a></li>
-                <li> <a href="myresults.php">Results</a></li>
-                <li><a href="assets/php/logout.php">Sign Out</a></li></ul>
+
+                
+            <?php
+                if($_SESSION['PermissionID'] == 1)
+                    {
+                       echo '<li> <a href="report_form.php">Results</a><a href="assets/php/logout.php">Sign Out</a></li>';
+                    }
+                    else
+                    {
+                        echo '<li> <a href="myresults.php">Results</a><a href="assets/php/logout.php">Sign Out</a></li>';
+                    }
+            ?>
+                
+            </ul>
+
         </div>
         <div class="page-content-wrapper"></div>
     </div>
@@ -84,6 +97,13 @@ include 'assets/php/config.php';
                             $materialPathArray[$x] = $row["MaterialPath"];
                             $x++;
                         }
+                    }
+                    elseif(mysqli_num_rows($result) == 0)
+                    {
+                        // Runs when there are no courses available and/or all have been completed. 
+                        $msgImage = "<img src='images/greenCheck.png' height='25' width='25' alt='Error X Image' />";
+                        $msgText = "Looks like you have finished all your tests!  Check back later to see if theres more.";
+                        echo $msgImage, $msgText;
                     }
                     $y=0;
                     $training = "training.php?URLsessionvalue=";

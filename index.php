@@ -43,10 +43,27 @@ session_start();
                 <div class="well">
                     <h3 class="text-danger">Login </h3>
                     <form class="sing-in-form" method="POST" action="assets/php/login.php">
-                        <div class="form-group"><label class="control-label">Email </label><input class="form-control" type="text" required="" name="email"></div>
-                        <div class="form-group"><label class="control-label">Password </label><input class="form-control" type="password" required="" name="passwd"></div>
+                        <div class="form-group"><label class="control-label">Email </label><input class="form-control" type="text" required="" name="email" 
+                        value="<?php 
+                        if(isset($_COOKIE['Username']))
+                        {
+                            if($_COOKIE['Username'] != null)
+                            {
+                                echo $_COOKIE['Username'];
+                            }
+                        }?>"></div>
+                        <div class="form-group"><label class="control-label">Password </label><input class="form-control" type="password" required="" name="passwd"
+                        value="<?php
+                        if(isset($_COOKIE['password']))
+                        {
+                            if($_COOKIE['password'] != null)
+                            {
+                                echo $_COOKIE['password'];
+                            }
+                        }    
+                            ?>"></div>
                         <div class="form-group">
-                            <div class="checkbox"><label class="control-label"><input type="checkbox">Remember me</label></div>
+                            <div class="checkbox"><label class="control-label"><input type="checkbox" name="rememberInfo" value="rememberChecked">Remember me</label></div>
                             <?php
                             if(isset($_SESSION['ErrorCode']))
                             {

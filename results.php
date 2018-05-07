@@ -1,6 +1,6 @@
 <?php
 session_start();
-//include 'assets/php/config.php';
+include 'assets/php/config.php';
 ?>
 
 <!DOCTYPE html>
@@ -43,8 +43,8 @@ session_start();
                 <li class="sidebar-brand"> <a href="dashboard.php">Home </a></li>
                 <li> <a href="dashboard.php">Dashboard </a></li>
                 <li> <a href="courses.php">Courses</a></li>
-                <li> <a href="myresults.php">Results</a></li>
-                <li><a href="assets/php/logout.php">Sign Out</a></li>
+                <li> <a href="report_form.php">Results</a><a href="assets/php/logout.php">Sign Out</a></li>
+
             </ul>
         </div>
         <div class="page-content-wrapper"></div>
@@ -53,11 +53,7 @@ session_start();
         <div class="container-fluid">
             <div class="intro">
 			    <h2 class="text-center">Ad-Hoc Reports</h2>
-<<<<<<< HEAD
-                <p class="text-center">This is a paragraph. </p>
-=======
                 <p class="text-center"></p>
->>>>>>> refs/remotes/origin/Chris-Branch
             </div><br>
             <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
@@ -81,88 +77,82 @@ session_start();
                 $condition = 1;
                 $Selected_UserID = 1;
                 $Selected_School = 'All';
-                $Selected_TestName = 'All';
+                $Selected_TestName = 0;
                 $Selected_TestID = 0;
 
                 //Condition 3 (All Tests, All Users, All Schools) Never runs in this implementation
                 //RIGHT BUTTON SEARCH
-<<<<<<< HEAD
-                if (isset($_SESSION["reportUID"])) {
-                    $Selected_UserID = $_SESSION["reportUID"];
-                    $condition = 2;
-                }else{
-                    echo "Not Working";
-                }
-                //LEFT BUTTON SEARCH
-                if (isset($_SESSION["reportTestName"])) {
-                    $Selected_TestName = $_SESSION["reportTestName"];
-                    if(isset($_SESSION["reportSchool"])){
-                        $Selected_School = $_SESSION["reportSchool"];
-                        $condition = 5;
-                    }else{
-                        $condition = 1;
-=======
+
 				//echo $_SESSION['reportUID'];
-                if (isset($_SESSION["reportUID"])) {
+                
+
+                if(isset($_SESSION["reportUID"])){
                     $Selected_UserID = $_SESSION["reportUID"];
-                    $condition = 2; //One User, All Tests, All Schools
-                }
-                //LEFT BUTTON SEARCH
-				else if (isset($_SESSION["reportTestName"])) {
+                    if(isset($_SESSION["reportTestName"])){
+                        $Selected_TestName = $_SESSION["reportTestName"]; 
+                        $condition = 6; //One User, One Test
+                    }else{
+                        $condition = 2; //One User, All Tests
+                    }
+                }elseif(isset($_SESSION["reportTestName"])){
+
                     $Selected_TestName = $_SESSION["reportTestName"];
                     if(isset($_SESSION["reportSchool"])){
                         $Selected_School = $_SESSION["reportSchool"];
                         $condition = 5; //One Test, One School, All Users
                     }else{
-                        $condition = 1; //One test, All Users, All Schools
->>>>>>> refs/remotes/origin/Chris-Branch
+                        $condition = 1; //One Test, All Schools, All Users
                     }
-
+                }elseif(isset($_SESSION["reportSchool"])){
+                    $Selected_School = $_SESSION["reportSchool"];
+                    $condition = 4; //one school, All Tests, All users
                 }else{
-                    if(isset($_SESSION["reportSchool"])){
-                        $Selected_School = $_SESSION["reportSchool"];
-<<<<<<< HEAD
-                        $condition = 4;
-                    }
-=======
-                        $condition = 4;//One School All Users, All tests
-                    }else{
-						$condition = 3;
-					}
->>>>>>> refs/remotes/origin/Chris-Branch
+                    $condition = 3;
+
                 }
-                 $sql_OneTest_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.TestID FROM Results
+                 $sql_OneTest_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn, Results.TestID 
+                                            FROM TestMaterials 
+                                            JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID
-                                            JOIN TestMaterials ON TestMaterials.TestID = Results.TestID
-                                            WHERE Results.TestID = $Selected_TestID
+                                            WHERE Results.TestID = $Selected_TestName
                                             ORDER BY Users.LastName";
-
-
-                $sql_AllTests_OneUser = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score
-                                            FROM TestMaterials
-                                            JOIN Results ON TestMaterials.TestID=Results.TestID
+            
+                 
+                $sql_AllTests_OneUser = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn 
+                                            FROM TestMaterials 
+                                            JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID
                                             WHERE Results.UserID = $Selected_UserID
                                             ORDER BY Users.LastName";
-                $sql_AllTests_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score
-                                            FROM TestMaterials
-                                            JOIN Results ON TestMaterials.TestID=Results.TestID
+                $sql_AllTests_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn 
+                                            FROM TestMaterials 
+                                            JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID
                                             ORDER BY Users.LastName";
+               
+               $sql_OneSchool_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn 
+                                            FROM TestMaterials 
+                                            JOIN Results ON TestMaterials.TestID=Results.TestID 
 
-               $sql_OneSchool_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score
-                                            FROM TestMaterials
-                                            JOIN Results ON TestMaterials.TestID=Results.TestID
                                             JOIN Users ON Results.UserID = Users.UserID
                                             WHERE Users.School = '$Selected_School'
                                             ORDER BY Users.LastName";
 
-                $sql_OneSchool_OneTest = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score
-                                            FROM TestMaterials
-                                            JOIN Results ON TestMaterials.TestID=Results.TestID
+                $sql_OneSchool_OneTest = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn, Results.TestID 
+                                            FROM TestMaterials 
+                                            JOIN Results ON TestMaterials.TestID=Results.TestID 
+
                                             JOIN Users ON Results.UserID = Users.UserID
-                                            WHERE Users.School = '$Selected_School'
-                                            AND Results.TestID = $Selected_TestID
+                                            WHERE Results.TestID = " . $Selected_TestName . "
+                                            AND Users.School = '$Selected_School'
+                                            ORDER BY Users.LastName";
+                
+                $sql_OneTest_OneUser = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn, Results.TestID 
+                                            FROM TestMaterials 
+                                            JOIN Results ON TestMaterials.TestID=Results.TestID 
+                                            JOIN Users ON Results.UserID = Users.UserID
+                                            WHERE Results.TestID = " . $Selected_TestName . "
+                                            AND Results.UserID = $Selected_UserID
                                             ORDER BY Users.LastName";
 
 
@@ -176,6 +166,8 @@ session_start();
                     $result = mysqli_query($conn, $sql_OneSchool_AllUsers);
                 }elseif($condition == 5){
                     $result = mysqli_query($conn, $sql_OneSchool_OneTest);
+                }elseif($condition == 6){
+                    $result = mysqli_query($conn, $sql_OneTest_OneUser);
                 }
 
 				 $firstNameArray = array();
@@ -183,11 +175,7 @@ session_start();
                  $schoolArray = array();
                  $TestNameArray = array();
                  $ScoreArray = array();
-<<<<<<< HEAD
                  $ScoreCompletionArray = array();
-=======
-                 //$ScoreCompletionArray = array();
->>>>>>> refs/remotes/origin/Chris-Branch
 
 
 
@@ -201,26 +189,13 @@ session_start();
                             $schoolArray[$x] = $row["School"];
                             $TestNameArray[$x] = $row["TestName"];
                             $ScoreArray[$x] = $row["Score"];
-<<<<<<< HEAD
-                            $ScoreCompletionArray[$x] = $row["UpdateOn"];
-=======
-                            //$ScoreCompletionArray[$x] = $row["UpdateOn"];
->>>>>>> refs/remotes/origin/Chris-Branch
+                            $ScoreCompletionArray[$x] = $row["UpdatedOn"];
                             $x++;
                         }
                     }
 
                // print_r($TestNameArray);
                 //print_r($scoreArray);
-<<<<<<< HEAD
-                echo "<h1>Grades</h1>";
-                $counter = 0;
-                while($counter < count($scoreArray))
-                {
-                    echo $TestNameArray[$counter].": ".$scoreArray[$counter]."%";
-                    $counter++;
-                }
-=======
                 //echo "<h1>Grades</h1>";
                 //$counter = 0;
                 //while($counter < count($ScoreArray))
@@ -228,17 +203,11 @@ session_start();
                 //    echo $TestNameArray[$counter].": ".$ScoreArray[$counter]."%";
                 //    $counter++;
                 //}
->>>>>>> refs/remotes/origin/Chris-Branch
-
 
 				$x=0;
 					while($x<mysqli_num_rows($result))
 					{
-<<<<<<< HEAD
-						echo "<tr><td>" .$firstNameArray[$x]." ". $lastNameArray[$x]. "</td><td>".$schoolArray[$x]. "</td><td>". $ScoreArray[$x]. "</td><td>".$ScoreCompletionArray. "</td><td>".$TestNameArray[$x]."</td></tr>";
-=======
-						echo "<tr><td>" .$firstNameArray[$x]." ". $lastNameArray[$x]. "</td><td>".$schoolArray[$x]. "</td><td>". $ScoreArray[$x]. "</td><td>".$ScoreArray[$x]. "</td><td>".$TestNameArray[$x]."</td></tr>";
->>>>>>> refs/remotes/origin/Chris-Branch
+						echo "<tr><td>" .$firstNameArray[$x]." ". $lastNameArray[$x]. "</td><td>".$schoolArray[$x]. "</td><td>". $ScoreArray[$x]. "</td><td>".$ScoreCompletionArray[$x]. "</td><td>".$TestNameArray[$x]."</td></tr>";
 						//echo "<br>";
 						$x++;
 					}
