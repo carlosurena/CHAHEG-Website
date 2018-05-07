@@ -7,6 +7,7 @@ if (isset($_POST['uID'])) {
 	unset($_SESSION['reportTestName']);
 	unset($_SESSION['reportUID']);
 
+
 	//Error handlers
 	//Check for empty fields
 	if (empty($userID)) {
@@ -27,12 +28,12 @@ if (isset($_POST['uID'])) {
 				//header("Location: login.php?login=invalid_account"); // User does not exist
 				//$_SESSION['ErrorCode'] = 'Invalid_Account';
 				echo "ERROR - Please enter valid StudentID: No ID Found.";
-			} else {	
+			} else {
 				$_SESSION["reportUID"] = $userID;
 				echo $userID;
 				header("Location: ../../results.php?".$_SESSION["reportUID"]); // should send us to the profile page after a succesful log in
 				exit();
-				
+
 			}
 		}
 	}

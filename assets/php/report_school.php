@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 	include_once 'config.php';
 	$School = mysqli_real_escape_string($conn, $_POST['education']);
@@ -7,6 +8,7 @@ session_start();
 	unset($_SESSION['reportSchool']);
 	unset($_SESSION['reportTestName']);
 	unset($_SESSION['reportUID']);
+
 	//Error handlers
 	//Check for empty fields
 	if ($School != "All") {
@@ -24,5 +26,5 @@ session_start();
 
 	header("Location: ../../results.php?"); // should send us to the profile page after a succesful log in
 	exit();
-	
+
  ?>

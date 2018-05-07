@@ -40,17 +40,17 @@ session_start();
     <div class="article-list">
         <div class="container">
             <div class="intro">
-                <h2 class="text-center">
+                <h2 class="text-center" >
                     <?php
                  if (isset($_SESSION['UserID'])) {
-                     echo $_SESSION['FirstName'];
+                     echo $_SESSION['FirstName']."'s ";
                  }
 
               ?>'s Dashboard</h2>
                 <p class="text-center"></p>
             </div>
             <div class="row articles">
-                <div class="col-md-4 col-sm-6 item"><a href="courses.php"><img class="img-responsive" src="assets/img/desk.jpg"></a>
+                <div class="col-md-6 col-sm-6 item"><a href="courses.php"><img class="img-responsive" src="assets/img/desk.jpg"></a>
                     <h3 class="name">Courses</h3>
                     <p class="description">This is where you can view your available courses</p>
                 </div>
@@ -77,6 +77,7 @@ session_start();
 
                 ?>
                </div>   
+
                 </div>
             </div>
         </div>

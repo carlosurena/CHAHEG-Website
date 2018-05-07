@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include 'assets/php/config.php';
 
@@ -33,14 +33,14 @@ include 'assets/php/config.php';
                 CHAHEG
                 <i class="fa fa-stethoscope"></i>
             </a>
-        
+
             <a class="btn btn-link pull-right" role="button" href="#menu-toggle" id="menu-toggle" style="color:#ffffff;height:36px;font-size:25px;padding-bottom:6px;padding-top:0; ">
                 <i class="fa fa-navicon"></i>
             </a>
         </div>
 
-        
-        
+
+
     </div>
 </nav></div>
     <div id="wrapper">
@@ -64,6 +64,7 @@ include 'assets/php/config.php';
                 <div class="col-sm-4 text-center"></div>
                 <div class="col-sm-4 text-center">
                     
+
                 <form method="POST" action="assets/php/report_school.php">
                 <div class="form-group">
                         <label class="control-label">Student ID</label>
@@ -73,6 +74,7 @@ include 'assets/php/config.php';
                         <label class="control-label">Institution </label>
                         <select required class="form-control" id="School" name="education">
                         <option value="All">All</option>    
+
                         <option value="Albertus Magnus College">Albertus Magnus College</option>
                         <option value="Central Connecticut State University">Central Connecticut State University</option>
                         <option value="Charter Oak State College">Charter Oak State College</option>
@@ -108,8 +110,7 @@ include 'assets/php/config.php';
                         <option value="Yale University">Yale University</option>
                         <option value="Yale-New Haven Hospital Dietetic Internship">Yale-New Haven Hospital Dietetic Internship</option>
                         </select>
-                    </div>
-               
+                    </div>               
                     <div class="form-group">
                     <label class="control-label">Test </label><select required class="form-control" name="testname">
                             <option value="All">All</option>    
@@ -143,13 +144,11 @@ include 'assets/php/config.php';
                                     $counter++;
                                 }
                             ?>
+
                         </select></div>
                         <button class="btn btn-success btn-block" type="submit">Search </button>
-
                     </form>
                 </div>
-               
-                
 
                 
               </div> <br>

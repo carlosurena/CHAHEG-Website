@@ -44,6 +44,7 @@ include 'assets/php/config.php';
                 <li> <a href="dashboard.php">Dashboard </a></li>
                 <li> <a href="courses.php">Courses</a></li>
                 <li> <a href="report_form.php">Results</a><a href="assets/php/logout.php">Sign Out</a></li>
+
             </ul>
         </div>
         <div class="page-content-wrapper"></div>
@@ -72,7 +73,7 @@ include 'assets/php/config.php';
                  {
                     die("Connection failed: " . mysqli_connect_error());
                  }
-                
+
                 $condition = 1;
                 $Selected_UserID = 1;
                 $Selected_School = 'All';
@@ -81,6 +82,7 @@ include 'assets/php/config.php';
 
                 //Condition 3 (All Tests, All Users, All Schools) Never runs in this implementation
                 //RIGHT BUTTON SEARCH
+
 				//echo $_SESSION['reportUID'];
                 
 
@@ -93,6 +95,7 @@ include 'assets/php/config.php';
                         $condition = 2; //One User, All Tests
                     }
                 }elseif(isset($_SESSION["reportTestName"])){
+
                     $Selected_TestName = $_SESSION["reportTestName"];
                     if(isset($_SESSION["reportSchool"])){
                         $Selected_School = $_SESSION["reportSchool"];
@@ -105,6 +108,7 @@ include 'assets/php/config.php';
                     $condition = 4; //one school, All Tests, All users
                 }else{
                     $condition = 3;
+
                 }
                  $sql_OneTest_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn, Results.TestID 
                                             FROM TestMaterials 
@@ -129,6 +133,7 @@ include 'assets/php/config.php';
                $sql_OneSchool_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn 
                                             FROM TestMaterials 
                                             JOIN Results ON TestMaterials.TestID=Results.TestID 
+
                                             JOIN Users ON Results.UserID = Users.UserID
                                             WHERE Users.School = '$Selected_School'
                                             ORDER BY Users.LastName";
@@ -136,6 +141,7 @@ include 'assets/php/config.php';
                 $sql_OneSchool_OneTest = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn, Results.TestID 
                                             FROM TestMaterials 
                                             JOIN Results ON TestMaterials.TestID=Results.TestID 
+
                                             JOIN Users ON Results.UserID = Users.UserID
                                             WHERE Results.TestID = " . $Selected_TestName . "
                                             AND Users.School = '$Selected_School'
@@ -149,7 +155,7 @@ include 'assets/php/config.php';
                                             AND Results.UserID = $Selected_UserID
                                             ORDER BY Users.LastName";
 
-                
+
                 if($condition == 1){
                     $result = mysqli_query($conn, $sql_OneTest_AllUsers);
                 }elseif($condition == 2){
@@ -163,7 +169,7 @@ include 'assets/php/config.php';
                 }elseif($condition == 6){
                     $result = mysqli_query($conn, $sql_OneTest_OneUser);
                 }
-				 
+
 				 $firstNameArray = array();
                  $lastNameArray = array();
                  $schoolArray = array();
@@ -172,7 +178,7 @@ include 'assets/php/config.php';
                  $ScoreCompletionArray = array();
 
 
-				 
+
 				 $x=0;
 				 if (mysqli_num_rows($result) > 0)
                     {
@@ -197,8 +203,7 @@ include 'assets/php/config.php';
                 //    echo $TestNameArray[$counter].": ".$ScoreArray[$counter]."%";
                 //    $counter++;
                 //}
-			
-			
+
 				$x=0;
 					while($x<mysqli_num_rows($result))
 					{
@@ -207,18 +212,18 @@ include 'assets/php/config.php';
 						$x++;
 					}
 					//echo count($ScoreArray);
-			
-			
-			
+
+
+
 			?>
                 </tbody>
             </table>
-			
-				
-       
-            
+
+
+
+
             <div class="row articles">
-                
+
     </div>
     </div>
     </div>

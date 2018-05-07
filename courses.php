@@ -41,6 +41,7 @@ include 'assets/php/config.php';
                 <li class="sidebar-brand"> <a href="dashboard.php">Home </a></li>
                 <li> <a href="dashboard.php">Dashboard </a></li>
                 <li> <a href="courses.php">Courses</a></li>
+
                 
             <?php
                 if($_SESSION['PermissionID'] == 1)
@@ -54,19 +55,20 @@ include 'assets/php/config.php';
             ?>
                 
             </ul>
+
         </div>
         <div class="page-content-wrapper"></div>
     </div>
     <div class="article-list" style="margin-top:68px;">
         <div class="container-fluid">
             <div class="intro">
-                <h2 class="text-center">
+                <h2 class="text-center" style="margin-bottom:20px;">
                 <?php
                  if (isset($_SESSION['UserID'])) {
-                     echo $_SESSION['FirstName'];
+                     echo $_SESSION['FirstName']."'s ";
                  }
 
-              ?>'s Courses</h2>
+              ?>Courses</h2>
                 <!--<p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p> -->
             </div>
             <div class="row articles">

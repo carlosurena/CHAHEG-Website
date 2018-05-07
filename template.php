@@ -22,23 +22,24 @@
                 CHAHEG
                 <i class="fa fa-stethoscope"></i>
             </a>
-        
+
             <a class="btn btn-link pull-right" role="button" href="#menu-toggle" id="menu-toggle" style="color:#ffffff;height:36px;font-size:25px;padding-bottom:6px;padding-top:0; ">
                 <i class="fa fa-navicon"></i>
             </a>
         </div>
 
-        
-        
+
+
     </div>
 </nav></div>
     <div id="wrapper">
         <div id="sidebar-wrapper" style="background-color:rgb(31,32,33);">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand"> <a href="#">Home </a></li>
-                <li> <a href="#">Dashboard </a></li>
-                <li> <a href="#">Courses</a></li>
-                <li> <a href="#">Results</a><a href="#">Account</a><a href="#">Sign Out</a></li>
+                <li> <a href="dashboard.php">Dashboard </a></li>
+                <li> <a href="courses.php">Courses</a></li>
+                <li> <a href="myresults.php">Results</a></li>
+                <li><a href="assets/php/logout.php">Sign Out</a></li>
             </ul>
         </div>
         <div class="page-content-wrapper"></div>

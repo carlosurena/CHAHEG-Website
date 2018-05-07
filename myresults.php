@@ -44,6 +44,7 @@ include 'assets/php/config.php';
                 <li> <a href="dashboard.php">Dashboard </a></li>
                 <li> <a href="courses.php">Courses</a></li>
                 <li> <a href="myresults.php">Results</a><a href="assets/php/logout.php">Sign Out</a></li>
+
             </ul>
         </div>
         <div class="page-content-wrapper"></div>
@@ -72,7 +73,7 @@ include 'assets/php/config.php';
                  {
                     die("Connection failed: " . mysqli_connect_error());
                  }
-                
+
                 $condition = 1;
                 $Selected_UserID = $_SESSION['UserID'];
                 $Selected_School = 'All';
@@ -90,13 +91,13 @@ include 'assets/php/config.php';
                                             JOIN Users ON Results.UserID = Users.UserID
                                             WHERE Results.UserID = $Selected_UserID
                                             ORDER BY Users.LastName";
-            
 
-                
-                
+
+
+
                 $result = mysqli_query($conn, $sql_AllTests_OneUser);
-              
-				 
+
+
 				 $firstNameArray = array();
                  $lastNameArray = array();
                  $schoolArray = array();
@@ -105,7 +106,7 @@ include 'assets/php/config.php';
                  //$ScoreCompletionArray = array();
 
 
-				 
+
 				 $x=0;
 				 if (mysqli_num_rows($result) > 0)
                     {
@@ -130,8 +131,8 @@ include 'assets/php/config.php';
                 //    echo $TestNameArray[$counter].": ".$ScoreArray[$counter]."%";
                 //    $counter++;
                 //}
-			
-			
+
+
 				$x=0;
 					while($x<mysqli_num_rows($result))
 					{
@@ -140,18 +141,18 @@ include 'assets/php/config.php';
 						$x++;
 					}
 					//echo count($ScoreArray);
-			
-			
-			
+
+
+
 			?>
                 </tbody>
             </table>
-			
-				
-       
-            
+
+
+
+
             <div class="row articles">
-                
+
     </div>
     </div>
     </div>
