@@ -44,7 +44,6 @@ $_SESSION['URLsessionvalue'] = $_GET['URLsessionvalue'];
                 <li> <a href="dashboard.php">Dashboard </a></li>
                 <li> <a href="courses.php">Courses</a></li>
                 <li> <a href="myresults.php">Results</a></li>
-                <li><a href="#">Account</a></li>
                 <li><a href="assets/php/logout.php">Sign Out</a></li>
             </ul>
         </div>

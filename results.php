@@ -43,7 +43,8 @@ session_start();
                 <li class="sidebar-brand"> <a href="dashboard.php">Home </a></li>
                 <li> <a href="dashboard.php">Dashboard </a></li>
                 <li> <a href="courses.php">Courses</a></li>
-                <li> <a href="results.php">Results</a><a href="#">Account</a><a href="assets/php/logout.php">Sign Out</a></li>
+                <li> <a href="myresults.php">Results</a></li>
+                <li><a href="assets/php/logout.php">Sign Out</a></li>
             </ul>
         </div>
         <div class="page-content-wrapper"></div>
@@ -76,7 +77,7 @@ session_start();
                  {
                     die("Connection failed: " . mysqli_connect_error());
                  }
-                
+
                 $condition = 1;
                 $Selected_UserID = 1;
                 $Selected_School = 'All';
@@ -94,9 +95,9 @@ session_start();
                 }
                 //LEFT BUTTON SEARCH
                 if (isset($_SESSION["reportTestName"])) {
-                    $Selected_TestName = $_SESSION["reportTestName"]; 
+                    $Selected_TestName = $_SESSION["reportTestName"];
                     if(isset($_SESSION["reportSchool"])){
-                        $Selected_School = $_SESSION["reportSchool"]; 
+                        $Selected_School = $_SESSION["reportSchool"];
                         $condition = 5;
                     }else{
                         $condition = 1;
@@ -108,18 +109,18 @@ session_start();
                 }
                 //LEFT BUTTON SEARCH
 				else if (isset($_SESSION["reportTestName"])) {
-                    $Selected_TestName = $_SESSION["reportTestName"]; 
+                    $Selected_TestName = $_SESSION["reportTestName"];
                     if(isset($_SESSION["reportSchool"])){
-                        $Selected_School = $_SESSION["reportSchool"]; 
+                        $Selected_School = $_SESSION["reportSchool"];
                         $condition = 5; //One Test, One School, All Users
                     }else{
                         $condition = 1; //One test, All Users, All Schools
 >>>>>>> refs/remotes/origin/Chris-Branch
                     }
-                    
+
                 }else{
                     if(isset($_SESSION["reportSchool"])){
-                        $Selected_School = $_SESSION["reportSchool"]; 
+                        $Selected_School = $_SESSION["reportSchool"];
 <<<<<<< HEAD
                         $condition = 4;
                     }
@@ -135,36 +136,36 @@ session_start();
                                             JOIN TestMaterials ON TestMaterials.TestID = Results.TestID
                                             WHERE Results.TestID = $Selected_TestID
                                             ORDER BY Users.LastName";
-            
-                 
-                $sql_AllTests_OneUser = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score 
-                                            FROM TestMaterials 
-                                            JOIN Results ON TestMaterials.TestID=Results.TestID 
+
+
+                $sql_AllTests_OneUser = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score
+                                            FROM TestMaterials
+                                            JOIN Results ON TestMaterials.TestID=Results.TestID
                                             JOIN Users ON Results.UserID = Users.UserID
                                             WHERE Results.UserID = $Selected_UserID
                                             ORDER BY Users.LastName";
-                $sql_AllTests_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score 
-                                            FROM TestMaterials 
-                                            JOIN Results ON TestMaterials.TestID=Results.TestID 
+                $sql_AllTests_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score
+                                            FROM TestMaterials
+                                            JOIN Results ON TestMaterials.TestID=Results.TestID
                                             JOIN Users ON Results.UserID = Users.UserID
                                             ORDER BY Users.LastName";
-               
-               $sql_OneSchool_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score 
-                                            FROM TestMaterials 
-                                            JOIN Results ON TestMaterials.TestID=Results.TestID 
+
+               $sql_OneSchool_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score
+                                            FROM TestMaterials
+                                            JOIN Results ON TestMaterials.TestID=Results.TestID
                                             JOIN Users ON Results.UserID = Users.UserID
                                             WHERE Users.School = '$Selected_School'
                                             ORDER BY Users.LastName";
 
-                $sql_OneSchool_OneTest = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score 
-                                            FROM TestMaterials 
-                                            JOIN Results ON TestMaterials.TestID=Results.TestID 
+                $sql_OneSchool_OneTest = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score
+                                            FROM TestMaterials
+                                            JOIN Results ON TestMaterials.TestID=Results.TestID
                                             JOIN Users ON Results.UserID = Users.UserID
                                             WHERE Users.School = '$Selected_School'
                                             AND Results.TestID = $Selected_TestID
                                             ORDER BY Users.LastName";
 
-                
+
                 if($condition == 1){
                     $result = mysqli_query($conn, $sql_OneTest_AllUsers);
                 }elseif($condition == 2){
@@ -176,7 +177,7 @@ session_start();
                 }elseif($condition == 5){
                     $result = mysqli_query($conn, $sql_OneSchool_OneTest);
                 }
-				 
+
 				 $firstNameArray = array();
                  $lastNameArray = array();
                  $schoolArray = array();
@@ -189,7 +190,7 @@ session_start();
 >>>>>>> refs/remotes/origin/Chris-Branch
 
 
-				 
+
 				 $x=0;
 				 if (mysqli_num_rows($result) > 0)
                     {
@@ -228,8 +229,8 @@ session_start();
                 //    $counter++;
                 //}
 >>>>>>> refs/remotes/origin/Chris-Branch
-			
-			
+
+
 				$x=0;
 					while($x<mysqli_num_rows($result))
 					{
@@ -242,18 +243,18 @@ session_start();
 						$x++;
 					}
 					//echo count($ScoreArray);
-			
-			
-			
+
+
+
 			?>
                 </tbody>
             </table>
-			
-				
-       
-            
+
+
+
+
             <div class="row articles">
-                
+
     </div>
     </div>
     </div>

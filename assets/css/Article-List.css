@@ -1,4 +1,4 @@
-.article-list {
+/* .article-list {
   color:#313437;
   background-color:#fff;
 }
@@ -9,8 +9,8 @@
 
 .article-list h2 {
   font-weight:bold;
-  margin-bottom:40px;
   padding-top:40px;
+  padding-bottom: 40px;
   color:inherit;
 }
 
@@ -69,5 +69,4 @@
 
 .article-list .item .action:hover {
   opacity:1;
-}
-
+} */
