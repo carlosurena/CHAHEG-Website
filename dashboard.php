@@ -46,7 +46,7 @@ session_start();
                      echo $_SESSION['FirstName']."'s ";
                  }
 
-              ?>'s Dashboard</h2>
+              ?>Dashboard</h2>
                 <p class="text-center"></p>
             </div>
             <div class="row articles">
@@ -64,13 +64,13 @@ session_start();
                 <?php
                     if($_SESSION['PermissionID'] == 1)
                     {
-                        echo '<div class="col-md-4 col-sm-6 item"><a href="report_form.php"><img class="img-responsive" src="assets/img/loft.jpg"></a>';
+                        echo '<div class="col-md-6 col-sm-6 item"><a href="report_form.php"><img class="img-responsive" src="assets/img/loft.jpg"></a>';
                         echo  '<h3 class="name">Results</h3>';
                         echo '<p class="description">As an Administrator, this is where you can view Ad Hoc Reporting information</p>';
                     }
                     else
                     {
-                        echo '<div class="col-md-4 col-sm-6 item"><a href="myresults.php"><img class="img-responsive" src="assets/img/loft.jpg"></a>';
+                        echo '<div class="col-md-6 col-sm-6 item"><a href="myresults.php"><img class="img-responsive" src="assets/img/loft.jpg"></a>';
                         echo  '<h3 class="name">Results</h3>';
                         echo '<p class="description">This is where you can view your test results</p>';
                     }

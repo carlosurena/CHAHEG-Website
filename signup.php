@@ -21,6 +21,8 @@ session_start();
     <link rel="stylesheet" href="assets/css/Login-Center.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean1.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+
+
 </head>
 
 <body>
@@ -102,8 +104,6 @@ session_start();
                                 <option value="Yale-New Haven Hospital Dietetic Internship">Yale-New Haven Hospital Dietetic Internship</option>
                                 <option value="Other">Other</option>
                             </select>
-
-
                         </div>
 
                         <div class="form-group" style="display:none" id="otherSchool" class="collapse"><label class="control-label">School Name</label><input class="form-control" type="text" name="otherSchool" required=""></div>
@@ -122,7 +122,7 @@ session_start();
 
                         }
                 </script>
-                
+
                 <?php
                 if(isset($_SESSION['ErrorCodeSignUp']))
                 {
@@ -160,6 +160,19 @@ session_start();
         </div>
     </div>
     </div>
+    <script>
+        function checkSelection() {
+
+            if(document.getElementById("education").value == "Other"){
+                document.getElementById("otherSchool").style.display =  "block";
+            }else{
+                document.getElementById("otherSchool").style.display =  "none";
+            }
+
+
+
+        }
+</script>
     <div class="footer-dark">
         <footer>
             <div class="container">
