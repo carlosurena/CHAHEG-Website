@@ -9,6 +9,7 @@ session_start();
 	unset($_SESSION['reportTestName']);
 	unset($_SESSION['reportUID']);
 
+
 	//Error handlers
 	//Check for empty fields
 	if ($School != "All") {
@@ -24,6 +25,7 @@ session_start();
 		
 	}
 
+	$_SESSION["sortType"] = "ASC";
 	header("Location: ../../results.php?"); // should send us to the profile page after a succesful log in
 	exit();
 

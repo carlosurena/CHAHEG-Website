@@ -58,11 +58,12 @@ include 'assets/php/config.php';
             <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>University</th>
-                        <th>Grade</th>
-                        <th>Completion date</th>
-                        <th>Test Name</th>
+                        <th><a href="results.php?sort=Name" onclick="sortName()">Name</a></th>
+                        <th><a href="results.php?sort=University" onclick="sortUniversity()">University</a></th>
+                        <th><a href="results.php?sort=Grade" onclick="sortGrade()">Grade</a></th>
+                        <th><a href="results.php?sort=Date" onclick="sortDate()">Completion date</a></th>
+                        <th><a href="results.php?sort=Test" onclick="sortTest()">Test Name</a></th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -79,6 +80,8 @@ include 'assets/php/config.php';
                 $Selected_School = 'All';
                 $Selected_TestName = 0;
                 $Selected_TestID = 0;
+                $orderField = "Users.LastName";
+                $sort = $_SESSION["sortType"];
 
                 //Condition 3 (All Tests, All Users, All Schools) Never runs in this implementation
                 //RIGHT BUTTON SEARCH
@@ -107,15 +110,50 @@ include 'assets/php/config.php';
                     $Selected_School = $_SESSION["reportSchool"];
                     $condition = 4; //one school, All Tests, All users
                 }else{
-                    $condition = 3;
+                    $condition = 3; // everything
 
                 }
+                //echo $condition;
+
+                $sql = "SELECT * FROM MyTable";
+
+                if ($_GET['sort'] == 'Name')
+                {
+                    $orderField = "Users.LastName";
+                   
+                }
+                elseif ($_GET['sort'] == 'University')
+                {
+                    $orderField = "Users.School";
+                }
+                elseif ($_GET['sort'] == 'Grade')
+                {
+                    $orderField = "Results.Score";
+                }
+                elseif($_GET['sort'] == 'Date')
+                {
+                    $orderField = "Results.UpdatedOn";
+                }
+                elseif($_GET['sort'] == 'Test')
+                {
+                    $orderField = "Results.TestID";
+                }
+                if($_SESSION["sortType"] == "ASC"){
+                    //echo "sort asc";
+                    $_SESSION["sortType"] == "DESC";
+                }else{
+                    //echo "sort desc";
+                    $_SESSION["sortType"] == "ASC";    
+                }
+                //echo "sort var says: " . $sort;
+                $sort = $_SESSION["sortType"];
+
                  $sql_OneTest_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn, Results.TestID 
                                             FROM TestMaterials 
                                             JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID
                                             WHERE Results.TestID = $Selected_TestName
-                                            ORDER BY Users.LastName";
+                                            ORDER BY " . $orderField ." ". $sort;
             
                  
                 $sql_AllTests_OneUser = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn 
@@ -123,12 +161,13 @@ include 'assets/php/config.php';
                                             JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID
                                             WHERE Results.UserID = $Selected_UserID
-                                            ORDER BY Users.LastName";
+                                            ORDER BY " . $orderField  ." " . $sort;
+
                 $sql_AllTests_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn 
                                             FROM TestMaterials 
                                             JOIN Results ON TestMaterials.TestID=Results.TestID 
                                             JOIN Users ON Results.UserID = Users.UserID
-                                            ORDER BY Users.LastName";
+                                            ORDER BY " . $orderField  . " " . $sort;
                
                $sql_OneSchool_AllUsers = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn 
                                             FROM TestMaterials 
@@ -136,7 +175,7 @@ include 'assets/php/config.php';
 
                                             JOIN Users ON Results.UserID = Users.UserID
                                             WHERE Users.School = '$Selected_School'
-                                            ORDER BY Users.LastName";
+                                            ORDER BY "  . $orderField . " " . $sort;
 
                 $sql_OneSchool_OneTest = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn, Results.TestID 
                                             FROM TestMaterials 
@@ -145,7 +184,7 @@ include 'assets/php/config.php';
                                             JOIN Users ON Results.UserID = Users.UserID
                                             WHERE Results.TestID = " . $Selected_TestName . "
                                             AND Users.School = '$Selected_School'
-                                            ORDER BY Users.LastName";
+                                            ORDER BY " . $orderField  . " " . $sort;
                 
                 $sql_OneTest_OneUser = "SELECT Users.FirstName, Users.LastName, Users.School, TestMaterials.TestName, Results.Score, Results.UpdatedOn, Results.TestID 
                                             FROM TestMaterials 
@@ -153,7 +192,7 @@ include 'assets/php/config.php';
                                             JOIN Users ON Results.UserID = Users.UserID
                                             WHERE Results.TestID = " . $Selected_TestName . "
                                             AND Results.UserID = $Selected_UserID
-                                            ORDER BY Users.LastName";
+                                            ORDER BY "  . $orderField . " " . $sort;
 
 
                 if($condition == 1){
