@@ -21,8 +21,8 @@ session_start();
     <link rel="stylesheet" href="assets/css/Login-Center.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean1.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-
-
+    
+    
 </head>
 
 <body>
@@ -66,8 +66,8 @@ session_start();
                             }
                         ?>
                         <p id="test"></p>
-                       <div class="form-group"><label class="control-label">Education</label>
--                          <select class="form-control" name="education" id="education" required="" onchange="checkSelection()">
+                        <div class="form-group"><label class="control-label">Education</label>
+                            <select class="form-control" name="education" id="education" required="" onchange="checkSelection()">
                                 <option value="Albertus Magnus College">Albertus Magnus College</option>
                                 <option value="Central Connecticut State University">Central Connecticut State University</option>
                                 <option value="Charter Oak State College">Charter Oak State College</option>
@@ -105,24 +105,10 @@ session_start();
                                 <option value="Other">Other</option>
                             </select>
                         </div>
-
-                        <div class="form-group" style="display:none" id="otherSchool" class="collapse"><label class="control-label">School Name</label><input class="form-control" type="text" name="otherSchool" required=""></div>
-                <div class="form-group"><label class="control-label">Anticipated Year of Graduation</label><input class="form-control" type="date" name="YOG" required=""></div>
+                        
+                        <div class="form-group" style="display:none" id="otherSchool" class="collapse"><label class="control-label">School Name</label><input class="form-control" type="text" name="otherSchool"></div>
+                        <div class="form-group"><label class="control-label">Anticipated Year of Graduation</label><input class="form-control" type="date" name="YOG" required=""></div>
                 <div class="form-group"><label class="control-label">Email </label><input class="form-control" type="text" name="email" required=""></div>
-                <script>
-                        function checkSelection() {
-
-                            if(document.getElementById("education").value == "Other"){
-                                document.getElementById("otherSchool").style.display =  "block";
-                            }else{
-                                document.getElementById("otherSchool").style.display =  "none";
-                            }
-
-
-
-                        }
-                </script>
-
                 <?php
                 if(isset($_SESSION['ErrorCodeSignUp']))
                 {
@@ -168,9 +154,9 @@ session_start();
             }else{
                 document.getElementById("otherSchool").style.display =  "none";
             }
-
-
-
+            
+            
+            
         }
 </script>
     <div class="footer-dark">
