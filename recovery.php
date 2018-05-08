@@ -23,11 +23,17 @@
 
 <body><nav class="navbar navbar-inverse navigation-clean">
     <div class="container">
-        <div class="navbar-header"><p class="navbar-brand CHAHEG-logo">CHAHEG <i class="fa fa-stethoscope"></i></p><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
-        <div
-            class="collapse navbar-collapse" id="navcol-1">
+        <div class="navbar-header"><p class="navbar-brand CHAHEG-logo">CHAHEG <i class="fa fa-stethoscope"></i></p>
+            <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggle collapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav navbar-right">
-                <li role="presentation"><a href="signup.html">Sign Up</a></li>
+                <li role="presentation"><a href="signup.php">Sign Up</a></li>
             </ul>
     </div>
     </div>
@@ -39,7 +45,11 @@
                 <div class="well">
                     <h3 class="text-danger">Login </h3>
                     <form>
-                        <div class="form-group"><label class="control-label">Email</label><input class="form-control" type="text" placeholder="email@exmple.com" name="email"></div><button class="btn btn-success btn-block" type="submit">Recover</button></form>
+                        <div class="form-group"><label class="control-label">Email</label>
+                            <input class="form-control" type="text" placeholder="email@exmple.com" name="email">
+                        </div>
+                        <button class="btn btn-success btn-block" type="submit">Recover</button>
+                    </form>
                 </div>
             </div>
         </div>
