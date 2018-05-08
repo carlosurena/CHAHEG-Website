@@ -46,7 +46,6 @@ include 'assets/php/config.php';
     <div id="wrapper">
         <div id="sidebar-wrapper" style="background-color:rgb(31,32,33);">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand"> <a href="#">Home </a></li>
                 <li> <a href="dashboard.php">Dashboard </a></li>
                 <li> <a href="courses.php">Courses</a></li>
                 <li> <a href="report_form.php">Results</a><a href="assets/php/logout.php">Sign Out</a></li>

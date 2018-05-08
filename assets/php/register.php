@@ -5,7 +5,15 @@ if (isset($_POST['fname'])) {
 	$first = mysqli_real_escape_string($conn, $_POST['fname']);
 	$last = mysqli_real_escape_string($conn, $_POST['lname']);
 	$email = mysqli_real_escape_string($conn, $_POST['email']);
-	$education = mysqli_real_escape_string($conn, $_POST['education']);
+	if($_POST['education'] == 'Other')
+	{
+		$education = mysqli_real_escape_string($conn, $_POST['otherSchool']);
+		
+	}
+	else
+	{
+		$education = mysqli_real_escape_string($conn, $_POST['education']);
+	}
 	$passwd = mysqli_real_escape_string($conn, $_POST['passwd']);
     $YOG = mysqli_real_escape_string($conn, $_POST['YOG']);
     $isAdmin = mysqli_real_escape_string($conn, $_POST['ad']);
