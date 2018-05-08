@@ -140,10 +140,10 @@ include 'assets/php/config.php';
                 }
                 if($_SESSION["sortType"] == "ASC"){
                     //echo "sort asc";
-                    $_SESSION["sortType"] == "DESC";
+                    $_SESSION["sortType"] = "DESC";
                 }else{
                     //echo "sort desc";
-                    $_SESSION["sortType"] == "ASC";    
+                    $_SESSION["sortType"] = "ASC";    
                 }
                 //echo "sort var says: " . $sort;
                 $sort = $_SESSION["sortType"];
