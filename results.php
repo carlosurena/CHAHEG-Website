@@ -116,34 +116,36 @@ include 'assets/php/config.php';
                 //echo $condition;
 
                 $sql = "SELECT * FROM MyTable";
-
-                if ($_GET['sort'] == 'Name')
+                if(isset($_GET['sort']))
                 {
-                    $orderField = "Users.LastName";
-                   
-                }
-                elseif ($_GET['sort'] == 'University')
-                {
-                    $orderField = "Users.School";
-                }
-                elseif ($_GET['sort'] == 'Grade')
-                {
-                    $orderField = "Results.Score";
-                }
-                elseif($_GET['sort'] == 'Date')
-                {
-                    $orderField = "Results.UpdatedOn";
-                }
-                elseif($_GET['sort'] == 'Test')
-                {
-                    $orderField = "Results.TestID";
-                }
-                if($_SESSION["sortType"] == "ASC"){
-                    //echo "sort asc";
-                    $_SESSION["sortType"] = "DESC";
-                }else{
-                    //echo "sort desc";
-                    $_SESSION["sortType"] = "ASC";    
+                    if ($_GET['sort'] == 'Name')
+                    {
+                        $orderField = "Users.LastName";
+                       
+                    }
+                    elseif ($_GET['sort'] == 'University')
+                    {
+                        $orderField = "Users.School";
+                    }
+                    elseif ($_GET['sort'] == 'Grade')
+                    {
+                        $orderField = "Results.Score";
+                    }
+                    elseif($_GET['sort'] == 'Date')
+                    {
+                        $orderField = "Results.UpdatedOn";
+                    }
+                    elseif($_GET['sort'] == 'Test')
+                    {
+                        $orderField = "Results.TestID";
+                    }
+                    if($_SESSION["sortType"] == "ASC"){
+                        //echo "sort asc";
+                        $_SESSION["sortType"] = "DESC";
+                    }else{
+                        //echo "sort desc";
+                        $_SESSION["sortType"] = "ASC";    
+                    }
                 }
                 //echo "sort var says: " . $sort;
                 $sort = $_SESSION["sortType"];
